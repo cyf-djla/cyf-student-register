@@ -47,6 +47,11 @@ const apiLimiter = rateLimit({
   })
 
 // put routes here for now - I have already created user sign up and login look in controllers/ routes and middleware
+
+// priority user checkin
+
+
+
 // get users
 // get user by id
 // get user by type
