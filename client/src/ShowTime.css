@@ -1,0 +1,15 @@
+@media (max-width:420px){
+.display__time{
+    background-color:#DB514A;
+    width: 90%;
+    margin:  auto;
+    margin-top: 40px;
+    color: white;
+    padding: 10px 20px;
+align-items: center;
+justify-content: center;
+
+
+}
+
+}

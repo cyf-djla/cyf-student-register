@@ -1,0 +1,14 @@
+@media(max-width: 420px){
+  .title{
+    margin-top: 50px;
+    font-size: 50px;
+     font-weight: bold; 
+   
+
+ }   
+ p{
+    font-size:24px;
+    font-weight: 400;
+
+ }
+}
