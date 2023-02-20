@@ -3,7 +3,7 @@ import Header from './Header'
 import "./Layout.css"
 
 import StudentDetail from './StudentDetail'
-import ShowTime from './ShowTime'
+import DisplayTime from './DisplayTime'
 import Modules from './DropdownMenu'
 import LoginAndOutClass from './LoginAndOutClass'
 import LoginTime from './LoginTime'
@@ -14,7 +14,7 @@ const Layout = ({children}) => {
       <Header />
       {children}
       <StudentDetail/>
-<ShowTime/>
+<DisplayTime/>
 <Modules />
 <LoginTime/>
 <LogoutTime/>

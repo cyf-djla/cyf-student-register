@@ -1,10 +1,7 @@
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-
-
-import "./Header.css"
+import "./Header.css";
 
 const Header = () => {
   const [Flag, setFlag] = useState(false);
@@ -17,15 +14,12 @@ const Header = () => {
         alt=""
       />
 
-      {/* <button>Logout</button> */}
-
       <div className={`right-nav ${Flag ? "small" : "large"}`}>
         <div className="nav-link">
           <Link className="link" to="/">
             Home
           </Link>
         </div>
-     
       </div>
       {Flag ? (
         <img
@@ -39,7 +33,6 @@ const Header = () => {
       ) : (
         <img
           className="menu__icon"
-          
           src="https://icon-library.com/images/white-menu-icon-png/white-menu-icon-png-18.jpg"
           alt=""
           onClick={() => {
@@ -49,6 +42,6 @@ const Header = () => {
       )}
     </div>
   );
-}
+};
 
-export default Header
+export default Header;

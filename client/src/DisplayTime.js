@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "./ShowTime.css";
+import "./DisplayTime.css";
 
-const ShowTime = () => {
+const DisplayTime = () => {
     const [date, setDate] = useState("");
     const [time, setTime] = useState("");
     useEffect(() => {
@@ -32,4 +32,4 @@ const ShowTime = () => {
   );
 };
 
-export default ShowTime;
+export default DisplayTime;
