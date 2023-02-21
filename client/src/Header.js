@@ -16,15 +16,17 @@ const Header = () => {
 
       <div className={`right-nav ${Flag ? "small" : "large"}`}>
         <div className="nav-link">
-          <Link className="link" to="/">
-            Home
-          </Link>
+          <ul>
+            <Link className="link" to="/">
+              Home
+            </Link>
+          </ul>
         </div>
       </div>
       {Flag ? (
         <img
           className="menu__icon"
-          src="https://www.pngitem.com/pimgs/m/485-4856652_close-menu-icon-white-png-transparent-png.png"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_-_6rMslNQ1yVbCWWovN5lAXCGf6rsqGislEIari7rt_pY16j1C8&usqp=CAU"
           alt=""
           onClick={() => {
             setFlag(!Flag);
@@ -33,7 +35,7 @@ const Header = () => {
       ) : (
         <img
           className="menu__icon"
-          src="https://icon-library.com/images/white-menu-icon-png/white-menu-icon-png-18.jpg"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6r_MjvW52clz8DsS6DKk6uwy0ohkssiw5xA&usqp=CAU"
           alt=""
           onClick={() => {
             setFlag(!Flag);

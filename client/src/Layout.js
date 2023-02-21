@@ -13,16 +13,16 @@ const Layout = ({children}) => {
     <div>
       <Header />
       {children}
-      <StudentDetail/>
-<DisplayTime/>
-<Modules />
-<LoginTime/>
-<LogoutTime/>
-<LoginAndOutClass/>
-
-  
+      <div className="body">
+        <StudentDetail />
+        <DisplayTime />
+        <Modules />
+        <LoginTime />
+        <LogoutTime />
+        <LoginAndOutClass />
+      </div>
     </div>
-  )
+  );
 }
 
 export default Layout

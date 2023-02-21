@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
 import "./LoginAndOutClass.css"
-const LoginToClass = () => {
+const LoginAndOutClass = () => {
     const navigate = useNavigate();
     function handleClick() {
       navigate.push("/Dashboard2")
@@ -14,4 +14,4 @@ const LoginToClass = () => {
   );
 }
 
-export default LoginToClass
+export default LoginAndOutClass

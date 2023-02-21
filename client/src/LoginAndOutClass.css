@@ -43,3 +43,6 @@ button {
 button:active {
   background-color: #b71c1c;
 }
+button{
+  margin-bottom: 20px;
+}
