@@ -10,6 +10,7 @@ exports.signup = (req, res, next) => {
 			username: req.body.username,
 			cohort: req.body.cohort,
 			password: hash,
+			isVolunteer: req.body.isVolunteer,
 		});
 		user
 			.save()
