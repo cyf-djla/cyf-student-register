@@ -13,6 +13,11 @@ function App() {
 
   return (
     <main className="App">
+      <Routes>
+        <Route path="/Layout" element={<Layout />} />
+        <Route path="/" element={<Home />} />
+      </Routes>
+      ;
       <img src="/img/images.jpg" alt="cyf logo" className="img" />
       {showLogin ? <Login /> : <Register />}
       <button onClick={handleShowLogin}>
@@ -23,3 +28,4 @@ function App() {
 }
 
 export default App;
+
