@@ -128,36 +128,20 @@ exports.updateUser = async (req, res) => {
 		res.status(500).json({ error: 'Internal server error' });
 	  }
 }
- 
-// app.get('/api/logs', async (req, res) => {
-// 	try {
-// 	  const Log = mongoose.model('Log', {
-// 		ID: String,
-// 		loginTime: Date,
-// 		logoutTime: Date,
-// 	  });
-// 	  const logs = await Log.find();
-// 	  res.json(logs);
-// 	} catch (error) {
-// 	  console.error(error);
-// 	  res.status(500).json({ error: 'Internal server error' });
-// 	}
-//   });
-   
- 
-//   // get user by username
-//   app.get('/api/students/username/:username', async (req, res) => {
-// 	try {
-// 	  const student = await Student.findOne({ username: req.params.username });
-// 	  if (!student) {
-// 		return res.status(404).json({ error: 'Student not found' });
-// 	  }
-// 	  res.json(student);
-// 	} catch (error) {
-// 	  console.error(error);
-// 	  res.status(500).json({ error: 'Internal server error' });
-// 	}
-//   });
+
+exports.findUserByUserName = async (req, res) => {
+	try {
+		const user = await User.findOne({ username: req.params.username });
+		if (!user) {
+		  return res.status(404).json({ error: 'User not found' });
+		}
+		res.json(user);
+	  } catch (error) {
+		console.error(error);
+		res.status(500).json({ error: 'Internal server error' });
+	  }
+}
+
   
   
 
