@@ -63,15 +63,13 @@ exports.login = (req, res, next) => {
 		});
 };
 
-
 // get all users working
 exports.getUsers = async (req, res) => {
 		try {
 		  const users = await User.find();
 		  res.json(users);
 		} catch (error) {
-		  console.error(error);
-		  res.status(500).json({ error: 'Internal server error' });
+		  res.status(500).json({ error: error });
 		}
 }
 
@@ -84,8 +82,7 @@ exports.deleteUser = async (req, res, next) => {
 		}
 		res.json({ message: 'User deleted' });
 	  } catch (error) {
-		console.error(error);
-		res.status(500).json({ error: 'Internal server error' });
+		res.status(500).json({ error: error });
 	  }
 }
 
@@ -98,8 +95,7 @@ exports.getUserbyID = async (req, res) => {
 		}
 		res.json(user);
 	  } catch (error) {
-		console.error(error);
-		res.status(500).json({ error: 'Internal server error' });
+		res.status(500).json({ error: error });
 	  }
 }
 
@@ -110,8 +106,7 @@ exports.createUser = async (req, res) => {
 		await User.save();
 		res.status(201).json({ message: 'Student created', user });
 	  } catch (error) {
-		console.error(error);
-		res.status(500).json({ error: 'Internal server error' });
+		res.status(500).json({ error: error });
 	  }
 }
 
@@ -124,8 +119,7 @@ exports.updateUser = async (req, res) => {
 		}
 		res.json(user);
 	  } catch (error) {
-		console.error(error);
-		res.status(500).json({ error: 'Internal server error' });
+		res.status(500).json({ error: error });
 	  }
 }
 
@@ -137,8 +131,7 @@ exports.findUserByUserName = async (req, res) => {
 		}
 		res.json(user);
 	  } catch (error) {
-		console.error(error);
-		res.status(500).json({ error: 'Internal server error' });
+		res.status(500).json({ error: error });
 	  }
 }
 
