@@ -6,6 +6,7 @@ const userSchema = mongoose.Schema({
 	password: {type: String, required: true},
 	username: {type: String, required: true},
 	cohort: {type: String, required: true},
+	isTrainee: {type: Boolean, default:true}
 });
 
 userSchema.plugin(uniqueValidator);

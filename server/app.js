@@ -65,9 +65,6 @@ app.use((req, res, next) => {
     legacyHeaders: false, // Disable the `X-RateLimit-*` headers
   })
  */
-  // Define a new route that retrieves data from the MongoDB database and returns it as a response.
-
-app.use('/api/auth', userRoutes);
 
 app.use(express.json());
 
