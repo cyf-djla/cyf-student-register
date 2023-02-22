@@ -5,8 +5,8 @@ exports.classSignIn = (req, res, next) => {
 	let user = {name: req.body, logintime: new Date(Date.now())};
 
 	Class.findOne({_id: req.params.id}).then((todaysclass) => {
-		if (!todaysclass.students.includes(user)) {
-			todaysclass.students.push(user);
+		if (!todaysclass.trainees.includes(user)) {
+			todaysclass.trainees.push(user);
 		}
 		todaysclass
 			.save()
