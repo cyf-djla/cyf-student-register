@@ -140,3 +140,35 @@ button {
   width: 420px;
   height: 100px;
 }
+
+
+/* This is for the volunteer menu */
+.volunteer-menu-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.massive-red-button {
+  font-size: 2rem;
+  padding: 2rem 4rem;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 1rem;
+  margin: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.massive-red-button:hover {
+  transform: scale(1.1);
+}
