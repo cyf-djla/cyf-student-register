@@ -14,35 +14,35 @@ button {
   justify-content: space-around;
 }
 .login__class {
-  background-color: white;
-  color: red;
-  border: solid 2px red;
+  background-color: green;
+  color: white;
+ 
   font-size: 20px;
 }
 .logout__class {
-  background-color: red;
+  background-color: #DB514A;
   font-size: 20px;
 }
-.login__class:hover {
+/* .login__class:hover {
+  background-color: #DB514A;
+  color: white;
+} */
+/* .login__class:focus {
   background-color: #d32f2f;
   color: white;
-}
-.login__class:focus {
-  background-color: #d32f2f;
-  color: white;
-}
+} */
 
-.logout__class:focus {
+/* .logout__class:focus {
   background-color: black;
   color: white;
-}
-.logout__class:hover {
+} */
+/* .logout__class:hover {
   background-color: black;
   color: white;
-}
-button:active {
+} */
+/* button:active {
   background-color: #b71c1c;
-}
+} */
 button{
   margin-bottom: 20px;
 }
