@@ -15,7 +15,6 @@ function App() {
   return (
     <main className="App">
       <img src="/img/images.jpg" alt="cyf logo" className="img" />
-      <br/>
       <Routes>
         <Route path="/" element={<VolunteerMenu />} />
         <Route path="/login" element={<Login />} />
