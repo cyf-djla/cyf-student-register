@@ -15,6 +15,7 @@ function App() {
   return (
     <main className="App">
       <img src="/img/images.jpg" alt="cyf logo" className="img" />
+
       <Routes>
         <Route path="/" element={<VolunteerMenu />} />
         <Route path="/login" element={<Login />} />
@@ -26,9 +27,9 @@ function App() {
       </button>
 
       {showLogin ? (
-        <Link to="/login">Go to Login</Link>
+        <Link to="/login"><button>Student Register</button></Link>
       ) : (
-        <Link to="/register">Go to Register</Link>
+        <Link to="/register"><button>Student Login</button></Link>
       )}
 
       <Link to="/">Go to Volunteer Menu</Link>

@@ -24,6 +24,7 @@ body {
   align-items: center;
   min-height: 100vh;
   padding: 1rem 0.5rem;
+
 }
 h1 {
   font-weight: 900;
@@ -160,8 +161,8 @@ button {
 .massive-red-button {
   font-size: 2rem;
   padding: 2rem 4rem;
-  background-color: red;
-  color: white;
+  background-color: #d12f2f;
+  color: rgb(0, 0, 0);
   border: none;
   border-radius: 1rem;
   margin: 1rem;
