@@ -1,6 +1,9 @@
 import React,{ useRef, useState, useEffect, useContext } from "react";
 import axios from "./Api/axios";
 import AuthContext from "./context/AuthProvider";
+import Header from "./StudentDashboard/Header";
+import Layout from "./StudentDashboard/Layout";
+
 
 const LOGIN_URL = "http://localhost:8080/login";
 
@@ -56,14 +59,10 @@ const Login = () => {
 
   return (
     <>
+   
       {success ? (
         <section>
-          <h1>You are logged in!</h1>
-          <br />
-          <p>
-            <b>Successful Entry</b>
-            {/* <a href="#">Go to Home</a> */}
-          </p>
+          <Layout />
         </section>
       ) : (
         <section>
@@ -79,7 +78,7 @@ const Login = () => {
           </h1>
           <br />
           <p className="title-bh1">
-            <u>Student Login</u>
+            <u>Trainee Login</u>
           </p>
           <form onSubmit={handleSubmit}>
             <label htmlFor="username">Username:</label>
@@ -101,7 +100,7 @@ const Login = () => {
               value={pwd}
               required
             />
-            <button>Sign In</button>
+            <button className="login__button">Sign In</button>
           </form>
           <p>
             Need an Account?
