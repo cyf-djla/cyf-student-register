@@ -1,4 +1,4 @@
- import React,{ useRef, useState, useEffect } from "react";
+import React,{ useRef, useState, useEffect } from "react";
 import {
   faCheck,
   faTimes,
@@ -6,6 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "./Api/axios";
+import { Link } from "react-router-dom";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -39,6 +40,7 @@ const Register = () => {
   const [success, setSuccess] = useState(false);
 
   const [selectedOption, setSelectedOption] = useState(false);
+  const [Flag, setFlag] = useState(false);
 
   useEffect(() => {
     userRef.current.focus();
@@ -110,6 +112,42 @@ const Register = () => {
         </section>
       ) : (
         <section>
+        <div className="header">
+      <img
+        className="logo"
+        src="https://codeyourfuture.io/wp-content/uploads/2019/03/cyf_brand.png"
+        alt=""
+      />
+
+      <div className={`right-nav ${Flag ? "small" : "large"}`}>
+        <div className="nav-link">
+          <ul>
+            <Link className="link" to="/">
+              TraineeLogin
+            </Link>
+          </ul>
+        </div>
+      </div>
+      {Flag ? (
+        <img
+          className="menu__icon"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_-_6rMslNQ1yVbCWWovN5lAXCGf6rsqGislEIari7rt_pY16j1C8&usqp=CAU"
+          alt=""
+          onClick={() => {
+            setFlag(!Flag);
+          }}
+        />
+      ) : (
+        <img
+          className="menu__icon"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6r_MjvW52clz8DsS6DKk6uwy0ohkssiw5xA&usqp=CAU"
+          alt=""
+          onClick={() => {
+            setFlag(!Flag);
+          }}
+        />
+      )}
+    </div>
           <p
             ref={errRef}
             className={errMsg ? "errmsg" : "offscreen"}
@@ -282,7 +320,7 @@ const Register = () => {
             </p>
 
             <button
-              className="sign-up-button"
+              className="login__button"
               disabled={!validName || !validPwd || !validMatch ? true : false}
             >
               Sign Up

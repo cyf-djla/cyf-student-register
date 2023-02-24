@@ -1,8 +1,9 @@
 import React,{ useRef, useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 import axios from "./Api/axios";
 import AuthContext from "./context/AuthProvider";
-import Header from "./StudentDashboard/Header";
 import Layout from "./StudentDashboard/Layout";
+import "./StudentDashboard/Header.css"
 
 
 const LOGIN_URL = "http://localhost:8080/login";
@@ -18,6 +19,7 @@ const Login = () => {
   const [success, setSuccess] = useState(false);
 
   const [validUsers, setValidUsers] = useState([]);
+  const [Flag, setFlag] = useState(false);
 
   useEffect(() => {
     userRef.current.focus();
@@ -59,13 +61,49 @@ const Login = () => {
 
   return (
     <>
-   
       {success ? (
         <section>
           <Layout />
         </section>
       ) : (
         <section>
+        <div className="header">
+      <img
+        className="logo"
+        src="https://codeyourfuture.io/wp-content/uploads/2019/03/cyf_brand.png"
+        alt=""
+      />
+
+      <div className={`right-nav ${Flag ? "small" : "large"}`}>
+        <div className="nav-link">
+          <ul>
+            <Link className="link" to="/">
+              TraineeLogin
+            </Link>
+          </ul>
+        </div>
+      </div>
+      {Flag ? (
+        <img
+          className="menu__icon"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_-_6rMslNQ1yVbCWWovN5lAXCGf6rsqGislEIari7rt_pY16j1C8&usqp=CAU"
+          alt=""
+          onClick={() => {
+            setFlag(!Flag);
+          }}
+        />
+      ) : (
+        <img
+          className="menu__icon"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6r_MjvW52clz8DsS6DKk6uwy0ohkssiw5xA&usqp=CAU"
+          alt=""
+          onClick={() => {
+            setFlag(!Flag);
+          }}
+        />
+      )}
+    </div>
+    <br />
           <p
             ref={errRef}
             className={errMsg ? "errmsg" : "offscreen"}

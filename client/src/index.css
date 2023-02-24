@@ -77,7 +77,8 @@ button {
 
 .login__button {
   padding: 0.5rem;
-  background-color: red;
+  background-color: #d12f2f;
+  align-self: center;
 }
 .title-bh1 {
   justify-content: center;
