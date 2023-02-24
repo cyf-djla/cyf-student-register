@@ -2,8 +2,6 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 // import Login from "./Login";
 // import Register from "./Register";
-import "./index.css";
-
 import Layout from "./StudentDashboard/Layout"
 import TraineeLogin from "./TraineeLogin";
 

@@ -1,5 +1,5 @@
-@media (max-width: 420px) {
-  .display__time {
+
+.display__time {
     background-color: #db514a;
     width: 90%;
     margin: auto;
@@ -10,4 +10,3 @@
     border-radius: 10px;
     text-align: center;
   }
-}
