@@ -282,7 +282,7 @@ const Register = () => {
             </p>
 
             <button
-              className="sign-up-button"
+              className="login__button"
               disabled={!validName || !validPwd || !validMatch ? true : false}
             >
               Sign Up
