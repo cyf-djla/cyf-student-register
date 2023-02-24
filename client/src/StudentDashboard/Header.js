@@ -18,7 +18,7 @@ const Header = () => {
         <div className="nav-link">
           <ul>
             <Link className="link" to="/">
-              Home
+              TraineeLogin
             </Link>
           </ul>
         </div>

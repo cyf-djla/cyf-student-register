@@ -22,7 +22,7 @@ const Modules = () => {
       </select>
 
       <label> Scheduled start time/date:</label>
-      <input type="text" placeholder="10:00 on 18/02/2023" />
+      <input type="text"  placeholder="10:00 on 18/02/2023"  readOnly/>
     </div>
   );
 };

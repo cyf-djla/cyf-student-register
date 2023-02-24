@@ -17,3 +17,4 @@ const LoginAndOutClass = () => {
     </div>
   );
 };
+export default LoginAndOutClass

@@ -75,8 +75,9 @@ button {
   color: black;
 }
 
-button {
+.login__button {
   padding: 0.5rem;
+  background-color: red;
 }
 .title-bh1 {
   justify-content: center;
@@ -140,3 +141,4 @@ button {
   width: 420px;
   height: 100px;
 }
+
