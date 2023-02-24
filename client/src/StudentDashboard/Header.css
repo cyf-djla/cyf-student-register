@@ -1,4 +1,4 @@
-@media (max-width: 420px) {
+
   .header {
     height: 100px;
     background-color: #efefef;
@@ -59,4 +59,3 @@
   .large {
     display: none;
   }
-}
