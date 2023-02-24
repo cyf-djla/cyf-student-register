@@ -1,4 +1,3 @@
-// import React from 'react'
 import React, { useState } from "react";
 import "./index.css";
 
@@ -16,7 +15,7 @@ const handleShowLogin = () => {
     <main className="App">
       <Header />
       {showLogin ? <Login /> : <Register />}
-      <button onClick={handleShowLogin}>
+      <button className="login__button" onClick={handleShowLogin}>
         {showLogin ? "Sign up" : "Login"}
       </button>
     </main>

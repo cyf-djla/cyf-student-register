@@ -1,7 +1,6 @@
 import React,{ useRef, useState, useEffect, useContext } from "react";
 import axios from "./Api/axios";
 import AuthContext from "./context/AuthProvider";
-import Header from "./StudentDashboard/Header";
 import Layout from "./StudentDashboard/Layout";
 
 
