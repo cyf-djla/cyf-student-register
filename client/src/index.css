@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
-
+@media only screen and (min-width: 1200px) {
 * {
   margin: 0;
   padding: 0;
@@ -88,6 +88,7 @@ button {
 }
 .sign-up-button {
   background-color: #d12f2f;
+  color:black
 }
 
 .instructions {
@@ -143,3 +144,34 @@ button {
   height: 100px;
 }
 
+.volunteer-menu-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.massive-red-button {
+  font-size: 2rem;
+  text-align: center;
+  padding: 1rem 2rem;
+  background-color: #d12f2f;
+  color: rgb(248, 242, 242);
+  border: none;
+  border-radius: 1rem;
+  margin: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.massive-red-button:hover {
+  transform: scale(1.1);
+}
+}

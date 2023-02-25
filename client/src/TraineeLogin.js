@@ -11,7 +11,7 @@ const handleShowLogin = () => {
 };
   return (
     <main className="App">
-    <Menu />
+    <Menu/>
       {showLogin ? <Login /> : <Register />}
       <button className="login__button" onClick={handleShowLogin}>
         {showLogin ? "Sign up" : "Login"}

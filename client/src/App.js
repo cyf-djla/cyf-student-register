@@ -5,7 +5,6 @@ import { Route, Routes } from "react-router-dom";
 import Layout from "./StudentDashboard/Layout"
 import TraineeLogin from "./TraineeLogin";
 
-
 function App() {
   // const [showLogin, setShowLogin] = useState(true);
 
@@ -22,7 +21,7 @@ function App() {
     //   </button>
     // </main>
     <Routes>
-      
+
       <Route path="/Layout" element={<Layout />} />
       <Route path="/" element={<TraineeLogin />} />
     </Routes>
