@@ -8,6 +8,7 @@ router.get('/:id', classCtrl.getOneClass);
 router.post('/', classCtrl.createClass);
 router.put('/:id', classCtrl.modifyClass);
 router.delete('/:id',classCtrl.deleteClass);
-router.post('/:id', classCtrl.classSignIn);
+router.post('/:id', classCtrl.traineeClassSignIn);
+router.post('/:id', classCtrl.volunteerClassSignIn);
 
 module.exports = router;

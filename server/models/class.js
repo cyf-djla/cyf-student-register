@@ -7,6 +7,7 @@ const classSchema = mongoose.Schema({
 	time: {type: String, required: true},
 	date: {type: Date, required: true},
 	trainees: [{}],
+	volunteers:[{}]
 });
 
 classSchema.plugin(uniqueValidator);

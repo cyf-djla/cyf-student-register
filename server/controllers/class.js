@@ -1,7 +1,7 @@
 const Class = require("../models/class");
 
 // sign into class
-exports.classSignIn = async (req, res, next) => {
+exports.traineeClassSignIn = async (req, res, next) => {
 	try {
 		let user = {name: req.body.name, logintime: new Date(Date.now())};
 
@@ -9,6 +9,24 @@ exports.classSignIn = async (req, res, next) => {
 
 		if (!todaysclass.trainees.includes(user)) {
 			todaysclass.trainees.push(user);
+		}
+
+		const updatedClass = await todaysclass.save();
+
+		res.status(200).json({todaysclass: updatedClass});
+	} catch (error) {
+		res.status(400).json({error: error.message});
+	}
+};
+
+exports.volunteerClassSignIn = async (req, res, next) => {
+	try {
+		let user = {name: req.body.name, logintime: new Date(Date.now())};
+
+		const todaysclass = await Class.findOne({_id: req.params.id});
+
+		if (!todaysclass.volunteers.includes(user)) {
+			todaysclass.volunteers.push(user);
 		}
 
 		const updatedClass = await todaysclass.save();
@@ -53,13 +71,9 @@ exports.createClass = async (req, res, next) => {
 			date: req.body.date,
 		});
 		await newClass.save();
-		res.status(201).json({
-			message: "Class saved successfully",
-		});
+		res.status(201).json({ message: "Class saved successfully"});
 	} catch (error) {
-		res.status(400).json({
-			error: error.message,
-		});
+		res.status(400).json({ error: error.message});
 	}
 };
 
