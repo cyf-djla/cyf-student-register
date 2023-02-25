@@ -3,10 +3,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require("path");
 const helmet = require("helmet");
+const cookieParser = require('cookie-parser');
 var dotenv = require("dotenv");
 dotenv.config();
 
 const app = express();
+
+app.use(cookieParser())
 app.use(helmet());
 
 const userRoutes = require('./routes/user');

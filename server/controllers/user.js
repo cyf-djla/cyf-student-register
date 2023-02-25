@@ -39,15 +39,20 @@ exports.login = (req, res, next) => {
 			bcrypt
 				.compare(req.body.password, user.password)
 				.then((valid) => {
+
+
+
 					if (!valid) {
 						return res.status(401).json({
 							error: new Error("Incorrect password!"),
 						});
 					}
-					const token = jwt.sign({userId: user._id}, "RANDOM_TOKEN_SECRET", {expiresIn: "24h"});
+					const token = jwt.sign({userId: user._id, isVolunteer: isVolunteer}, "RANDOM_TOKEN_SECRET", {expiresIn: "24h"});
+					res.cookie('nToken', token, { maxAge: 900000, httpOnly: true})
 					res.status(200).json({
 						userId: user._id,
 						token: token,
+						isVolunteer: user.isVolunteer
 					});
 				})
 				.catch((error) => {
@@ -62,6 +67,16 @@ exports.login = (req, res, next) => {
 			});
 		});
 };
+
+exports.logout = async (req, res) => {
+	try {
+		res.clearCookie('nToken');
+		res.send('userisloggedout');
+    	res.redirect("/");
+	} catch (error) {
+		res.status(500).json({ error: error });
+	  }
+}
 
 // get all users working
 exports.getUsers = async (req, res) => {
