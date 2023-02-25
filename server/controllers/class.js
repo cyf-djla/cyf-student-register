@@ -1,21 +1,68 @@
 const Class = require("../models/class");
 
 // sign into class
+// exports.traineeClassSignIn = async (req, res, next) => {
+// 	try {
+// 		let user = {name: req.body.name, logintime: new Date(Date.now())};
+
+// 		const todaysclass = await Class.findOne({_id: req.params.id});
+
+// 		if (!todaysclass.trainees.includes(user)) {
+// 			todaysclass.trainees.push(user);
+// 		}
+
+// 		const updatedClass = await todaysclass.save();
+
+// 		res.status(200).json({todaysclass: updatedClass});
+// 	} catch (error) {
+// 		res.status(400).json({error: error.message});
+// 	}
+// };
+
 exports.traineeClassSignIn = async (req, res, next) => {
 	try {
 		let user = {name: req.body.name, logintime: new Date(Date.now())};
 
 		const todaysclass = await Class.findOne({_id: req.params.id});
 
-		if (!todaysclass.trainees.includes(user)) {
+		const traineeIndex = todaysclass.trainees.findIndex((trainee) => trainee.name === user.name);
+		if (traineeIndex === -1) {
+			// Trainee not found in trainees array
 			todaysclass.trainees.push(user);
+		} else {
+			// Trainee found in trainees array
+			todaysclass.trainees[traineeIndex].logintime = user.logintime;
 		}
 
 		const updatedClass = await todaysclass.save();
 
 		res.status(200).json({todaysclass: updatedClass});
 	} catch (error) {
-		res.status(400).json({error: error.message});
+		res.status(400).json({error: error});
+	}
+};
+
+exports.traineeClassSignOut = async (req, res, next) => {
+	try {
+		let user = {name: req.body.name, logouttime: new Date(Date.now())};
+
+		const todaysclass = await Class.findOne({_id: req.params.id});
+
+		const traineeIndex = todaysclass.trainees.findIndex((trainee) => trainee.name === user.name);
+		if (traineeIndex === -1) {
+			// Trainee not found in trainees array
+			res.status(400).json({error: "Trainee not found"});
+			return;
+		} else {
+			// Trainee found in trainees array
+			todaysclass.trainees[traineeIndex].logouttime = user.logouttime;
+		}
+
+		const updatedClass = await todaysclass.save();
+
+		res.status(200).json({todaysclass: updatedClass});
+	} catch (error) {
+		res.status(400).json({error: error});
 	}
 };
 
@@ -71,9 +118,9 @@ exports.createClass = async (req, res, next) => {
 			date: req.body.date,
 		});
 		await newClass.save();
-		res.status(201).json({ message: "Class saved successfully"});
+		res.status(201).json({message: "Class saved successfully"});
 	} catch (error) {
-		res.status(400).json({ error: error.message});
+		res.status(400).json({error: error.message});
 	}
 };
 
