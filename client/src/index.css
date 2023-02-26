@@ -48,9 +48,10 @@ form {
   padding-bottom: 1rem;
 }
 
+link,
 a,
 a:visited {
-  color: grey;
+  color: whitesmoke;
   text-decoration: none;
 }
 
@@ -176,10 +177,26 @@ button {
   transform: scale(1.1);
 }
 }
-.background-wrapper {
+/* .background-wrapper {
   background-size: 100% 100%;
   background-position: center;
   background-image: url("https://static.overlay-tech.com/assets/1a384287-9df9-46ad-bc8f-f16e39816ec5.png");
   padding: 56px 77px 5px 71px;
   position: relative;
+} */
+.background-wrapper {
+  background-size: cover;
+  background-position: 25% 50%;
+  background-repeat: no-repeat;
+  background-image: url("https://static.overlay-tech.com/assets/1a384287-9df9-46ad-bc8f-f16e39816ec5.png");
+  padding: 45px 45px 45px 45px;
+  position: relative;
 }
+
+
+.background-wrapper h1 {
+  text-align: center;
+  position: relative;
+  font-weight: 900;
+}
+

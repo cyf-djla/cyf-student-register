@@ -6,20 +6,20 @@ import Header from "./StudentDashboard/Header";
 
 function Menu() {
   return (
-    <main className="App">
+    <section>
     <Header/>
     <div className="background-wrapper">
-    <div className="volunteer-menu-container">
     <h1>
     <b>#We are here</b>
     </h1>
+    <div className="volunteer-menu-container">
       <div className="buttons-container">
         <NavLink to="/TraineeLogin" className="massive-red-button">Login</NavLink>
         <NavLink to="/TraineeRegister" className="massive-red-button">Register</NavLink>
       </div>
     </div>
     </div>
-    </main>
+    </section>
   );
 }
 
