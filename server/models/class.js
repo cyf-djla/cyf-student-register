@@ -12,9 +12,9 @@ const classSchema = mongoose.Schema({
 		logouttime: {type: Date}
 	  }],
 	volunteers:[{
-		// name: {type: String, required: true},
-		// logintime: {type: Date},
-		// logouttime: {type: Date}
+		name: {type: String, required: true},
+		logintime: {type: Date},
+		logouttime: {type: Date}
 	  }]
 });
 

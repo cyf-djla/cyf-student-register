@@ -10,6 +10,6 @@ router.put('/:id', classCtrl.modifyClass);
 router.delete('/:id',classCtrl.deleteClass);
 router.post('/classsignin/:id', classCtrl.traineeClassSignIn);
 router.post('/classsignout/:id', classCtrl.traineeClassSignOut);
-// router.post('/:id', classCtrl.volunteerClassSignIn);
+router.post('/volunteersignin/:id', classCtrl.volunteerClassSignIn);
 
 module.exports = router;
