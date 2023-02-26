@@ -50,7 +50,8 @@ form {
 
 a,
 a:visited {
-  color: #0548ff;
+  color: grey;
+  text-decoration: none;
 }
 
 input[type="text"],
@@ -174,4 +175,11 @@ button {
 .massive-red-button:hover {
   transform: scale(1.1);
 }
+}
+.background-wrapper {
+  background-size: 100% 100%;
+  background-position: center;
+  background-image: url("https://static.overlay-tech.com/assets/1a384287-9df9-46ad-bc8f-f16e39816ec5.png");
+  padding: 56px 77px 5px 71px;
+  position: relative;
 }
