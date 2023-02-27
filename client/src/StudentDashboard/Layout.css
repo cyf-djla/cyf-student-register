@@ -1,0 +1,7 @@
+body{
+    max-width: 420px;
+    margin: 0 auto;
+    border-right: solid 2px rgb(226, 213, 213);
+
+    border-left: solid 2px rgb(226, 213, 213);
+}
