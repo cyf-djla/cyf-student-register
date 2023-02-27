@@ -1,9 +1,8 @@
 import { useRef, useState, useEffect, useContext } from "react";
 import axios from "./Api/axios";
 import AuthContext from "./context/AuthProvider";
-import "./index.css";
 
-const LOGIN_URL = "/login";
+const LOGIN_URL = "http://localhost:8080/login";
 
 const VolunteerLogin = () => {
   const { setAuth } = useContext(AuthContext);
@@ -19,9 +18,10 @@ const VolunteerLogin = () => {
 
   useEffect(() => {
     userRef.current.focus();
-    // Load valid volunteers from API
-    axios.get("/VolunteerCredentials.json")
-      .then((response) => setValidVolunteers(response.data))
+    // Load valid volunteers from JSON file
+    fetch("/volunteer.json")
+      .then((response) => response.json())
+      .then((data) => setValidVolunteers(data))
       .catch((error) => console.error(error));
   }, []);
 
@@ -104,9 +104,9 @@ const VolunteerLogin = () => {
             <button>Sign In</button>
           </form>
           <p>
-            Need to Register?
+            Need an Account?
             <br />
-            <i>Click on the button below to sign up as a volunteer</i>
+            <i>Click on the button below to sign up</i>
           </p>
         </section>
       )}
@@ -115,3 +115,4 @@ const VolunteerLogin = () => {
 };
 
 export default VolunteerLogin;
+
