@@ -15,8 +15,9 @@ function Menu() {
     </h1>
     <div className="volunteer-menu-container">
       <div className="buttons-container">
-        <NavLink to="/TraineeLogin" className="massive-red-button">Login</NavLink>
-        <NavLink to="/TraineeRegister" className="massive-red-button">Register</NavLink>
+        <NavLink to="/TraineeLogin" className="massive-red-button">Trainee Login</NavLink>
+        <NavLink to="/TraineeRegister" className="massive-red-button">Trainee Sign-up</NavLink>
+        <NavLink to="/Volunteer" className="massive-red-button">Volunteer</NavLink>
       </div>
     </div>
     </div>
