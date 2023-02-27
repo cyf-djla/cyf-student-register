@@ -1,9 +1,13 @@
 import React,{ useRef, useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "./Api/axios";
 import AuthContext from "./context/AuthProvider";
 import Layout from "./StudentDashboard/Layout";
 import "./StudentDashboard/Header.css"
+import Header from "./StudentDashboard/Header";
+import { Route, Routes } from "react-router-dom";
+
+
 
 
 const LOGIN_URL = "http://localhost:8080/login";
@@ -19,7 +23,8 @@ const Login = () => {
   const [success, setSuccess] = useState(false);
 
   const [validUsers, setValidUsers] = useState([]);
-  const [Flag, setFlag] = useState(false);
+  const navigate=useNavigate()
+  // const [Flag, setFlag] = useState(false);
 
   useEffect(() => {
     userRef.current.focus();
@@ -53,6 +58,7 @@ const Login = () => {
       setUser("");
       setPwd("");
       setSuccess(true);
+      navigate("/Layout")
     } else {
       // User credentials are invalid
       setErrMsg("Invalid credentials. Please try again.");
@@ -61,49 +67,11 @@ const Login = () => {
 
   return (
     <>
-      {success ? (
+     
         <section>
-          <Layout />
-        </section>
-      ) : (
-        <section>
-        <div className="header">
-      <img
-        className="logo"
-        src="https://codeyourfuture.io/wp-content/uploads/2019/03/cyf_brand.png"
-        alt=""
-      />
+          <Header />
 
-      <div className={`right-nav ${Flag ? "small" : "large"}`}>
-        <div className="nav-link">
-          <ul>
-            <Link className="link" to="/">
-              TraineeLogin
-            </Link>
-          </ul>
-        </div>
-      </div>
-      {Flag ? (
-        <img
-          className="menu__icon"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_-_6rMslNQ1yVbCWWovN5lAXCGf6rsqGislEIari7rt_pY16j1C8&usqp=CAU"
-          alt=""
-          onClick={() => {
-            setFlag(!Flag);
-          }}
-        />
-      ) : (
-        <img
-          className="menu__icon"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6r_MjvW52clz8DsS6DKk6uwy0ohkssiw5xA&usqp=CAU"
-          alt=""
-          onClick={() => {
-            setFlag(!Flag);
-          }}
-        />
-      )}
-    </div>
-    <br />
+          <br />
           <p
             ref={errRef}
             className={errMsg ? "errmsg" : "offscreen"}
@@ -138,7 +106,9 @@ const Login = () => {
               value={pwd}
               required
             />
-            <button className="login__button">Sign In</button>
+            {/* <Link to="/Layout"> */}
+              <button className="login__button">Sign In</button>
+            {/* </Link> */}
           </form>
           <p>
             Need an Account?
@@ -146,7 +116,7 @@ const Login = () => {
             <i>Click on the button below to sign up</i>
           </p>
         </section>
-      )}
+      
     </>
   );
 };

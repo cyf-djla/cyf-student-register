@@ -6,7 +6,16 @@ const classSchema = mongoose.Schema({
 	name: {type: String, required: true},
 	time: {type: String, required: true},
 	date: {type: Date, required: true},
-	trainees: [{}],
+	trainees: [{
+		name: {type: String, required: true},
+		logintime: {type: Date},
+		logouttime: {type: Date}
+	  }],
+	volunteers:[{
+		name: {type: String, required: true},
+		logintime: {type: Date},
+		logouttime: {type: Date}
+	  }]
 });
 
 classSchema.plugin(uniqueValidator);
