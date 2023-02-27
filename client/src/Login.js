@@ -1,11 +1,12 @@
 import React,{ useRef, useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "./Api/axios";
 import AuthContext from "./context/AuthProvider";
 import Layout from "./StudentDashboard/Layout";
 import "./StudentDashboard/Header.css"
 import Header from "./StudentDashboard/Header";
 import { Route, Routes } from "react-router-dom";
+
 
 
 
@@ -22,6 +23,7 @@ const Login = () => {
   const [success, setSuccess] = useState(false);
 
   const [validUsers, setValidUsers] = useState([]);
+  const navigate=useNavigate()
   // const [Flag, setFlag] = useState(false);
 
   useEffect(() => {
@@ -56,6 +58,7 @@ const Login = () => {
       setUser("");
       setPwd("");
       setSuccess(true);
+      navigate("/Layout")
     } else {
       // User credentials are invalid
       setErrMsg("Invalid credentials. Please try again.");
@@ -64,11 +67,7 @@ const Login = () => {
 
   return (
     <>
-      {success ? (
      
-          <Link className="dashboard" to="/Layout"><Layout/></Link>
-      ) : (
-
         <section>
           <Header />
 
@@ -107,7 +106,9 @@ const Login = () => {
               value={pwd}
               required
             />
-            <button className="login__button">Sign In</button>
+            {/* <Link to="/Layout"> */}
+              <button className="login__button">Sign In</button>
+            {/* </Link> */}
           </form>
           <p>
             Need an Account?
@@ -115,7 +116,7 @@ const Login = () => {
             <i>Click on the button below to sign up</i>
           </p>
         </section>
-      )}
+      
     </>
   );
 };
