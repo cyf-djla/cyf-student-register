@@ -11,5 +11,6 @@ router.delete('/:id',classCtrl.deleteClass);
 router.post('/classsignin/:id', classCtrl.traineeClassSignIn);
 router.post('/classsignout/:id', classCtrl.traineeClassSignOut);
 router.post('/volunteersignin/:id', classCtrl.volunteerClassSignIn);
+router.post('/volunteersignout/:id', classCtrl.volunteerClassSignOut);
 
 module.exports = router;

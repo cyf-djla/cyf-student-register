@@ -1,6 +1,6 @@
 const Class = require("../models/class");
 
-// sign into class
+// trainee sign into class
 exports.traineeClassSignIn = async (req, res, next) => {
 	try {
 		let user = {name: req.body.name, logintime: new Date(Date.now())};
@@ -22,6 +22,7 @@ exports.traineeClassSignIn = async (req, res, next) => {
 	}
 };
 
+// trainee sign out of class
 exports.traineeClassSignOut = async (req, res, next) => {
 	try {
 		let user = {name: req.body.name, logouttime: new Date(Date.now())};
@@ -44,6 +45,7 @@ exports.traineeClassSignOut = async (req, res, next) => {
 	}
 };
 
+// volunteer sign in to class
 exports.volunteerClassSignIn = async (req, res, next) => {
 	try {
 		let user = {name: req.body.name, logintime: new Date(Date.now())};
@@ -55,6 +57,29 @@ exports.volunteerClassSignIn = async (req, res, next) => {
 			todaysclass.volunteers.push(user);
 		} else {
 			todaysclass.volunteers[volunteerIndex].logintime = user.logintime;
+		}
+
+		const updatedClass = await todaysclass.save();
+
+		res.status(200).json({todaysclass: updatedClass});
+	} catch (error) {
+		res.status(400).json({error: error});
+	}
+};
+
+// volunteer sign out of class
+exports.volunteerClassSignOut = async (req, res, next) => {
+	try {
+		let user = {name: req.body.name, logouttime: new Date(Date.now())};
+
+		const todaysclass = await Class.findOne({_id: req.params.id});
+
+		const volunteerIndex = todaysclass.volunteers.findIndex((volunteer) => volunteer.name === user.name);
+		if (volunteerIndex === -1) {
+			res.status(400).json({error: "Trainee not found"});
+			return;
+		} else {
+			todaysclass.volunteers[volunteerIndex].logouttime = user.logouttime;
 		}
 
 		const updatedClass = await todaysclass.save();
