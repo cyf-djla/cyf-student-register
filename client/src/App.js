@@ -23,8 +23,8 @@ function App() {
     // </main>
     <Routes>
       
-      <Route path="/Layout" element={<Layout />} />
       <Route path="/" element={<TraineeLogin />} />
+      <Route path="/Layout" element={<Layout />} />
     </Routes>
   );
 }

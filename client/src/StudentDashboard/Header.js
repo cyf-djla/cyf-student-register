@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import "./Header.css";
+import Layout from "./Layout";
 
 const Header = () => {
   const [Flag, setFlag] = useState(false);
@@ -17,9 +18,10 @@ const Header = () => {
       <div className={`right-nav ${Flag ? "small" : "large"}`}>
         <div className="nav-link">
           <ul>
-            <Link className="link" to="/">
+            {/* <Link className="link" to="/">
               TraineeLogin
-            </Link>
+            </Link> */}
+            <Layout/>
           </ul>
         </div>
       </div>
