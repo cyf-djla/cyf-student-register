@@ -1,11 +1,14 @@
-
-.title{
+@media (max-width:420px) {
+.mobile__title{
     margin-top: 30px;
     font-size: 50px;
      font-weight: bold; 
 
 
  }   
+ .desktop__title{
+   display: none;
+ }
  p{
     font-size:24px;
     font-weight: 400;
@@ -15,3 +18,4 @@
     text-align: center;
     
  }
+}

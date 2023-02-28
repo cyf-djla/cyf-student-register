@@ -4,6 +4,8 @@ import { Route, Routes } from "react-router-dom";
 // import Register from "./Register";
 import Layout from "./StudentDashboard/Layout"
 import TraineeLogin from "./TraineeLogin";
+import About from "./StudentDashboard/About";
+import GoodBye from "./StudentDashboard/GoodBye";
 
 
 function App() {
@@ -22,7 +24,10 @@ function App() {
     //   </button>
     // </main>
     <Routes>
-      
+      <Route path="/bye" element={<GoodBye />} />
+
+      <Route path="/about" element={<About />} />
+
       <Route path="/" element={<TraineeLogin />} />
       <Route path="/Layout" element={<Layout />} />
     </Routes>

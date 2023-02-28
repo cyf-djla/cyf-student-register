@@ -12,14 +12,17 @@ const Layout = ({ children }) => {
   return (
     <div>
       <Header />
+
       {children}
       <div className="body">
-        <StudentDetail />
-        <DisplayTime />
-        <Modules />
-        <LoginTime />
-        <LogoutTime />
-        <LoginAndOutClass />
+        <div className="dashBoard__components">
+          <StudentDetail />
+          <DisplayTime />
+          <Modules />
+          <LoginTime />
+          <LogoutTime />
+          <LoginAndOutClass />
+        </div>
       </div>
     </div>
   );
