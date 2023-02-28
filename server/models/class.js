@@ -11,7 +11,7 @@ const classSchema = mongoose.Schema({
 		name: {type: String, required: true},
 		logintime: {type: Date},
 		logouttime: {type: Date},
-		flags: {type: String}
+		flags: [{type: String}]
 	  }],
 	volunteers:[{
 		name: {type: String, required: true},
