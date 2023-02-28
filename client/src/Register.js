@@ -7,6 +7,8 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "./Api/axios";
 import { Link } from "react-router-dom";
+import "./StudentDashboard/Header.css"
+import Header from "./StudentDashboard/Header";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -112,42 +114,8 @@ const Register = () => {
         </section>
       ) : (
         <section>
-        <div className="header">
-      <img
-        className="logo"
-        src="https://codeyourfuture.io/wp-content/uploads/2019/03/cyf_brand.png"
-        alt=""
-      />
-
-      <div className={`right-nav ${Flag ? "small" : "large"}`}>
-        <div className="nav-link">
-          <ul>
-            <Link className="link" to="/">
-              TraineeLogin
-            </Link>
-          </ul>
-        </div>
-      </div>
-      {Flag ? (
-        <img
-          className="menu__icon"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_-_6rMslNQ1yVbCWWovN5lAXCGf6rsqGislEIari7rt_pY16j1C8&usqp=CAU"
-          alt=""
-          onClick={() => {
-            setFlag(!Flag);
-          }}
-        />
-      ) : (
-        <img
-          className="menu__icon"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6r_MjvW52clz8DsS6DKk6uwy0ohkssiw5xA&usqp=CAU"
-          alt=""
-          onClick={() => {
-            setFlag(!Flag);
-          }}
-        />
-      )}
-    </div>
+        <Header />
+        <br />
           <p
             ref={errRef}
             className={errMsg ? "errmsg" : "offscreen"}
@@ -160,7 +128,7 @@ const Register = () => {
           </h1>
           <br />
           <p className="title-bh1">
-            <u>Student Register </u>
+            <u className ="title-bh1">Student Register </u>
           </p>
           <form onSubmit={handleSubmit}>
             <label htmlFor="username">

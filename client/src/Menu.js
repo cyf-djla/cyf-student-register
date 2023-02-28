@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import "./index.css";
 import Header from "./StudentDashboard/Header";
+import "./StudentDashboard/Header.css";
 
 
 function Menu() {

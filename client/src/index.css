@@ -29,7 +29,7 @@ h1 {
   font-weight: 900;
 }
 
-section {
+/* section {
   width: 100%;
   max-width: 420px;
   min-height: 400px;
@@ -38,7 +38,7 @@ section {
   justify-content: flex-start;
   padding: 1rem;
   background-color: #fff;
-}
+} */
 
 form {
   display: flex;
@@ -176,7 +176,7 @@ button {
 .massive-red-button:hover {
   transform: scale(1.1);
 }
-
+/* 
 .background-wrapper {
   background-size: cover;
   background-position: 25% 50%;
@@ -184,7 +184,7 @@ button {
   background-image: url("https://static.overlay-tech.com/assets/1a384287-9df9-46ad-bc8f-f16e39816ec5.png");
   padding: 45px 45px 45px 45px;
   position: relative;
-}
+} */
 
 
 .background-wrapper h1 {
