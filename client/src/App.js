@@ -1,31 +1,20 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
-// import Login from "./Login";
-// import Register from "./Register";
+import {Route, Routes } from "react-router-dom";
 import Layout from "./StudentDashboard/Layout"
-import TraineeLogin from "./TraineeLogin";
+import TraineeRegister from './TraineeRegister';
+import TraineeLogin from './TraineeLogin';
+import MainMenu from './MainMenu';
+import "./index.css";
 
 
 function App() {
-  // const [showLogin, setShowLogin] = useState(true);
-
-  // const handleShowLogin = () => {
-  //   setShowLogin((prevShowLogin) => !prevShowLogin);
-  // };
-
   return (
-    // <main className="App">
-    //   <img src="/img/images.jpg" alt="cyf logo" className="img" />
-    //   {showLogin ? <Login /> : <Register />}
-    //   <button onClick={handleShowLogin}>
-    //     {showLogin ? "Show Register" : "Show Login"}
-    //   </button>
-    // </main>
-    <Routes>
-      
-      <Route path="/" element={<TraineeLogin />} />
-      <Route path="/Layout" element={<Layout />} />
-    </Routes>
+      <Routes>
+        <Route path="/TraineeRegister" element={<TraineeRegister />} />
+        <Route path="/TraineeLogin" element={<TraineeLogin />} />
+        <Route path="/Layout" element={<Layout />} />
+        <Route path="/" element={<MainMenu/>} />
+      </Routes>
   );
 }
 
