@@ -12,5 +12,6 @@ router.post('/classsignin/:id', classCtrl.traineeClassSignIn);
 router.post('/classsignout/:id', classCtrl.traineeClassSignOut);
 router.post('/volunteersignin/:id', classCtrl.volunteerClassSignIn);
 router.post('/volunteersignout/:id', classCtrl.volunteerClassSignOut);
+router.post('/postflag/:id', classCtrl.traineeFlags)
 
 module.exports = router;

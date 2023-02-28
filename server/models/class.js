@@ -4,12 +4,14 @@ const uniqueValidator = require("mongoose-unique-validator");
 const classSchema = mongoose.Schema({
 	classId: {type: Number, required: true},
 	name: {type: String, required: true},
+	cohort: {type: String},
 	time: {type: String, required: true},
 	date: {type: Date, required: true},
 	trainees: [{
 		name: {type: String, required: true},
 		logintime: {type: Date},
-		logouttime: {type: Date}
+		logouttime: {type: Date},
+		flags: [{type: String}]
 	  }],
 	volunteers:[{
 		name: {type: String, required: true},
