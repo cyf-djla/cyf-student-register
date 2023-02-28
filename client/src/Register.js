@@ -6,7 +6,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "./Api/axios";
-import { Link } from "react-router-dom";
 import "./StudentDashboard/Header.css"
 import Header from "./StudentDashboard/Header";
 
@@ -42,7 +41,6 @@ const Register = () => {
   const [success, setSuccess] = useState(false);
 
   const [selectedOption, setSelectedOption] = useState(false);
-  const [Flag, setFlag] = useState(false);
 
   useEffect(() => {
     userRef.current.focus();
