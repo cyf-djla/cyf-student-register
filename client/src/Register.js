@@ -108,7 +108,7 @@ const Register = () => {
       {success ? (
         <section>
           <h1>Success!</h1>
-          <p>Welcome you have successfully login in</p>
+          <p>Welcome you have successfully signed up</p>
         </section>
       ) : (
         <section>
