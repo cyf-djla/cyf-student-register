@@ -4,7 +4,7 @@ const uniqueValidator = require("mongoose-unique-validator");
 const classSchema = mongoose.Schema({
 	classId: {type: Number, required: true},
 	name: {type: String, required: true},
-	cohort: {type: String, required: true},
+	cohort: {type: String},
 	time: {type: String, required: true},
 	date: {type: Date, required: true},
 	trainees: [{

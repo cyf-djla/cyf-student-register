@@ -6,7 +6,7 @@ const userSchema = mongoose.Schema({
 	userID: {type: Number, required: true, unique:true},
 	password: {type: String, required: true},
 	username: {type: String, required: true,unique: true},
-	cohort: {type: String, required: true},
+	cohort: {type: String},
 	isVolunteer: {type: Boolean,required:true, default:false}
 });
 
