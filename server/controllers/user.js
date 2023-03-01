@@ -4,6 +4,8 @@ const User = require("../models/user");
 
 // signup
 exports.signup = async (req, res, next) => {
+	console.log('hit here')
+	console.log(req.body)
 	try {
 		const hash = await bcrypt.hash(req.body.password, 10);
 		const user = new User({
@@ -13,7 +15,7 @@ exports.signup = async (req, res, next) => {
 			password: hash,
 			isVolunteer: req.body.isVolunteer,
 		});
-		await user.save();
+		await User.create(req.body);
 		res.status(201).json({
 			message: "User added successfully!",
 		});

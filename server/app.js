@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const path = require("path");
 const helmet = require("helmet");
 const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 var dotenv = require("dotenv");
 dotenv.config();
 
@@ -11,6 +12,7 @@ const app = express();
 
 app.use(cookieParser())
 app.use(helmet());
+app.use(bodyParser.json());
 
 const userRoutes = require('./routes/user');
 const classRoutes = require("./routes/class");
