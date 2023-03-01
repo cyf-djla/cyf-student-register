@@ -14,7 +14,7 @@ const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const EMAIL_REGEX =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
- const REGISTER_URL = "/register";
+//  const REGISTER_URL = "/register";
 
 const Register = () => {
   const userRef = useRef();
@@ -158,29 +158,49 @@ const Register = () => {
       return;
     }
     setSuccess(true);
-    let maxID = Math.max(...users.map((c) => c.id))
-    const newUser = {
-      id: ++maxID,
-      username,
-      password,
-      email,
-      cohort
+    // let maxID = Math.max(...users.map((c) => c.id))
+    // const newUser = {
+    //   id: ++maxID,
+    //   username,
+    //   password,
+    //   email,
+    //   cohort
+    // }
+
+    const configuration = {
+      method: 'post',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      url: "https://cyf-student-register.onrender.com/api/auth/",
+      data:{ email,
+        cohort,
+        password, 
+        username,
+        isVolunteer: false
+      }
     }
+
+    axios(configuration)
+    .then((result) => {console.log(result)})
+    .catch((error) => {console.log(error)})
+
+    console.log(email, cohort, password, username, )
     
     setUserName("");
     setPassword("");
     setEmail("");
     setCohort("")
-   fetch("https://cyf-student-register.onrender.com/api/auth/" , {
-    method: "post",
-    headers : {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(newUser)
-   })
-   .then((res) => res.json())
-  //  .then((data) => setUsers(data))
-   .catch((error) => console.log(error)) 
+  //  fetch("https://cyf-student-register.onrender.com/api/auth/" , {
+  //   method: "post",
+  //   headers : {
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: JSON.stringify(newUser)
+  //  })
+  //  .then((res) => res.json())
+  // //  .then((data) => setUsers(data))
+  //  .catch((error) => console.log(error)) 
       
    setSuccess(true);
 
