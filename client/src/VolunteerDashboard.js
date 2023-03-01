@@ -1,24 +1,20 @@
 import React from "react";
-import Header from "./StudentDashboard/Header.js";
-import "./StudentDashboard/Layout.css";
+import Header from "./VolunteerDashboard_Comps/Header.js";
+//import "./VolunteerDashboard_Comps/Layout.css";
 
-import StudentDetail from "./StudentDashboard/StudentDetail";
-import DisplayTime from "./StudentDashboard/DisplayTime";
-import Modules from "./StudentDashboard/DropdownMenu";
-import LoginAndOutClass from "./StudentDashboard/LoginAndOutClass";
-import LoginTime from "./StudentDashboard/LoginTime";
-import LogoutTime from "./StudentDashboard/LogoutTime";
+import VolunteerDetail from "./VolunteerDashboard_Comps/VolunteerDetail";
+import DisplayTime from "./VolunteerDashboard_Comps/DisplayTime";
+import Modules from "./VolunteerDashboard_Comps/DropdownMenu";
+import LoginAndOutClass from "./VolunteerDashboard_Comps/LoginAndOutClass";
 const VolunteerDashboard = ({ children }) => {
   return (
     <div>
       <Header />
       {children}
       <div className="body">
-        <StudentDetail />
+        <VolunteerDetail />
         <DisplayTime />
         <Modules />
-        <LoginTime />
-        <LogoutTime />
         <LoginAndOutClass />
       </div>
     </div>
