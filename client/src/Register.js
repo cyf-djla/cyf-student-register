@@ -14,14 +14,27 @@ const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const EMAIL_REGEX =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
-const REGISTER_URL = "/register";
+const REGISTER_URL = "https://cyf-student-register.onrender.com/api/auth/";
 
 const Register = () => {
   const userRef = useRef();
   const errRef = useRef();
   const emailRef = useRef();
 
-  const [userName, setUserName] = useState("");
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetchUsers();
+  }, [users])
+
+  function fetchUsers(){
+    fetch(REGISTER_URL)
+    .then((res) => res.json())
+    .then((data) => setUsers(data))
+    .catch((error) => console.log(error))
+  }
+
+  const [username, setUserName] = useState("");
   const [validuserName, setValiduserName] = useState(false);
   const [userNameFocus, setUserNameFocus] = useState(false);
 
@@ -47,8 +60,8 @@ const Register = () => {
   }, []);
 
   useEffect(() => {
-    setValiduserName(USER_REGEX.test(userName));
-  }, [userName]);
+    setValiduserName(USER_REGEX.test(username));
+  }, [username]);
 
   useEffect(() => {
     const isValidEmail = EMAIL_REGEX.test(email);
@@ -62,12 +75,12 @@ const Register = () => {
 
   useEffect(() => {
     setErrMsg("");
-  }, [userName, password, matchPassword, email]);
+  }, [username, password, matchPassword, email]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     // if someone attempts to edit button messing with the code
-    const v1 = USER_REGEX.test(userName);
+    const v1 = USER_REGEX.test(username);
     const v2 = PWD_REGEX.test(password);
     const v3 = EMAIL_REGEX.test(email);
     if (!v1 || !v2 || !v3) {
@@ -75,10 +88,11 @@ const Register = () => {
       return;
     }
     setSuccess(true);
+
     try {
       const response = await axios.post(
         REGISTER_URL,
-        JSON.stringify({ userName, password, email }),
+        JSON.stringify({ username, password, email }),
         {
           headers: { "Content-Type": "application/json" },
           withCredentials: true,
@@ -137,7 +151,7 @@ const Register = () => {
               />
               <FontAwesomeIcon
                 icon={faTimes}
-                className={validuserName || !userName ? "hide" : "invalid"}
+                className={validuserName || !username ? "hide" : "invalid"}
               />
             </label>
             <input
@@ -146,7 +160,7 @@ const Register = () => {
               ref={userRef}
               autoComplete="off"
               onChange={(e) => setUserName(e.target.value)}
-              value={userName}
+              value={username}
               required
               aria-invalid={validuserName ? "false" : "true"}
               aria-describedby="uidnote"
@@ -156,7 +170,7 @@ const Register = () => {
             <p
               id="uidnote"
               className={
-                userNameFocus && userName && !validuserName ? "instructions" : "offscreen"
+                userNameFocus && username && !validuserName ? "instructions" : "offscreen"
               }
             >
               <FontAwesomeIcon icon={faInfoCircle} />
