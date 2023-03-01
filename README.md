@@ -13,7 +13,7 @@ nodemon server in server to run backend
 Routes
 
 
-localhost:4200/api/auth/signup -post signup
+localhost:4200/api/auth/ -post signup
 localhost:4200/api/auth/login -post login
 localhost:4200/api/auth/logout -get logout
 localhost:4200/api/auth/ -get get all users
@@ -33,3 +33,7 @@ localhost:4200/api/classes/classsignout/:id -post trainee class sign out
 localhost:4200/api/classes/volunteersignin/:id -post volunteer sign in
 localhost:4200/api/classes/volunteersignout/:id -post trainee classsign in
 localhost:4200/api/classes/postflag/:id -post trainee flag
+
+  const userRef = useRef();
+  const errRef = useRef();
+  const emailRef = useRef();
