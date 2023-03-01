@@ -4,6 +4,7 @@ import Layout from "./StudentDashboard/Layout"
 import TraineeRegister from './TraineeRegister';
 import TraineeLogin from './TraineeLogin';
 import MainMenu from './MainMenu';
+import VolunteerDashboard from "./VolunteerDashboard";
 import "./index.css";
 
 
@@ -14,6 +15,7 @@ function App() {
         <Route path="/TraineeLogin" element={<TraineeLogin />} />
         <Route path="/Layout" element={<Layout />} />
         <Route path="/" element={<MainMenu/>} />
+        <Route path="/VolunteerDashboard" element={<VolunteerDashboard/>} />
       </Routes>
   );
 }
