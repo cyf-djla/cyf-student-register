@@ -14,26 +14,38 @@ const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@volunteers\.codeyourfuture\.io$/;
 
-const REGISTER_URL = "/register";
+const VOLUNTEER_REGISTER_URL = "/register";
 
 const VolunteerRegister = () => {
   const userRef = useRef();
   const errRef = useRef();
   const emailRef = useRef();
 
-  const [user, setUser] = useState("");
-  const [validName, setValidName] = useState(false);
+//   useEffect(() => {
+//     fetchUsers();
+//   }, [users])
+
+  function fetchUsers(){
+    // fetch("https://cyf-student-register.onrender.com/api/auth/")
+
+    .then((res) => res.json())
+    .then((data) => setUsers(data))
+    .catch((error) => console.log(error))
+  }
+
+  const [username, setUserName] = useState([]);
+  const [validuserName, setValiduserName] = useState(false);
   const [userFocus, setUserFocus] = useState(false);
 
   const [email, setEmail] = useState("");
   const [validEmail, setValidEmail] = useState(false);
   const [emailFocus, setEmailFocus] = useState(false);
 
-  const [pwd, setPwd] = useState("");
-  const [validPwd, setValidPwd] = useState(false);
-  const [pwdFocus, setPwdFocus] = useState(false);
+  const [password, setPassword] = useState("");
+  const [validPassword, setValidPassword] = useState(false);
+  const [passwordFocus, setPasswordFocus] = useState(false);
 
-  const [matchPwd, setMatchPwd] = useState("");
+  const [matchPassword, setMatchPassword] = useState("");
   const [validMatch, setValidMatch] = useState(false);
   const [matchFocus, setMatchFocus] = useState(false);
 
@@ -45,8 +57,8 @@ const VolunteerRegister = () => {
   }, []);
 
   useEffect(() => {
-    setValidName(USER_REGEX.test(user));
-  }, [user]);
+    setValiduserName(USER_REGEX.test(username));
+  }, [username]);
 
   useEffect(() => {
     const isValidEmail = EMAIL_REGEX.test(email);
@@ -54,19 +66,19 @@ const VolunteerRegister = () => {
   }, [email]);
 
   useEffect(() => {
-    setValidPwd(PWD_REGEX.test(pwd));
-    setValidMatch(pwd === matchPwd);
-  }, [pwd, matchPwd]);
+    setValidPassword(PWD_REGEX.test(password));
+    setValidMatch(password === matchPassword);
+  }, [password, matchPassword]);
 
   useEffect(() => {
     setErrMsg("");
-  }, [user, pwd, matchPwd, email]);
+  }, [username, password, matchPassword, email]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     // if someone attempts to edit button messing with the code
-    const v1 = USER_REGEX.test(user);
-    const v2 = PWD_REGEX.test(pwd);
+    const v1 = USER_REGEX.test(username);
+    const v2 = PWD_REGEX.test(password);
     const v3 = EMAIL_REGEX.test(email);
     if (!v1 || !v2 || !v3) {
       setErrMsg("Invalid Entry");
@@ -76,7 +88,7 @@ const VolunteerRegister = () => {
     try {
       const response = await axios.post(
         REGISTER_URL,
-        JSON.stringify({ user, pwd, email }),
+        JSON.stringify({ username, password, email }),
         {
           headers: { "Content-Type": "application/json" },
           withCredentials: true,
@@ -88,10 +100,10 @@ const VolunteerRegister = () => {
       setSuccess(true);
       //clear state and controlled inputs
       //need value attrib on inputs for this
-      setUser("");
-      setPwd("");
+      setUserName("");
+      setPassword("");
       setEmail("");
-      setMatchPwd("");
+      setMatchPassword("");
     } catch (err) {
       if (!err?.response) {
         setErrMsg("No Server Response");
@@ -133,11 +145,11 @@ const VolunteerRegister = () => {
               Username:
               <FontAwesomeIcon
                 icon={faCheck}
-                className={validName ? "valid" : "hide"}
+                className={validuserName ? "valid" : "hide"}
               />
               <FontAwesomeIcon
                 icon={faTimes}
-                className={validName || !user ? "hide" : "invalid"}
+                className={validuserName || !username ? "hide" : "invalid"}
               />
             </label>
             <input
@@ -145,18 +157,18 @@ const VolunteerRegister = () => {
               id="username"
               ref={userRef}
               autoComplete="off"
-              onChange={(e) => setUser(e.target.value)}
-              value={user}
+              onChange={(e) => setUserName(e.target.value)}
+              value={username}
               required
-              aria-invalid={validName ? "false" : "true"}
+              aria-invalid={validuserName ? "false" : "true"}
               aria-describedby="uidnote"
-              onFocus={() => setUserFocus(true)}
-              onBlur={() => setUserFocus(false)}
+              onFocus={() => setUserNameFocus(true)}
+              onBlur={() => setUserNameFocus(false)}
             />
             <p
               id="uidnote"
               className={
-                userFocus && user && !validName ? "instructions" : "offscreen"
+                userNameFocus && username && !validuserName ? "instructions" : "offscreen"
               }
             >
               <FontAwesomeIcon icon={faInfoCircle} />
@@ -206,27 +218,27 @@ const VolunteerRegister = () => {
               Password:
               <FontAwesomeIcon
                 icon={faCheck}
-                className={validPwd ? "valid" : "hide"}
+                className={validPassword ? "valid" : "hide"}
               />
               <FontAwesomeIcon
                 icon={faTimes}
-                className={validPwd || !pwd ? "hide" : "invalid"}
+                className={validPassword || !password ? "hide" : "invalid"}
               />
             </label>
             <input
               type="password"
               id="password"
-              onChange={(e) => setPwd(e.target.value)}
-              value={pwd}
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
               required
-              aria-invalid={validPwd ? "false" : "true"}
-              aria-describedby="pwdnote"
-              onFocus={() => setPwdFocus(true)}
-              onBlur={() => setPwdFocus(false)}
+              aria-invalid={validPassword ? "false" : "true"}
+              aria-describedby="passwordnote"
+              onFocus={() => setPasswordFocus(true)}
+              onBlur={() => setPasswordFocus(false)}
             />
             <p
-              id="pwdnote"
-              className={pwdFocus && !validPwd ? "instructions" : "offscreen"}
+              id="passwordnote"
+              className={passwordFocus && !validPassword ? "instructions" : "offscreen"}
             >
               <FontAwesomeIcon icon={faInfoCircle} />
               8 to 24 characters.
@@ -245,18 +257,18 @@ const VolunteerRegister = () => {
               Confirm Password:
               <FontAwesomeIcon
                 icon={faCheck}
-                className={validMatch && matchPwd ? "valid" : "hide"}
+                className={validMatch && matchPassword ? "valid" : "hide"}
               />
               <FontAwesomeIcon
                 icon={faTimes}
-                className={validMatch || !matchPwd ? "hide" : "invalid"}
+                className={validMatch || !matchPassword ? "hide" : "invalid"}
               />
             </label>
             <input
               type="password"
               id="confirm_pwd"
-              onChange={(e) => setMatchPwd(e.target.value)}
-              value={matchPwd}
+              onChange={(e) => setMatchPassword(e.target.value)}
+              value={matchPassword}
               required
               aria-invalid={validMatch ? "false" : "true"}
               aria-describedby="confirmnote"
@@ -275,7 +287,7 @@ const VolunteerRegister = () => {
 
             <button
               className="sign-up-button"
-              disabled={!validName || !validPwd || !validMatch ? true : false}
+              disabled={!validuserName || !validPassword || !validMatch ? true : false}
             >
               Sign Up
             </button>
