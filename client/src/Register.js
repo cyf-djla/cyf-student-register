@@ -14,7 +14,8 @@ const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const EMAIL_REGEX =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
- const REGISTER_URL = "/register";
+
+const REGISTER_URL = "https://cyf-student-register.onrender.com/api/auth/";
 
 const Register = () => {
   const userRef = useRef();
@@ -27,12 +28,14 @@ const Register = () => {
     fetchUsers();
   }, [users])
 
+
   // useEffect(() => {
   //   console.log(users);
   // }, [users])
 
   function fetchUsers(){
     fetch("https://cyf-student-register.onrender.com/api/auth/")
+
     .then((res) => res.json())
     .then((data) => setUsers(data))
     .catch((error) => console.log(error))
@@ -81,25 +84,6 @@ const Register = () => {
     setErrMsg("");
   }, [username, password, matchPassword, email]);
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   // if someone attempts to edit button messing with the code
-  //   const v1 = USER_REGEX.test(username);
-  //   const v2 = PWD_REGEX.test(password);
-  //   const v3 = EMAIL_REGEX.test(email);
-  //   if (!v1 || !v2 || !v3) {
-  //     setErrMsg("Invalid Entry");
-  //     return;
-  //   }
-  //   setSuccess(true);
-  //   let maxID = Math.max(...users.map((c) => c.id))
-  //   const user = {
-  //     id: ++maxID,
-  //     username,
-  //     password,
-  //     email,
-  //     cohort
-  //   }
 
   //   try {
   //     // const response = await axios.post(
@@ -158,13 +142,33 @@ const Register = () => {
       return;
     }
     setSuccess(true);
-    let maxID = Math.max(...users.map((c) => c.id))
-    const newUser = {
-      id: ++maxID,
-      username,
-      password,
-      email,
-      cohort
+
+
+    try {
+      const response = await axios.post(
+        REGISTER_URL,
+        JSON.stringify({ username, password, email }),
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
+      );
+      setSuccess(true);
+      //clear state and controlled inputs
+      //need value attrib on inputs for this
+      setUserName("");
+      setPassword("");
+      setEmail("");
+      setMatchPassword("");
+    } catch (err) {
+      if (!err?.response) {
+        setErrMsg("No Server Response");
+      } else if (err.response?.status === 409) {
+        setErrMsg("Username Taken");
+      } else {
+        setErrMsg("Registration Failed");
+      }
+      errRef.current.focus();
     }
     
     setUserName("");

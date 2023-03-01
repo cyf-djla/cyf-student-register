@@ -29,14 +29,17 @@ const Layout = ({ children }) => {
   return (
     <div>
       <Header />
+
       {children}
       <div className="body">
+trainee-dashboard-connection
         <StudentDetail />
         <DisplayTime />
         <Modules classes={classes}/>
         <LoginTime classes={classes}/>
         <LogoutTime classes={classes}/>
         <LoginAndOutClass classes={classes}/>
+
       </div>
     </div>
   );
