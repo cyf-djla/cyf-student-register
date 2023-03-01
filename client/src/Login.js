@@ -28,8 +28,7 @@ const Login = () => {
 
   useEffect(() => {
     userRef.current.focus();
-    // Load valid users from JSON file
-    fetch("/credentials.json")
+    fetch("http://127.0.0.1:4200/api/auth/")
       .then((response) => response.json())
       .then((data) => setValidUsers(data))
       .catch((error) => console.error(error));
@@ -52,8 +51,7 @@ const Login = () => {
       setAuth({
         user: validUser.username,
         pwd: validUser.password,
-        roles: ["user"],
-        accessToken: "fake_access_token",
+        // token: "HT_WS_3001",
       });
       setUsername("");
       setPassword("");

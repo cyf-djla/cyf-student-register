@@ -5,7 +5,7 @@ import {
   faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from "./Api/axios";
+// import axios from "./Api/axios";
 import "./StudentDashboard/Header.css"
 import Header from "./StudentDashboard/Header";
 
@@ -13,6 +13,7 @@ const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const EMAIL_REGEX =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+
 
 const REGISTER_URL = "https://cyf-student-register.onrender.com/api/auth/";
 
@@ -27,12 +28,22 @@ const Register = () => {
     fetchUsers();
   }, [users])
 
+
+  // useEffect(() => {
+  //   console.log(users);
+  // }, [users])
+
   function fetchUsers(){
-    fetch(REGISTER_URL)
+    fetch("https://cyf-student-register.onrender.com/api/auth/")
+
     .then((res) => res.json())
     .then((data) => setUsers(data))
     .catch((error) => console.log(error))
   }
+
+  // useEffect(() =>{
+  //   console.log(users)
+  // }, )
 
   const [username, setUserName] = useState("");
   const [validuserName, setValiduserName] = useState(false);
@@ -55,9 +66,9 @@ const Register = () => {
 
   const [cohort, setCohort] = useState(false);
 
-  useEffect(() => {
-    userRef.current.focus();
-  }, []);
+  // useEffect(() => {
+  //   userRef.current.focus();
+  // }, []);
 
   useEffect(() => {
     setValiduserName(USER_REGEX.test(username));
@@ -77,46 +88,38 @@ const Register = () => {
     setErrMsg("");
   }, [username, password, matchPassword, email]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit =  (e) => {
     e.preventDefault();
-    // if someone attempts to edit button messing with the code
-    const v1 = USER_REGEX.test(username);
-    const v2 = PWD_REGEX.test(password);
-    const v3 = EMAIL_REGEX.test(email);
-    if (!v1 || !v2 || !v3) {
-      setErrMsg("Invalid Entry");
-      return;
+
+
+    const newUser = {
+      username,
+      password, 
+      cohort, 
+      email,
+      isVolunteer: false
     }
+
+    fetch('http://127.0.0.1:4200/api/auth/signup', {
+      method: "post",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(newUser)
+    })
+    .then((res) => res.json())
+    .then((data) => setUsers(data))
+    .catch((error) => console.log(error))
+  
     setSuccess(true);
-
-    try {
-      const response = await axios.post(
-        REGISTER_URL,
-        JSON.stringify({ username, password, email }),
-        {
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true,
-        }
-      );
-      setSuccess(true);
-      //clear state and controlled inputs
-      //need value attrib on inputs for this
-      setUserName("");
-      setPassword("");
-      setEmail("");
-      setMatchPassword("");
-    } catch (err) {
-      if (!err?.response) {
-        setErrMsg("No Server Response");
-      } else if (err.response?.status === 409) {
-        setErrMsg("Username Taken");
-      } else {
-        setErrMsg("Registration Failed");
-      }
-      errRef.current.focus();
-    }
+    //clear state and controlled inputs
+    //need value attrib on inputs for this
+    setUserName("");
+    setPassword("");
+    setEmail("");
+    setMatchPassword("");
+    setCohort("")
   };
-
   return (
     <>
       {success ? (
@@ -142,7 +145,9 @@ const Register = () => {
           <p className="title-bh1">
             <u className ="title-bh1">Student Register </u>
           </p>
-          <form onSubmit={handleSubmit}>
+
+          <form>
+
             <label htmlFor="username">
               Username:
               <FontAwesomeIcon
@@ -299,7 +304,7 @@ const Register = () => {
               Must match the first password input field.
             </p>
 
-            <button
+            <button onClick={handleSubmit} type='submit'
               className="login__button"
               disabled={!validuserName || !validPassword || !validMatch ? true : false}
             >
@@ -317,3 +322,4 @@ const Register = () => {
   );
 };
 export default Register;
+
