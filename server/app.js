@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 const path = require("path");
 const helmet = require("helmet");
 const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+
 var dotenv = require("dotenv");
 dotenv.config();
 
@@ -12,7 +13,9 @@ const app = express();
 
 app.use(cookieParser())
 app.use(helmet());
-app.use(bodyParser.json())
+
+app.use(bodyParser.json());
+
 
 const userRoutes = require('./routes/user');
 const classRoutes = require("./routes/class");
@@ -39,6 +42,7 @@ app.use((req, res, next) => {
 	res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, PATCH, OPTIONS");
 	next();
 });
+
 
 
 // mongoose.connect('mongodb+srv://' + process.env.MONGO_USERNAME + ':' + process.env.MONGO_PASSWORD + '@' + process.env.MONGO_HOST + '/' + process.env.MONGO_DATABASE_NAME)
@@ -70,6 +74,7 @@ app.use((req, res, next) => {
     legacyHeaders: false, // Disable the `X-RateLimit-*` headers
   })
  */
+
 
 app.use(express.json());
 

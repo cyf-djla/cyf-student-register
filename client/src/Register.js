@@ -5,7 +5,7 @@ import {
   faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from "./Api/axios";
+// import axios from "./Api/axios";
 import "./StudentDashboard/Header.css"
 import Header from "./StudentDashboard/Header";
 
@@ -41,6 +41,10 @@ const Register = () => {
     .catch((error) => console.log(error))
   }
 
+  // useEffect(() =>{
+  //   console.log(users)
+  // }, )
+
   const [username, setUserName] = useState("");
   const [validuserName, setValiduserName] = useState(false);
   const [userNameFocus, setUserNameFocus] = useState(false);
@@ -62,9 +66,9 @@ const Register = () => {
 
   const [cohort, setCohort] = useState(false);
 
-  useEffect(() => {
-    userRef.current.focus();
-  }, []);
+  // useEffect(() => {
+  //   userRef.current.focus();
+  // }, []);
 
   useEffect(() => {
     setValiduserName(USER_REGEX.test(username));
@@ -84,112 +88,38 @@ const Register = () => {
     setErrMsg("");
   }, [username, password, matchPassword, email]);
 
-
-  //   try {
-  //     // const response = await axios.post(
-  //     //  `${REGISTER_URL}/auth/`,
-  //     //   JSON.stringify(user),
-  //     //   {
-  //     //     headers: { "Content-Type": "application/json" },
-  //     //    withCredentials: true,
-  //     //   }
-  //     // );
-
-  //     // axios.post({
-  //     //   method:'post',
-  //     //   url: "https://cyf-student-register.onrender.com/api/auth/",
-  //     //   data: {user},
-  //     //   headers: { "Content-Type": "application/json" }
-  //     // })
-
-  //     axios.post('https://cyf-student-register.onrender.com/api/auth/', user)
-  //       .then(res => res.json())
-  //       .then((data) => setUsers(data))
-  //       .catch(error => {
-  //           this.setState({ errorMessage: error.message });
-  //           console.error('There was an error!', error);
-  //       });
-  //     setSuccess(true);
-  //     //clear state and controlled inputs
-  //     //need value attrib on inputs for this
-  //     setUserName("");
-  //     setPassword("");
-  //     setEmail("");
-  //     setMatchPassword("");
-  //     setCohort("");
-  //   } catch (err) {
-  //     if (!err?.response) {
-  //       setErrMsg("No Server Response");
-  //     } else if (err.response?.status === 409) {
-  //       setErrMsg("Username Taken");
-  //     } else {
-  //       setErrMsg("Registration Failed");
-  //     }
-  //     errRef.current.focus();
-    
-  //   }
-  
-  // };
-
   const handleSubmit =  (e) => {
     e.preventDefault();
-    // if someone attempts to edit button messing with the code
-    const v1 = USER_REGEX.test(username);
-    const v2 = PWD_REGEX.test(password);
-    const v3 = EMAIL_REGEX.test(email);
-    if (!v1 || !v2 || !v3) {
-      setErrMsg("Invalid Entry");
-      return;
+
+
+    const newUser = {
+      username,
+      password, 
+      cohort, 
+      email,
+      isVolunteer: false
     }
+
+    fetch('http://127.0.0.1:4200/api/auth/signup', {
+      method: "post",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(newUser)
+    })
+    .then((res) => res.json())
+    .then((data) => setUsers(data))
+    .catch((error) => console.log(error))
+  
     setSuccess(true);
-
-
-    try {
-      const response = await axios.post(
-        REGISTER_URL,
-        JSON.stringify({ username, password, email }),
-        {
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true,
-        }
-      );
-      setSuccess(true);
-      //clear state and controlled inputs
-      //need value attrib on inputs for this
-      setUserName("");
-      setPassword("");
-      setEmail("");
-      setMatchPassword("");
-    } catch (err) {
-      if (!err?.response) {
-        setErrMsg("No Server Response");
-      } else if (err.response?.status === 409) {
-        setErrMsg("Username Taken");
-      } else {
-        setErrMsg("Registration Failed");
-      }
-      errRef.current.focus();
-    }
-    
+    //clear state and controlled inputs
+    //need value attrib on inputs for this
     setUserName("");
     setPassword("");
     setEmail("");
+    setMatchPassword("");
     setCohort("")
-   fetch("https://cyf-student-register.onrender.com/api/auth/" , {
-    method: "post",
-    headers : {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(newUser)
-   })
-   .then((res) => res.json())
-  //  .then((data) => setUsers(data))
-   .catch((error) => console.log(error)) 
-      
-   setSuccess(true);
-
   };
-
   return (
     <>
       {success ? (
@@ -215,7 +145,9 @@ const Register = () => {
           <p className="title-bh1">
             <u className ="title-bh1">Student Register </u>
           </p>
+
           <form>
+
             <label htmlFor="username">
               Username:
               <FontAwesomeIcon
