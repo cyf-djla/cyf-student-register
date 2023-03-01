@@ -8,9 +8,11 @@ import GoodBye from "./StudentDashboard/GoodBye";
 
 import TraineeRegister from './TraineeRegister';
 
+
 import MainMenu from './MainMenu';
 import VolunteerMenu from './VolunteerMenu';
 import VolunteerRegister from './VolunteerRegister';
+import VolunteerDashboard from "./VolunteerDashboard";
 import "./index.css";
 
 
@@ -22,6 +24,7 @@ function App() {
 
       <Route path="/about" element={<About />} />
 
+
       {/* <Route path="/" element={<TraineeLogin />} />
       <Route path="/Layout" element={<Layout />} />  */}
         <Route path="/TraineeRegister" element={<TraineeRegister />} /> 
@@ -31,6 +34,8 @@ function App() {
 
         <Route path="/Layout" element={<Layout />} /> 
         <Route path="/" element={<MainMenu/>} /> 
+        <Route path="/VolunteerDashboard" element={<VolunteerDashboard/>} />
+
       </Routes>
   );
 }
