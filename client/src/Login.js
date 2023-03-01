@@ -17,8 +17,8 @@ const Login = () => {
   const userRef = useRef();
   const errRef = useRef();
 
-  const [user, setUser] = useState("");
-  const [pwd, setPwd] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
 
@@ -37,7 +37,7 @@ const Login = () => {
 
   useEffect(() => {
     setErrMsg("");
-  }, [user, pwd]);
+  }, [username, password]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -45,18 +45,18 @@ const Login = () => {
     setErrMsg("");
 
     // Check if user credentials are valid
-    const validUser = validUsers.find((u) => u.user === user && u.pwd === pwd);
+    const validUser = validUsers.find((u) => u.username === username && u.password === password);
 
     if (validUser) {
       // if user credentials are valid
       setAuth({
-        user: validUser.user,
-        pwd: validUser.pwd,
+        user: validUser.username,
+        pwd: validUser.password,
         roles: ["user"],
         accessToken: "fake_access_token",
       });
-      setUser("");
-      setPwd("");
+      setUsername("");
+      setPassword("");
       setSuccess(true);
       navigate("/Layout")
     } else {
@@ -64,6 +64,7 @@ const Login = () => {
       setErrMsg("Invalid credentials. Please try again.");
     }
   };
+  
 
   return (
     <>
@@ -93,8 +94,8 @@ const Login = () => {
               id="username"
               ref={userRef}
               autoComplete="off"
-              onChange={(e) => setUser(e.target.value)}
-              value={user}
+              onChange={(e) => setUsername(e.target.value)}
+              value={username}
               required
             />
 
@@ -102,8 +103,8 @@ const Login = () => {
             <input
               type="password"
               id="password"
-              onChange={(e) => setPwd(e.target.value)}
-              value={pwd}
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
               required
             />
             {/* <Link to="/Layout"> */}
