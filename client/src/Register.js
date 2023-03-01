@@ -15,7 +15,7 @@ const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const EMAIL_REGEX =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
-const REGISTER_URL = "/register";
+const REGISTER_URL = "localhost:4200/api/auth/signup";
 
 const Register = () => {
   const userRef = useRef();
@@ -43,6 +43,19 @@ const Register = () => {
 
   const [selectedOption, setSelectedOption] = useState(false);
   const [Flag, setFlag] = useState(false);
+
+  const [users, setUsers] = useState([]);
+
+	useEffect(() => {
+		fetchUsers();
+	}, [users]);
+
+	function fetchUsers() {
+		fetch("localhost:4200/api/auth/")
+			.then((res) => res.json())
+			.then((data) => setUsers(data))
+			.catch((error) => console.log(error));
+	}
 
   useEffect(() => {
     userRef.current.focus();
@@ -80,7 +93,7 @@ const Register = () => {
     try {
       const response = await axios.post(
         REGISTER_URL,
-        JSON.stringify({ user, pwd, email }),
+        JSON.stringify(newUser),
         {
           headers: { "Content-Type": "application/json" },
           withCredentials: true,
