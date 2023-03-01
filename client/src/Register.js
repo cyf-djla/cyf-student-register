@@ -1,4 +1,4 @@
-import React,{ usernameef, useState, useEffect } from "react";
+import React,{ useRef, useState, useEffect } from "react";
 import {
   faCheck,
   faTimes,
@@ -9,45 +9,62 @@ import axios from "./Api/axios";
 import "./StudentDashboard/Header.css"
 import Header from "./StudentDashboard/Header";
 
-const username_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
-const password_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
+const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const EMAIL_REGEX =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
-const REGISTER_URL = "/register";
+ const REGISTER_URL = "/register";
 
 const Register = () => {
-  const usernameRef = usernameef();
-  const errRef = usernameef();
-  const emailRef = usernameef();
+  const userRef = useRef();
+  const errRef = useRef();
+  const emailRef = useRef();
 
-  const [username, setusername] = useState("");
-  const [validName, setValidName] = useState(false);
-  const [usernameFocus, setusernameFocus] = useState(false);
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetchUsers();
+  }, [users])
+
+  // useEffect(() => {
+  //   console.log(users);
+  // }, [users])
+
+  function fetchUsers(){
+    fetch("https://cyf-student-register.onrender.com/api/auth/")
+    .then((res) => res.json())
+    .then((data) => setUsers(data))
+    .catch((error) => console.log(error))
+  }
+
+  const [username, setUserName] = useState("");
+  const [validuserName, setValiduserName] = useState(false);
+  const [userNameFocus, setUserNameFocus] = useState(false);
 
   const [email, setEmail] = useState("");
   const [validEmail, setValidEmail] = useState(false);
   const [emailFocus, setEmailFocus] = useState(false);
 
-  const [password, setpassword] = useState("");
-  const [validpassword, setValidpassword] = useState(false);
-  const [passwordFocus, setpasswordFocus] = useState(false);
+  const [password, setPassword] = useState("");
+  const [validPassword, setValidPassword] = useState(false);
+  const [passwordFocus, setPasswordFocus] = useState(false);
 
-  const [matchpassword, setMatchpassword] = useState("");
+  const [matchPassword, setMatchPassword] = useState("");
   const [validMatch, setValidMatch] = useState(false);
   const [matchFocus, setMatchFocus] = useState(false);
 
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
 
-  const [cohort, setcohort] = useState(false);
+  const [cohort, setCohort] = useState(false);
 
   useEffect(() => {
-    usernameRef.current.focus();
+    userRef.current.focus();
   }, []);
 
   useEffect(() => {
-    setValidName(username_REGEX.test(username));
+    setValiduserName(USER_REGEX.test(username));
   }, [username]);
 
   useEffect(() => {
@@ -56,51 +73,117 @@ const Register = () => {
   }, [email]);
 
   useEffect(() => {
-    setValidpassword(password_REGEX.test(password));
-    setValidMatch(password === matchpassword);
-  }, [password, matchpassword]);
+    setValidPassword(PWD_REGEX.test(password));
+    setValidMatch(password === matchPassword);
+  }, [password, matchPassword]);
 
   useEffect(() => {
     setErrMsg("");
-  }, [username, password, matchpassword, email]);
+  }, [username, password, matchPassword, email]);
 
-  const handleSubmit = async (e) => {
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   // if someone attempts to edit button messing with the code
+  //   const v1 = USER_REGEX.test(username);
+  //   const v2 = PWD_REGEX.test(password);
+  //   const v3 = EMAIL_REGEX.test(email);
+  //   if (!v1 || !v2 || !v3) {
+  //     setErrMsg("Invalid Entry");
+  //     return;
+  //   }
+  //   setSuccess(true);
+  //   let maxID = Math.max(...users.map((c) => c.id))
+  //   const user = {
+  //     id: ++maxID,
+  //     username,
+  //     password,
+  //     email,
+  //     cohort
+  //   }
+
+  //   try {
+  //     // const response = await axios.post(
+  //     //  `${REGISTER_URL}/auth/`,
+  //     //   JSON.stringify(user),
+  //     //   {
+  //     //     headers: { "Content-Type": "application/json" },
+  //     //    withCredentials: true,
+  //     //   }
+  //     // );
+
+  //     // axios.post({
+  //     //   method:'post',
+  //     //   url: "https://cyf-student-register.onrender.com/api/auth/",
+  //     //   data: {user},
+  //     //   headers: { "Content-Type": "application/json" }
+  //     // })
+
+  //     axios.post('https://cyf-student-register.onrender.com/api/auth/', user)
+  //       .then(res => res.json())
+  //       .then((data) => setUsers(data))
+  //       .catch(error => {
+  //           this.setState({ errorMessage: error.message });
+  //           console.error('There was an error!', error);
+  //       });
+  //     setSuccess(true);
+  //     //clear state and controlled inputs
+  //     //need value attrib on inputs for this
+  //     setUserName("");
+  //     setPassword("");
+  //     setEmail("");
+  //     setMatchPassword("");
+  //     setCohort("");
+  //   } catch (err) {
+  //     if (!err?.response) {
+  //       setErrMsg("No Server Response");
+  //     } else if (err.response?.status === 409) {
+  //       setErrMsg("Username Taken");
+  //     } else {
+  //       setErrMsg("Registration Failed");
+  //     }
+  //     errRef.current.focus();
+    
+  //   }
+  
+  // };
+
+  const handleSubmit =  (e) => {
     e.preventDefault();
     // if someone attempts to edit button messing with the code
-    const v1 = username_REGEX.test(username);
-    const v2 = password_REGEX.test(password);
+    const v1 = USER_REGEX.test(username);
+    const v2 = PWD_REGEX.test(password);
     const v3 = EMAIL_REGEX.test(email);
     if (!v1 || !v2 || !v3) {
       setErrMsg("Invalid Entry");
       return;
     }
     setSuccess(true);
-    try {
-      const response = await axios.post(
-        REGISTER_URL,
-        JSON.stringify({ username, password, email }),
-        {
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true,
-        }
-      );
-      setSuccess(true);
-      //clear state and controlled inputs
-      //need value attrib on inputs for this
-      setusername("");
-      setpassword("");
-      setEmail("");
-      setMatchpassword("");
-    } catch (err) {
-      if (!err?.response) {
-        setErrMsg("No Server Response");
-      } else if (err.response?.status === 409) {
-        setErrMsg("usernamename Taken");
-      } else {
-        setErrMsg("Registration Failed");
-      }
-      errRef.current.focus();
+    let maxID = Math.max(...users.map((c) => c.id))
+    const newUser = {
+      id: ++maxID,
+      username,
+      password,
+      email,
+      cohort
     }
+    
+    setUserName("");
+    setPassword("");
+    setEmail("");
+    setCohort("")
+   fetch("https://cyf-student-register.onrender.com/api/auth/" , {
+    method: "post",
+    headers : {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newUser)
+   })
+   .then((res) => res.json())
+  //  .then((data) => setUsers(data))
+   .catch((error) => console.log(error)) 
+      
+   setSuccess(true);
+
   };
 
   return (
@@ -128,35 +211,35 @@ const Register = () => {
           <p className="title-bh1">
             <u className ="title-bh1">Student Register </u>
           </p>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="usernamename">
-              usernamename:
+          <form>
+            <label htmlFor="username">
+              Username:
               <FontAwesomeIcon
                 icon={faCheck}
-                className={validName ? "valid" : "hide"}
+                className={validuserName ? "valid" : "hide"}
               />
               <FontAwesomeIcon
                 icon={faTimes}
-                className={validName || !username ? "hide" : "invalid"}
+                className={validuserName || !username ? "hide" : "invalid"}
               />
             </label>
             <input
               type="text"
-              id="usernamename"
-              ref={usernameRef}
+              id="username"
+              ref={userRef}
               autoComplete="off"
-              onChange={(e) => setusername(e.target.value)}
+              onChange={(e) => setUserName(e.target.value)}
               value={username}
               required
-              aria-invalid={validName ? "false" : "true"}
+              aria-invalid={validuserName ? "false" : "true"}
               aria-describedby="uidnote"
-              onFocus={() => setusernameFocus(true)}
-              onBlur={() => setusernameFocus(false)}
+              onFocus={() => setUserNameFocus(true)}
+              onBlur={() => setUserNameFocus(false)}
             />
             <p
               id="uidnote"
               className={
-                usernameFocus && username && !validName ? "instructions" : "offscreen"
+                userNameFocus && username && !validuserName ? "instructions" : "offscreen"
               }
             >
               <FontAwesomeIcon icon={faInfoCircle} />
@@ -205,7 +288,7 @@ const Register = () => {
             <select
               id="dropdown"
               value={cohort}
-              onChange={(e) => setcohort(e.target.value)}
+              onChange={(e) => setCohort(e.target.value)}
             >
               <option value="">Class Region</option>
               <option value="west-midlands-5">WM5</option>
@@ -218,27 +301,27 @@ const Register = () => {
               Password:
               <FontAwesomeIcon
                 icon={faCheck}
-                className={validpassword ? "valid" : "hide"}
+                className={validPassword ? "valid" : "hide"}
               />
               <FontAwesomeIcon
                 icon={faTimes}
-                className={validpassword || !password ? "hide" : "invalid"}
+                className={validPassword || !password ? "hide" : "invalid"}
               />
             </label>
             <input
               type="password"
               id="password"
-              onChange={(e) => setpassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               value={password}
               required
-              aria-invalid={validpassword ? "false" : "true"}
-              aria-describedby="passwordnote"
-              onFocus={() => setpasswordFocus(true)}
-              onBlur={() => setpasswordFocus(false)}
+              aria-invalid={validPassword ? "false" : "true"}
+              aria-describedby="pwdnote"
+              onFocus={() => setPasswordFocus(true)}
+              onBlur={() => setPasswordFocus(false)}
             />
             <p
-              id="passwordnote"
-              className={passwordFocus && !validpassword ? "instructions" : "offscreen"}
+              id="pwdnote"
+              className={passwordFocus && !validPassword ? "instructions" : "offscreen"}
             >
               <FontAwesomeIcon icon={faInfoCircle} />
               8 to 24 characters.
@@ -253,22 +336,22 @@ const Register = () => {
               <span aria-label="dollar sign">$</span>{" "}
               <span aria-label="percent">%</span>
             </p>
-            <label htmlFor="confirm_password">
+            <label htmlFor="confirm_pwd">
               Confirm Password:
               <FontAwesomeIcon
                 icon={faCheck}
-                className={validMatch && matchpassword ? "valid" : "hide"}
+                className={validMatch && matchPassword ? "valid" : "hide"}
               />
               <FontAwesomeIcon
                 icon={faTimes}
-                className={validMatch || !matchpassword ? "hide" : "invalid"}
+                className={validMatch || !matchPassword? "hide" : "invalid"}
               />
             </label>
             <input
               type="password"
-              id="confirm_password"
-              onChange={(e) => setMatchpassword(e.target.value)}
-              value={matchpassword}
+              id="confirm_pwd"
+              onChange={(e) => setMatchPassword(e.target.value)}
+              value={matchPassword}
               required
               aria-invalid={validMatch ? "false" : "true"}
               aria-describedby="confirmnote"
@@ -285,9 +368,9 @@ const Register = () => {
               Must match the first password input field.
             </p>
 
-            <button
+            <button onClick={handleSubmit} type='submit'
               className="login__button"
-              disabled={!validName || !validpassword || !validMatch ? true : false}
+              disabled={!validuserName || !validPassword || !validMatch ? true : false}
             >
               Sign Up
             </button>
@@ -303,3 +386,4 @@ const Register = () => {
   );
 };
 export default Register;
+
