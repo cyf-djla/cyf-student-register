@@ -9,6 +9,7 @@ import GoodBye from "./StudentDashboard/GoodBye";
 //import TraineeRegister from './TraineeRegister';
 
 //import MainMenu from './MainMenu';
+import VolunteerDashboard from "./VolunteerDashboard";
 //import VolunteerMenu from './VolunteerMenu';
 import "./index.css";
 
@@ -38,6 +39,7 @@ function App() {
 {/* 
         <Route path="/Layout" element={<Layout />} /> */}
         {/* <Route path="/" element={<MainMenu/>} /> */}
+        <Route path="/VolunteerDashboard" element={<VolunteerDashboard/>} />
       </Routes>
   );
 }

@@ -14,6 +14,7 @@ const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const EMAIL_REGEX =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
+
 const REGISTER_URL = "https://cyf-student-register.onrender.com/api/auth/";
 
 const Register = () => {
@@ -27,8 +28,14 @@ const Register = () => {
     fetchUsers();
   }, [users])
 
+
+  // useEffect(() => {
+  //   console.log(users);
+  // }, [users])
+
   function fetchUsers(){
-    fetch(REGISTER_URL)
+    fetch("https://cyf-student-register.onrender.com/api/auth/")
+
     .then((res) => res.json())
     .then((data) => setUsers(data))
     .catch((error) => console.log(error))
@@ -84,6 +91,7 @@ const Register = () => {
   const handleSubmit =  (e) => {
     e.preventDefault();
 
+
     const newUser = {
       username,
       password, 
@@ -137,9 +145,9 @@ const Register = () => {
           <p className="title-bh1">
             <u className ="title-bh1">Student Register </u>
           </p>
-          <form 
-          // onSubmit={handleSubmit}
-          >
+
+          <form>
+
             <label htmlFor="username">
               Username:
               <FontAwesomeIcon
@@ -314,3 +322,4 @@ const Register = () => {
   );
 };
 export default Register;
+
