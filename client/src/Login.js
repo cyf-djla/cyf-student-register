@@ -1,11 +1,10 @@
 import React,{ useRef, useState, useEffect, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "./Api/axios";
 import AuthContext from "./context/AuthProvider";
 import Layout from "./StudentDashboard/Layout";
 import "./StudentDashboard/Header.css"
 import Header from "./StudentDashboard/Header";
-import { Route, Routes } from "react-router-dom";
 
 
 

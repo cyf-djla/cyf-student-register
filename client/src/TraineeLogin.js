@@ -12,7 +12,7 @@ const handleShowLogin = () => {
     <main className="App">
       {showLogin ? <Login /> : <Register />}
       <button className="login__button" onClick={handleShowLogin}>
-        {showLogin ? "Sign up" : "Login"}
+        {showLogin ? "Login" : "Sign up"}
       </button>
     </main>
   );

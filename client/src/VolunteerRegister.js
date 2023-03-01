@@ -1,4 +1,4 @@
-import React,{ useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import {
   faCheck,
   faTimes,
@@ -6,16 +6,17 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "./Api/axios";
-import { Link } from "react-router-dom";
+import "./index.css";
+import "./StudentDashboard/Header.css"
+import Header from "./StudentDashboard/Header";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-const EMAIL_REGEX =
-  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@volunteers\.codeyourfuture\.io$/;
 
 const REGISTER_URL = "/register";
 
-const Register = () => {
+const VolunteerRegister = () => {
   const userRef = useRef();
   const errRef = useRef();
   const emailRef = useRef();
@@ -38,9 +39,6 @@ const Register = () => {
 
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
-
-  const [selectedOption, setSelectedOption] = useState(false);
-  const [Flag, setFlag] = useState(false);
 
   useEffect(() => {
     userRef.current.focus();
@@ -84,6 +82,9 @@ const Register = () => {
           withCredentials: true,
         }
       );
+      console.log(response?.data);
+      console.log(response?.accessToken);
+      console.log(JSON.stringify(response));
       setSuccess(true);
       //clear state and controlled inputs
       //need value attrib on inputs for this
@@ -108,46 +109,11 @@ const Register = () => {
       {success ? (
         <section>
           <h1>Success!</h1>
-          <p>Welcome you have successfully login in</p>
+          <p>Welcome you have successfully Signed up as a volunteer</p>
         </section>
       ) : (
         <section>
-        <div className="header">
-      <img
-        className="logo"
-        src="https://codeyourfuture.io/wp-content/uploads/2019/03/cyf_brand.png"
-        alt=""
-      />
-
-      <div className={`right-nav ${Flag ? "small" : "large"}`}>
-        <div className="nav-link">
-          <ul>
-            <Link className="link" to="/">
-              TraineeLogin
-            </Link>
-          </ul>
-        </div>
-      </div>
-      {Flag ? (
-        <img
-          className="menu__icon"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_-_6rMslNQ1yVbCWWovN5lAXCGf6rsqGislEIari7rt_pY16j1C8&usqp=CAU"
-          alt=""
-          onClick={() => {
-            setFlag(!Flag);
-          }}
-        />
-      ) : (
-        <img
-          className="menu__icon"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6r_MjvW52clz8DsS6DKk6uwy0ohkssiw5xA&usqp=CAU"
-          alt=""
-          onClick={() => {
-            setFlag(!Flag);
-          }}
-        />
-      )}
-    </div>
+        <Header/>
           <p
             ref={errRef}
             className={errMsg ? "errmsg" : "offscreen"}
@@ -160,7 +126,7 @@ const Register = () => {
           </h1>
           <br />
           <p className="title-bh1">
-            <u>Student Register </u>
+            <u>Volunteer Register </u>
           </p>
           <form onSubmit={handleSubmit}>
             <label htmlFor="username">
@@ -201,7 +167,7 @@ const Register = () => {
               Letters, numbers, underscores, hyphens allowed.
             </p>
             <label htmlFor="email">
-              Email Address:
+              CYF Email:
               <FontAwesomeIcon
                 icon={faCheck}
                 className={validEmail ? "valid" : "hide"}
@@ -235,18 +201,6 @@ const Register = () => {
               <FontAwesomeIcon icon={faInfoCircle} />
               Please enter a valid email address.
             </p>
-            <label htmlFor="dropdown">Cohort</label>
-            <select
-              id="dropdown"
-              value={selectedOption}
-              onChange={(e) => setSelectedOption(e.target.value)}
-            >
-              <option value="">Class Region</option>
-              <option value="west-midlands-5">WM5</option>
-              <option value="north-west-6">NW6</option>
-              <option value="london-7">LDN7</option>
-              <option value="south-africa-6">SA6</option>
-            </select>
 
             <label htmlFor="password">
               Password:
@@ -320,7 +274,7 @@ const Register = () => {
             </p>
 
             <button
-              className="login__button"
+              className="sign-up-button"
               disabled={!validName || !validPwd || !validMatch ? true : false}
             >
               Sign Up
@@ -336,4 +290,5 @@ const Register = () => {
     </>
   );
 };
-export default Register;
+
+export default VolunteerRegister;
