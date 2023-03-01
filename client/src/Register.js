@@ -81,7 +81,7 @@ const Register = () => {
     setErrMsg("");
   }, [username, password, matchPassword, email]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit =  (e) => {
     e.preventDefault();
 
     const newUser = {
@@ -137,7 +137,9 @@ const Register = () => {
           <p className="title-bh1">
             <u className ="title-bh1">Student Register </u>
           </p>
-          <form onSubmit={handleSubmit}>
+          <form 
+          // onSubmit={handleSubmit}
+          >
             <label htmlFor="username">
               Username:
               <FontAwesomeIcon
@@ -294,7 +296,7 @@ const Register = () => {
               Must match the first password input field.
             </p>
 
-            <button
+            <button onClick={handleSubmit} type='submit'
               className="login__button"
               disabled={!validuserName || !validPassword || !validMatch ? true : false}
             >
