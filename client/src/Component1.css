@@ -1,0 +1,97 @@
+/* 
+.component1 {
+  padding: 95px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.relativeWrapperOne {
+  margin-bottom: 42px;
+  position: relative;
+}
+
+/* .flexWrapperOne {
+  background-size: 100% 100%;
+  background-position: center;
+  background-image: url("https://static.overlay-tech.com/assets/1a384287-9df9-46ad-bc8f-f16e39816ec5.png");
+  padding: 56px 77px 5px 71px;
+  position: relative;
+} 
+
+.weAreHere {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  font-family: "Inter";
+  font-size: 36px;
+  font-weight: 800;
+  line-height: normal;
+  color: black;
+}
+
+.weAreHereEmphasis1 {
+  font-family: "Inter";
+  font-size: 12px;
+  font-weight: 800;
+  line-height: normal;
+  color: black;
+}
+
+.flexWrapperSix {
+  background-color: whitesmoke;
+  padding: 34px 30px 7px 9px;
+  display: flex;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+  top: -95px;
+}
+
+.flexWrapperNine {
+  background-size: 100% 100%;
+  background-position: center;
+  background-image: url("https://static.overlay-tech.com/assets/37f1f149-1b7d-41b5-b6a0-bb63f5a66b73.png");
+  margin-right: 101px;
+  padding: 5px 23px 8px 16px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.rectangle7 {
+  background-color: gainsboro;
+  flex: 1;
+  align-self: stretch;
+}
+
+.flexWrapperSeven {
+  background-color: tomato;
+  margin-top: 15px;
+  padding: 12px 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flexWrapperEight {
+  width: 27px;
+  height: 2px;
+  background: rgba(217, 217, 217, 1) rgba(217, 217, 217, 1) rgba(217, 217, 217, 1);
+  margin-bottom: 5px;
+}
+
+.rectangle5 {
+  height: 12.5%;
+  background-color: gainsboro;
+  align-self: stretch;
+}
+
+.flexWrapperTwo {
+  background: rgba(255, 255, 255, 1) rgba(255, 255, 255, 1) rgba(0, 0, 0, 1);
+  margin-left: 25px;
+  padding: 39px 63px 40px;
+  box-shadow: 0 4px 2px 0 transparentBlack;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */

@@ -1,20 +1,20 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
-// import Login from "./Login";
-// import Register from "./Register";
+import {Route, Routes } from "react-router-dom";
 import Layout from "./StudentDashboard/Layout"
+
 import TraineeLogin from "./TraineeLogin";
 import About from "./StudentDashboard/About";
 import GoodBye from "./StudentDashboard/GoodBye";
 
+//import TraineeRegister from './TraineeRegister';
+
+//import MainMenu from './MainMenu';
+//import VolunteerMenu from './VolunteerMenu';
+import "./index.css";
+
+
 
 function App() {
-  // const [showLogin, setShowLogin] = useState(true);
-
-  // const handleShowLogin = () => {
-  //   setShowLogin((prevShowLogin) => !prevShowLogin);
-  // };
-
   return (
     // <main className="App">
     //   <img src="/img/images.jpg" alt="cyf logo" className="img" />
@@ -30,7 +30,15 @@ function App() {
 
       <Route path="/" element={<TraineeLogin />} />
       <Route path="/Layout" element={<Layout />} />
-    </Routes>
+    {/* /</Routes>
+      <Routes> */}
+        {/* <Route path="/TraineeRegister" element={<TraineeRegister />} /> */}
+        {/* <Route path="/TraineeLogin" element={<TraineeLogin />} /> */}
+        {/* <Route path="/VolunteerMenu" element={<VolunteerMenu />} /> */}
+{/* 
+        <Route path="/Layout" element={<Layout />} /> */}
+        {/* <Route path="/" element={<MainMenu/>} /> */}
+      </Routes>
   );
 }
 

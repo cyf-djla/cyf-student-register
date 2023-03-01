@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
-
+@media only screen and (min-width: 1200px) {
 * {
   margin: 0;
   padding: 0;
@@ -29,7 +29,7 @@ h1 {
   font-weight: 900;
 }
 
-section {
+/* section {
   width: 100%;
   max-width: 420px;
   min-height: 400px;
@@ -38,7 +38,7 @@ section {
   justify-content: flex-start;
   padding: 1rem;
   background-color: #fff;
-}
+} */
 
 form {
   display: flex;
@@ -48,9 +48,11 @@ form {
   padding-bottom: 1rem;
 }
 
+link,
 a,
 a:visited {
-  color: #0548ff;
+  color: whitesmoke;
+  text-decoration: none;
 }
 
 input[type="text"],
@@ -88,6 +90,7 @@ button {
 }
 .sign-up-button {
   background-color: #d12f2f;
+  color:black
 }
 
 .instructions {
@@ -143,3 +146,51 @@ button {
   height: 100px;
 }
 
+.volunteer-menu-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.massive-red-button {
+  font-size: 2rem;
+  text-align: center;
+  padding: 1rem 2rem;
+  background-color: #d12f2f;
+  color: rgb(248, 242, 242);
+  border: none;
+  border-radius: 1rem;
+  margin: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.massive-red-button:hover {
+  transform: scale(1.1);
+}
+/* 
+.background-wrapper {
+  background-size: cover;
+  background-position: 25% 50%;
+  background-repeat: no-repeat;
+  background-image: url("https://static.overlay-tech.com/assets/1a384287-9df9-46ad-bc8f-f16e39816ec5.png");
+  padding: 45px 45px 45px 45px;
+  position: relative;
+} */
+
+
+.background-wrapper h1 {
+  text-align: center;
+  position: relative;
+  font-weight: 900;
+  font-size: 60px;
+}
+}

@@ -20,6 +20,7 @@ const Header = () => {
       <div className={`right-nav ${Flag ? "small" : "large"}`}>
         <div className="nav-link">
           <ul>
+
             <li>
               <Link className="link" to="/">
                 Trainee Login
@@ -35,6 +36,12 @@ const Header = () => {
                 About
               </Link>
             </li>
+
+            {/* <Link className="link" to="/main-menu">
+              Main-Menu
+            </Link>
+             */}
+
           </ul>
         </div>
       </div>

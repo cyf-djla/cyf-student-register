@@ -3,9 +3,10 @@ const uniqueValidator = require("mongoose-unique-validator");
 
 const userSchema = mongoose.Schema({
 	email: {type: String, required: true, unique: true},
+	userID: {type: Number, required: true, unique:true},
 	password: {type: String, required: true},
-	username: {type: String, required: true},
-	cohort: {type: String, required: true},
+	username: {type: String, required: true,unique: true},
+	cohort: {type: String},
 	isVolunteer: {type: Boolean,required:true, default:false}
 });
 
