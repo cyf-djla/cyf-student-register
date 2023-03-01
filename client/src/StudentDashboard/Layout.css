@@ -5,3 +5,49 @@ body{
 
     border-left: solid 2px rgb(226, 213, 213);
 }
+@media (min-width:420px){
+    body{
+     max-width: none;
+    }
+  .body{
+    background-image: url("../Images/Intro-to-Coding\ 1.svg");
+    background-size: cover;
+    repeat:no-repeat;
+
+   
+ 
+  }
+  .dashBoard__components{
+   padding:0 35%;
+    margin: 0 auto;
+    align-items: center;
+  } 
+  .good__bye{
+    font-size: 25px;
+    font-weight: bold;
+    font-family: cormorant;
+    color: brown;
+    text-align: center;
+
+    margin-top: 100px;
+  }
+  .about__us{
+     font-size: 25px;
+    font-weight: bold;
+    font-family: cormorant;
+
+    text-align: center;
+
+    /* margin-top: 100px; */
+margin: 0 auto;
+padding: 20% 30%;
+  }
+  .student__detail{
+     margin-left: 20%; 
+     
+  }
+  select, input{
+    margin-left: 5%;
+  }
+
+}
