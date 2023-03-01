@@ -6,7 +6,7 @@ const MainMenu = () => {
 
   return (
     <main className="App">
-    <Menu />
+    <Menu/>
     </main>
   );
 }

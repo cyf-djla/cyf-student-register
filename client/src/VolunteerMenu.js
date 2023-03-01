@@ -5,7 +5,7 @@ import Header from "./StudentDashboard/Header";
 import "./StudentDashboard/Header.css";
 
 
-function Menu() {
+function VolunteerMenu() {
   return (
     <section>
     <Header/>
@@ -16,9 +16,8 @@ function Menu() {
     </h1>
     <div className="volunteer-menu-container">
       <div className="buttons-container">
-        <NavLink to="/TraineeLogin" className="massive-red-button">Trainee Login</NavLink>
-        <NavLink to="/TraineeRegister" className="massive-red-button">Trainee Sign-up</NavLink>
-        <NavLink to="/VolunteerMenu" className="massive-red-button">Volunteer</NavLink>
+        <NavLink to="/VolunteerLogin" className="massive-red-button">Volunteer Login</NavLink>
+        <NavLink to="/VolunteerRegister" className="massive-red-button">Volunteer Sign up</NavLink>
       </div>
     </div>
     </div>
@@ -26,6 +25,4 @@ function Menu() {
   );
 }
 
-export default Menu;
-
-
+export default VolunteerMenu;
