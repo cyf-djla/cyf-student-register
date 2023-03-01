@@ -14,28 +14,31 @@ const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@volunteers\.codeyourfuture\.io$/;
 
-const VOLUNTEER_REGISTER_URL = "/register";
+const VOLUNTEER_REGISTER_URL = "/VolunteerRegister";
 
 const VolunteerRegister = () => {
   const userRef = useRef();
   const errRef = useRef();
   const emailRef = useRef();
 
-//   useEffect(() => {
-//     fetchUsers();
-//   }, [users])
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetchUsers();
+  }, [users])
 
   function fetchUsers(){
-    // fetch("https://cyf-student-register.onrender.com/api/auth/")
-
-    .then((res) => res.json())
-    .then((data) => setUsers(data))
-    .catch((error) => console.log(error))
-  }
+  fetch("https://cyf-student-register.onrender.com/api/auth/")
+  .then((res) => {
+    return res.json();
+  })
+  .then((data) => setUsers(data))
+  .catch((error) => console.log(error));
+}
 
   const [username, setUserName] = useState([]);
   const [validuserName, setValiduserName] = useState(false);
-  const [userFocus, setUserFocus] = useState(false);
+  const [userNameFocus, setUserNameFocus] = useState(false);
 
   const [email, setEmail] = useState("");
   const [validEmail, setValidEmail] = useState(false);
@@ -52,9 +55,9 @@ const VolunteerRegister = () => {
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
 
-  useEffect(() => {
-    userRef.current.focus();
-  }, []);
+  // useEffect(() => {
+  //   userRef.current.focus();
+  // }, []);
 
   useEffect(() => {
     setValiduserName(USER_REGEX.test(username));
@@ -74,46 +77,35 @@ const VolunteerRegister = () => {
     setErrMsg("");
   }, [username, password, matchPassword, email]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit =  (e) => {
     e.preventDefault();
-    // if someone attempts to edit button messing with the code
-    const v1 = USER_REGEX.test(username);
-    const v2 = PWD_REGEX.test(password);
-    const v3 = EMAIL_REGEX.test(email);
-    if (!v1 || !v2 || !v3) {
-      setErrMsg("Invalid Entry");
-      return;
+
+
+    const newUser = {
+      username,
+      password,  
+      email,
+      isVolunteer: true
     }
+
+    fetch('http://127.0.0.1:4200/api/auth/signup', {
+      method: "post",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(newUser)
+    })
+    .then((res) => res.json())
+    .then((data) => setUsers(data))
+    .catch((error) => console.log(error))
+  
     setSuccess(true);
-    try {
-      const response = await axios.post(
-        REGISTER_URL,
-        JSON.stringify({ username, password, email }),
-        {
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true,
-        }
-      );
-      console.log(response?.data);
-      console.log(response?.accessToken);
-      console.log(JSON.stringify(response));
-      setSuccess(true);
-      //clear state and controlled inputs
-      //need value attrib on inputs for this
-      setUserName("");
-      setPassword("");
-      setEmail("");
-      setMatchPassword("");
-    } catch (err) {
-      if (!err?.response) {
-        setErrMsg("No Server Response");
-      } else if (err.response?.status === 409) {
-        setErrMsg("Username Taken");
-      } else {
-        setErrMsg("Registration Failed");
-      }
-      errRef.current.focus();
-    }
+    //clear state and controlled inputs
+    //need value attrib on inputs for this
+    setUserName("");
+    setPassword("");
+    setEmail("");
+    setMatchPassword("");
   };
 
   return (
