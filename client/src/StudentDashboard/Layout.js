@@ -1,4 +1,4 @@
-import React from "react";
+import {useState, useEffect} from "react";
 import Header from "./Header";
 import "./Layout.css";
 
@@ -9,6 +9,23 @@ import LoginAndOutClass from "./LoginAndOutClass";
 import LoginTime from "./LoginTime";
 import LogoutTime from "./LogoutTime";
 const Layout = ({ children }) => {
+
+  const [classes, setClasses] = useState([]);
+
+  useEffect(() => {
+    fetchClasses();
+  },[classes])
+
+  useEffect(() =>{
+    console.log(classes);
+  }, [classes]);
+
+  function fetchClasses() {
+    fetch("https://cyf-student-register.onrender.com/api/classes")
+    .then((res) => res.json())
+    .then((data) => setClasses(data))
+    .catch((error) => console.log(error))
+  }
   return (
     <div>
       <Header />
@@ -16,10 +33,10 @@ const Layout = ({ children }) => {
       <div className="body">
         <StudentDetail />
         <DisplayTime />
-        <Modules />
-        <LoginTime />
-        <LogoutTime />
-        <LoginAndOutClass />
+        <Modules classes={classes}/>
+        <LoginTime classes={classes}/>
+        <LogoutTime classes={classes}/>
+        <LoginAndOutClass classes={classes}/>
       </div>
     </div>
   );
