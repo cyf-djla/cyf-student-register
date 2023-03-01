@@ -1,4 +1,4 @@
-import React,{ useRef, useState, useEffect } from "react";
+import React,{ usernameef, useState, useEffect } from "react";
 import {
   faCheck,
   faTimes,
@@ -9,46 +9,46 @@ import axios from "./Api/axios";
 import "./StudentDashboard/Header.css"
 import Header from "./StudentDashboard/Header";
 
-const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
-const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+const username_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
+const password_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const EMAIL_REGEX =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
 const REGISTER_URL = "/register";
 
 const Register = () => {
-  const userRef = useRef();
-  const errRef = useRef();
-  const emailRef = useRef();
+  const usernameRef = usernameef();
+  const errRef = usernameef();
+  const emailRef = usernameef();
 
-  const [user, setUser] = useState("");
+  const [username, setusername] = useState("");
   const [validName, setValidName] = useState(false);
-  const [userFocus, setUserFocus] = useState(false);
+  const [usernameFocus, setusernameFocus] = useState(false);
 
   const [email, setEmail] = useState("");
   const [validEmail, setValidEmail] = useState(false);
   const [emailFocus, setEmailFocus] = useState(false);
 
-  const [pwd, setPwd] = useState("");
-  const [validPwd, setValidPwd] = useState(false);
-  const [pwdFocus, setPwdFocus] = useState(false);
+  const [password, setpassword] = useState("");
+  const [validpassword, setValidpassword] = useState(false);
+  const [passwordFocus, setpasswordFocus] = useState(false);
 
-  const [matchPwd, setMatchPwd] = useState("");
+  const [matchpassword, setMatchpassword] = useState("");
   const [validMatch, setValidMatch] = useState(false);
   const [matchFocus, setMatchFocus] = useState(false);
 
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
 
-  const [selectedOption, setSelectedOption] = useState(false);
+  const [cohort, setcohort] = useState(false);
 
   useEffect(() => {
-    userRef.current.focus();
+    usernameRef.current.focus();
   }, []);
 
   useEffect(() => {
-    setValidName(USER_REGEX.test(user));
-  }, [user]);
+    setValidName(username_REGEX.test(username));
+  }, [username]);
 
   useEffect(() => {
     const isValidEmail = EMAIL_REGEX.test(email);
@@ -56,19 +56,19 @@ const Register = () => {
   }, [email]);
 
   useEffect(() => {
-    setValidPwd(PWD_REGEX.test(pwd));
-    setValidMatch(pwd === matchPwd);
-  }, [pwd, matchPwd]);
+    setValidpassword(password_REGEX.test(password));
+    setValidMatch(password === matchpassword);
+  }, [password, matchpassword]);
 
   useEffect(() => {
     setErrMsg("");
-  }, [user, pwd, matchPwd, email]);
+  }, [username, password, matchpassword, email]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     // if someone attempts to edit button messing with the code
-    const v1 = USER_REGEX.test(user);
-    const v2 = PWD_REGEX.test(pwd);
+    const v1 = username_REGEX.test(username);
+    const v2 = password_REGEX.test(password);
     const v3 = EMAIL_REGEX.test(email);
     if (!v1 || !v2 || !v3) {
       setErrMsg("Invalid Entry");
@@ -78,7 +78,7 @@ const Register = () => {
     try {
       const response = await axios.post(
         REGISTER_URL,
-        JSON.stringify({ user, pwd, email }),
+        JSON.stringify({ username, password, email }),
         {
           headers: { "Content-Type": "application/json" },
           withCredentials: true,
@@ -87,15 +87,15 @@ const Register = () => {
       setSuccess(true);
       //clear state and controlled inputs
       //need value attrib on inputs for this
-      setUser("");
-      setPwd("");
+      setusername("");
+      setpassword("");
       setEmail("");
-      setMatchPwd("");
+      setMatchpassword("");
     } catch (err) {
       if (!err?.response) {
         setErrMsg("No Server Response");
       } else if (err.response?.status === 409) {
-        setErrMsg("Username Taken");
+        setErrMsg("usernamename Taken");
       } else {
         setErrMsg("Registration Failed");
       }
@@ -129,34 +129,34 @@ const Register = () => {
             <u className ="title-bh1">Student Register </u>
           </p>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="username">
-              Username:
+            <label htmlFor="usernamename">
+              usernamename:
               <FontAwesomeIcon
                 icon={faCheck}
                 className={validName ? "valid" : "hide"}
               />
               <FontAwesomeIcon
                 icon={faTimes}
-                className={validName || !user ? "hide" : "invalid"}
+                className={validName || !username ? "hide" : "invalid"}
               />
             </label>
             <input
               type="text"
-              id="username"
-              ref={userRef}
+              id="usernamename"
+              ref={usernameRef}
               autoComplete="off"
-              onChange={(e) => setUser(e.target.value)}
-              value={user}
+              onChange={(e) => setusername(e.target.value)}
+              value={username}
               required
               aria-invalid={validName ? "false" : "true"}
               aria-describedby="uidnote"
-              onFocus={() => setUserFocus(true)}
-              onBlur={() => setUserFocus(false)}
+              onFocus={() => setusernameFocus(true)}
+              onBlur={() => setusernameFocus(false)}
             />
             <p
               id="uidnote"
               className={
-                userFocus && user && !validName ? "instructions" : "offscreen"
+                usernameFocus && username && !validName ? "instructions" : "offscreen"
               }
             >
               <FontAwesomeIcon icon={faInfoCircle} />
@@ -204,8 +204,8 @@ const Register = () => {
             <label htmlFor="dropdown">Cohort</label>
             <select
               id="dropdown"
-              value={selectedOption}
-              onChange={(e) => setSelectedOption(e.target.value)}
+              value={cohort}
+              onChange={(e) => setcohort(e.target.value)}
             >
               <option value="">Class Region</option>
               <option value="west-midlands-5">WM5</option>
@@ -218,27 +218,27 @@ const Register = () => {
               Password:
               <FontAwesomeIcon
                 icon={faCheck}
-                className={validPwd ? "valid" : "hide"}
+                className={validpassword ? "valid" : "hide"}
               />
               <FontAwesomeIcon
                 icon={faTimes}
-                className={validPwd || !pwd ? "hide" : "invalid"}
+                className={validpassword || !password ? "hide" : "invalid"}
               />
             </label>
             <input
               type="password"
               id="password"
-              onChange={(e) => setPwd(e.target.value)}
-              value={pwd}
+              onChange={(e) => setpassword(e.target.value)}
+              value={password}
               required
-              aria-invalid={validPwd ? "false" : "true"}
-              aria-describedby="pwdnote"
-              onFocus={() => setPwdFocus(true)}
-              onBlur={() => setPwdFocus(false)}
+              aria-invalid={validpassword ? "false" : "true"}
+              aria-describedby="passwordnote"
+              onFocus={() => setpasswordFocus(true)}
+              onBlur={() => setpasswordFocus(false)}
             />
             <p
-              id="pwdnote"
-              className={pwdFocus && !validPwd ? "instructions" : "offscreen"}
+              id="passwordnote"
+              className={passwordFocus && !validpassword ? "instructions" : "offscreen"}
             >
               <FontAwesomeIcon icon={faInfoCircle} />
               8 to 24 characters.
@@ -253,22 +253,22 @@ const Register = () => {
               <span aria-label="dollar sign">$</span>{" "}
               <span aria-label="percent">%</span>
             </p>
-            <label htmlFor="confirm_pwd">
+            <label htmlFor="confirm_password">
               Confirm Password:
               <FontAwesomeIcon
                 icon={faCheck}
-                className={validMatch && matchPwd ? "valid" : "hide"}
+                className={validMatch && matchpassword ? "valid" : "hide"}
               />
               <FontAwesomeIcon
                 icon={faTimes}
-                className={validMatch || !matchPwd ? "hide" : "invalid"}
+                className={validMatch || !matchpassword ? "hide" : "invalid"}
               />
             </label>
             <input
               type="password"
-              id="confirm_pwd"
-              onChange={(e) => setMatchPwd(e.target.value)}
-              value={matchPwd}
+              id="confirm_password"
+              onChange={(e) => setMatchpassword(e.target.value)}
+              value={matchpassword}
               required
               aria-invalid={validMatch ? "false" : "true"}
               aria-describedby="confirmnote"
@@ -287,7 +287,7 @@ const Register = () => {
 
             <button
               className="login__button"
-              disabled={!validName || !validPwd || !validMatch ? true : false}
+              disabled={!validName || !validpassword || !validMatch ? true : false}
             >
               Sign Up
             </button>
