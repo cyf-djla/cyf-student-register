@@ -1,10 +1,12 @@
 import React, {useState} from "react";
 import "./DropdownMenu.css";
+import moment from "moment";
 // import modules from "./ModulesData";
 
 const Modules = ({classes}) => {
 	const [selectedModule, setSelectedModule] = useState("");
 	const [startDateTime, setStartDateTime] = useState("");
+	const[date,setDate] = useState("")
 
 	// function handleOptionChange(event) {
 	// setSelectedOption(event.target.value);
@@ -16,6 +18,7 @@ const Modules = ({classes}) => {
 		const newclass = classes.find((m) => m.name === selectedModule);
 		if (newclass) {
 			setStartDateTime(newclass.time);
+			setDate(newclass.date)
 		} else {
 			setStartDateTime("");
 		}
@@ -50,7 +53,7 @@ const Modules = ({classes}) => {
 			{startDateTime && (
 				<div>
 					<label htmlFor='startDateTime'>Scheduled start time/date:</label>
-					<input type='text' id='startDateTime' placeholder='Starting date and time' value={startDateTime} readOnly />
+					<input type='text' id='startDateTime' placeholder='Starting date and time' value={`${moment(date).format("DD/MM/YY")} ${startDateTime}`} readOnly />
 				</div>
 			)}
 		</div>
