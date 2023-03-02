@@ -2,13 +2,14 @@ import React, { useRef, useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "./Api/axios";
 import AuthContext from "./context/AuthProvider";
-import Layout from "./StudentDashboard/Layout";
+import VolunteerDashboard from "./VolunteerDashboard";
 import "./StudentDashboard/Header.css";
 import Header from "./StudentDashboard/Header";
+import "./index.css";
 
 const LOGIN_URL = "http://localhost:8080/login";
 
-const Login = () => {
+const VolunteerLogin = () => {
   const { setAuth } = useContext(AuthContext);
   const userRef = useRef();
   const errRef = useRef();
@@ -17,16 +18,15 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
-  
-  const [validUsernames, setValidUsernames] = useState([]);
+  const [validVolunteers, setValidVolunteers] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     userRef.current.focus();
-    // Load valid users from JSON file
-    fetch("http://127.0.0.1:4200/api/auth/")
+    // Load valid volunteers from JSON file
+    fetch("http://127.0.0.1:4200/api/auth/volunteers")
       .then((response) => response.json())
-      .then((data) => setValidUsernames(data))
+      .then((data) => setValidVolunteers(data))
       .catch((error) => console.error(error));
   }, []);
 
@@ -39,23 +39,23 @@ const Login = () => {
 
     setErrMsg("");
 
-    // Check if user credentials are valid
-    const validUsername = validUsernames.find((u) => u.username === username && u.password === password);
+    // Check if volunteer credentials are valid
+    const validVolunteer = validVolunteers.find((v) => v.username === username && v.password === password);
 
-    if (validUsername) {
-      // if user credentials are valid
+    if (validVolunteer) {
+      // if volunteer credentials are valid
       setAuth({
-        username: validUsername.username,
-        password: validUsername.password,
-        roles: ["username"],
+        username: validVolunteer.username,
+        password: validVolunteer.password,
+        roles: ["volunteer"],
         accessToken: "fake_access_token",
       });
       setUsername("");
       setPassword("");
       setSuccess(true);
-      navigate("/Layout");
+      navigate("/VolunteerDashboard");
     } else {
-      // User credentials are invalid
+      // Volunteer credentials are invalid
       setErrMsg("Invalid credentials. Please try again.");
     }
   };
@@ -78,7 +78,7 @@ const Login = () => {
         </h1>
         <br />
         <p className="title-bh1">
-          <u>Trainee Login</u>
+          <u>Volunteer Login</u>
         </p>
         <form onSubmit={handleSubmit}>
           <label htmlFor="username">Username:</label>
@@ -112,4 +112,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default VolunteerLogin;
