@@ -11,6 +11,7 @@ import MainMenu from './MainMenu';
 import VolunteerDashboard from "./VolunteerDashboard";
 import VolunteerMenu from './VolunteerMenu';
 import VolunteerRegister from './VolunteerRegister';
+import VolunteerLogin from './VolunteerLogin';
 import "./index.css";
 
 
@@ -30,6 +31,7 @@ function App() {
         <Route path="/TraineeLogin" element={<TraineeLogin />} /> 
         <Route path="/VolunteerMenu" element={<VolunteerMenu />} /> 
         <Route path="/VolunteerRegister" element={<VolunteerRegister />} /> 
+        <Route path="/VolunteerLogin" element={<VolunteerLogin />} /> 
         <Route path="/Layout" element={<Layout />} /> 
         <Route path="/" element={<MainMenu/>} /> 
         <Route path="/VolunteerDashboard" element={<VolunteerDashboard/>} />

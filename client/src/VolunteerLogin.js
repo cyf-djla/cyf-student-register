@@ -2,9 +2,10 @@ import React, { useRef, useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "./Api/axios";
 import AuthContext from "./context/AuthProvider";
-import Layout from "./StudentDashboard/Layout";
+import VolunteerDashboard from "./VolunteerDashboard";
 import "./StudentDashboard/Header.css";
 import Header from "./StudentDashboard/Header";
+import "./index.css";
 
 const LOGIN_URL = "http://localhost:8080/login";
 
