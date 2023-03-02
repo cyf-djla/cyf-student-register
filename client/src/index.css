@@ -5,41 +5,106 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 html {
   font-family: "Nunito", sans-serif;
   font-size: 22px;
   color: #fff;
 }
-
 body {
   min-height: 100vh;
   background-color: #f0e5e5;
 }
 
-.App {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 1rem 0.5rem;
+
+  @media (min-width:420px){
+      .header {
+    height: 100px;
+    background-color: #efefef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px rgba(0, 0, 0, 0.25);
+  }
+     .logo {
+    height: 80px;
+    width: 200px;
+  }
+
+    .mobile__title{
+display: none;
+    }
+    /* .header{
+      display: flex;
+
+    } */
+     .right-nav {
+    display: flex;
+    flex-direction: row;
+  }
+    .small {
+display: none;
+  }
+  .large{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+  }
+ 
+  .menu__icon{
+    display: none;
+  }
+     ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+     list-style-type:none;
+    /* height: 100%;
+    width: 100%; */
+    gap: 20px;
+  } 
+  a.link {
+    list-style-type:none;
+    
+    align-self: center;
+    color: white;
+    text-decoration: none; 
+  
+    font-weight: bold;
+    text-align: center;
+    background: #db514a;
+     box-shadow: 0 4px rgba(246, 246, 249, 0.5);
+   
+    border-radius: 5px;
+    
+  
+
+    font-size: 18px;
+    padding: 5px 10px;
+  }
+
+.desktop__title{
+ 
+}
+  }
+/*MAIN MENU*/
+
+/* TRAINEE lOGIN pAGE */
+.trainee-login-page{
+background-image: url("./Images/Intro-to-Coding\ 1.svg");
+background-size: cover;
+background-repeat: no-repeat;
+align-items: center;
+justify-content: center;
+margin: 0 auto;
+}
+.trainee-login-body{
+  padding: 0 35%; 
 }
 h1 {
   font-weight: 900;
 }
-
-/* section {
-  width: 100%;
-  max-width: 420px;
-  min-height: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 1rem;
-  background-color: #fff;
-} */
-
 form {
   display: flex;
   flex-direction: column;
@@ -47,14 +112,12 @@ form {
   flex-grow: 1;
   padding-bottom: 1rem;
 }
-
 link,
 a,
 a:visited {
   color: whitesmoke;
   text-decoration: none;
 }
-
 input[type="text"],
 input[type="password"],
 input[type="email"],
@@ -92,7 +155,6 @@ button {
   background-color: #d12f2f;
   color:black
 }
-
 .instructions {
   font-size: 0.75rem;
   border-radius: 0.5rem;
@@ -102,30 +164,24 @@ button {
   position: relative;
   bottom: -10px;
 }
-
 .instructions > svg {
   margin-right: 0.25rem;
 }
-
 .offscreen {
   position: absolute;
   left: -9999px;
 }
-
 .hide {
   display: none;
 }
-
 .valid {
   color: limegreen;
   margin-left: 0.25rem;
 }
-
 .invalid {
   color: red;
   margin-left: 0.25rem;
 }
-
 .errmsg {
   background-color: lightpink;
   color: firebrick;
@@ -133,11 +189,9 @@ button {
   padding: 0.5rem;
   margin-bottom: 0.5rem;
 }
-
 .line {
   display: inline-block;
 }
-
 .img {
   position: relative;
   top: -10px;
@@ -145,21 +199,18 @@ button {
   width: 420px;
   height: 100px;
 }
-
 .volunteer-menu-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
-
 .buttons-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-
 .massive-red-button {
   font-size: 2rem;
   text-align: center;
@@ -172,25 +223,34 @@ button {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
-
 .massive-red-button:hover {
   transform: scale(1.1);
 }
-/* 
-.background-wrapper {
-  background-size: cover;
-  background-position: 25% 50%;
-  background-repeat: no-repeat;
-  background-image: url("https://static.overlay-tech.com/assets/1a384287-9df9-46ad-bc8f-f16e39816ec5.png");
-  padding: 45px 45px 45px 45px;
-  position: relative;
-} */
-
-
 .background-wrapper h1 {
   text-align: center;
   position: relative;
   font-weight: 900;
   font-size: 60px;
+}
+.mobile__title{
+  display: none;
+}
+.background-wrapper{
+  background-image: url("./Images/Intro-to-Coding\ 1.svg");
+background-size: cover;
+background-repeat: no-repeat;
+}
+.login__b{
+  display: none;
+}
+.about__us{
+    background-image: url("./Images/Intro-to-Coding\ 1.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  color: brown;
+  }
+.desktop__title{
+    color:#d12f2f;
+    text-decoration-line: underline;
 }
 }

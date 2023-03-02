@@ -6,10 +6,10 @@ import TraineeLogin from "./TraineeLogin";
 import About from "./StudentDashboard/About";
 import GoodBye from "./StudentDashboard/GoodBye";
 
-//import TraineeRegister from './TraineeRegister';
+import TraineeRegister from './TraineeRegister';
 
-//import MainMenu from './MainMenu';
-//import VolunteerMenu from './VolunteerMenu';
+import MainMenu from './MainMenu';
+import VolunteerMenu from './VolunteerMenu';
 import "./index.css";
 
 
@@ -32,12 +32,12 @@ function App() {
       <Route path="/Layout" element={<Layout />} />
     {/* /</Routes>
       <Routes> */}
-        {/* <Route path="/TraineeRegister" element={<TraineeRegister />} /> */}
-        {/* <Route path="/TraineeLogin" element={<TraineeLogin />} /> */}
-        {/* <Route path="/VolunteerMenu" element={<VolunteerMenu />} /> */}
+          <Route path="/TraineeRegister" element={<TraineeRegister />} /> 
+        <Route path="/TraineeLogin" element={<TraineeLogin />} />
+         <Route path="/VolunteerMenu" element={<VolunteerMenu />} /> 
 {/* 
         <Route path="/Layout" element={<Layout />} /> */}
-        {/* <Route path="/" element={<MainMenu/>} /> */}
+         <Route path="/menu" element={<MainMenu/>} /> 
       </Routes>
   );
 }

@@ -67,11 +67,11 @@ const Login = () => {
 
   return (
     <>
-     
-        <section>
-          <Header />
+      <section>
+        <Header />
 
-          <br />
+        <br />
+        <div className="trainee-login-body">
           <p
             ref={errRef}
             className={errMsg ? "errmsg" : "offscreen"}
@@ -80,7 +80,7 @@ const Login = () => {
             {errMsg}
           </p>
           <h1>
-            <b>#We are here</b>
+            <b className="mobile__title">#We are here</b>
           </h1>
           <br />
           <p className="title-bh1">
@@ -107,7 +107,7 @@ const Login = () => {
               required
             />
             {/* <Link to="/Layout"> */}
-              <button className="login__button">Sign In</button>
+            <button className="login__button">Sign In</button>
             {/* </Link> */}
           </form>
           <p>
@@ -115,8 +115,8 @@ const Login = () => {
             <br />
             <i>Click on the button below to sign up</i>
           </p>
-        </section>
-      
+        </div>
+      </section>
     </>
   );
 };
