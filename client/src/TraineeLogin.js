@@ -11,7 +11,7 @@ const handleShowLogin = () => {
   return (
     <main className="trainee-login-page">
       {showLogin ? <Login /> : <Register />}
-      <button className="login__button" onClick={handleShowLogin}>
+      <button className="signup__btn" onClick={handleShowLogin}>
         {showLogin ? "Sign up" : "Login"}
       </button>
     </main>

@@ -80,41 +80,43 @@ const Login = () => {
             {errMsg}
           </p>
           <h1>
-            <b>#We are here</b>
+            <b className="mobile__title">#We are here</b>
           </h1>
           <br />
-          <p className="title-bh1">
-            <u>Trainee Login</u>
-          </p>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="username">Username:</label>
-            <input
-              type="text"
-              id="username"
-              ref={userRef}
-              autoComplete="off"
-              onChange={(e) => setUser(e.target.value)}
-              value={user}
-              required
-            />
+          <div className="trainee-login__form">
+            <p className="title-bh1">
+              <u>Trainee Login</u>
+            </p>
+            <form onSubmit={handleSubmit}>
+              <label htmlFor="username">Username:</label>
+              <input
+                type="text"
+                id="username"
+                ref={userRef}
+                autoComplete="off"
+                onChange={(e) => setUser(e.target.value)}
+                value={user}
+                required
+              />
 
-            <label htmlFor="password">Password:</label>
-            <input
-              type="password"
-              id="password"
-              onChange={(e) => setPwd(e.target.value)}
-              value={pwd}
-              required
-            />
-            {/* <Link to="/Layout"> */}
-            <button className="login__button">Sign In</button>
-            {/* </Link> */}
-          </form>
-          <p>
-            Need an Account?
-            <br />
-            <i>Click on the button below to sign up</i>
-          </p>
+              <label htmlFor="password">Password:</label>
+              <input
+                type="password"
+                id="password"
+                onChange={(e) => setPwd(e.target.value)}
+                value={pwd}
+                required
+              />
+              {/* <Link to="/Layout"> */}
+              <button className="login__button">Sign In</button>
+              {/* </Link> */}
+            </form>
+            <p>
+              Need an Account?
+              <br />
+              <i>Click on the button below to sign up</i>
+            </p>
+          </div>
         </div>
       </section>
     </>
