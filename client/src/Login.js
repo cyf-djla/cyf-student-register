@@ -22,21 +22,49 @@ const Login = () => {
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
 
-  // const [validUsers, setValidUsers] = useState([]);
-  const navigate=useNavigate()
-  // const [Flag, setFlag] = useState(false);
 
-  // useEffect(() => {
-  //   userRef.current.focus();
-  //   fetch("http://127.0.0.1:4200/api/auth/")
-  //     .then((response) => response.json())
-  //     .then((data) => setValidUsers(data))
-  //     .catch((error) => console.error(error));
-  // }, []);
+  const [validUsernames, setValidUsernames] = useState([]);
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    userRef.current.focus();
+    // Load valid users from JSON file
+    fetch(""http://127.0.0.1:4200/api/auth/")
+      .then((response) => response.json())
+      .then((data) => setValidUsernames(data))
+      .catch((error) => console.error(error));
+  }, []);
+
 
   useEffect(() => {
     setErrMsg("");
   }, [username, password]);
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    setErrMsg("");
+
+    // Check if user credentials are valid
+    const validUsername = validUsernames.find((u) => u.username === username && u.password === password);
+
+    if (validUsername) {
+      // if user credentials are valid
+      setAuth({
+        username: validUsername.username,
+        password: validUsername.password,
+        roles: ["username"],
+        accessToken: "fake_access_token",
+      });
+      setUsername("");
+      setPassword("");
+      setSuccess(true);
+      navigate("/Layout")
+    } else {
+      // User credentials are invalid
+      setErrMsg("Invalid credentials. Please try again.");
+    }
 
   // const handleSubmit = (e) => {
   //   e.preventDefault();
@@ -125,9 +153,7 @@ const Login = () => {
               value={password}
               required
             />
-            {/* <Link to="/Layout"> */}
               <button className="login__button">Sign In</button>
-            {/* </Link> */}
           </form>
           <p>
             Need an Account?

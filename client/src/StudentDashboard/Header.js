@@ -23,7 +23,7 @@ const Header = () => {
 
             <li>
               <Link className="link" to="/">
-                Trainee Login
+                Main Menu
               </Link>
             </li>
             <li>

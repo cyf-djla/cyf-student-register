@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./VolunteerDashboard_Comps/Header.js";
-//import "./VolunteerDashboard_Comps/Layout.css";
+import "./VolunteerDashboard_Comps/Layout.css";
 
 import VolunteerDetail from "./VolunteerDashboard_Comps/VolunteerDetail";
 import DisplayTime from "./VolunteerDashboard_Comps/DisplayTime";
