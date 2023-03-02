@@ -12,7 +12,7 @@ function Menu() {
     <div className="background-wrapper">
     <br />
     <h1>
-    <b className='mobile__title'>#We are here</b>
+    <b className='trainee__b'>#We are here</b>
     </h1>
     <div className="volunteer-menu-container">
       <div className="buttons-container">

@@ -71,7 +71,7 @@ const Login = () => {
         <Header />
 
         <br />
-        <div className="trainee-login-body">
+        <div className="trainee-login">
           <p
             ref={errRef}
             className={errMsg ? "errmsg" : "offscreen"}
@@ -80,7 +80,7 @@ const Login = () => {
             {errMsg}
           </p>
           <h1>
-            <b className="mobile__title">#We are here</b>
+            <b>#We are here</b>
           </h1>
           <br />
           <p className="title-bh1">
