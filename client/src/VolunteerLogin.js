@@ -105,7 +105,7 @@ const VolunteerLogin = () => {
         <p>
           Need an Account?
           <br />
-          <i>Click on the button below to sign up</i>
+          <i>Click on the Menu at the top right to return to the home page</i>
         </p>
       </section>
     </>
