@@ -1,19 +1,15 @@
-import React,{ useRef, useState, useEffect, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useRef, useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "./Api/axios";
 import AuthContext from "./context/AuthProvider";
 import Layout from "./StudentDashboard/Layout";
-import "./StudentDashboard/Header.css"
+import "./StudentDashboard/Header.css";
 import Header from "./StudentDashboard/Header";
-import { Route, Routes } from "react-router-dom";
-
-
-
 
 const LOGIN_URL = "http://localhost:8080/login";
 
 const Login = () => {
-  // const { setAuth } = useContext(AuthContext);
+  const { setAuth } = useContext(AuthContext);
   const userRef = useRef();
   const errRef = useRef();
 
@@ -21,25 +17,22 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
-
-
+  
   const [validUsernames, setValidUsernames] = useState([]);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     userRef.current.focus();
     // Load valid users from JSON file
-    fetch(""http://127.0.0.1:4200/api/auth/")
+    fetch("http://127.0.0.1:4200/api/auth/")
       .then((response) => response.json())
       .then((data) => setValidUsernames(data))
       .catch((error) => console.error(error));
   }, []);
 
-
   useEffect(() => {
     setErrMsg("");
   }, [username, password]);
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -60,108 +53,61 @@ const Login = () => {
       setUsername("");
       setPassword("");
       setSuccess(true);
-      navigate("/Layout")
+      navigate("/Layout");
     } else {
       // User credentials are invalid
       setErrMsg("Invalid credentials. Please try again.");
     }
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   setErrMsg("");
-
-  //   // Check if user credentials are valid
-  //   const validUser = validUsers.find((u) => u.username === username && u.password === password);
-
-  //   if (validUser) {
-  //     // if user credentials are valid
-  //     setAuth({
-  //       user: validUser.username,
-  //       pwd: validUser.password,
-  //       // token: "HT_WS_3001",
-  //     });
-  //     setUsername("");
-  //     setPassword("");
-  //     setSuccess(true);
-  //     navigate("/Layout")
-  //   } else {
-  //     // User credentials are invalid
-  //     setErrMsg("Invalid credentials. Please try again.");
-  //   }
-  // };
-
-  const handleSubmit =  (e) => {
-    e.preventDefault();
-
-    fetch('http://127.0.0.1:4200/api/auth/login', {
-      method: "post",
-      headers: {
-        "Content-type": "application/json"
-      },
-      body: JSON.stringify({username, password})
-    })
-    .then((res) => res.json())
-    .then((data) => console.log(data))
-    .catch((error) => console.log(error))
-     
-    setPassword("");
-    setUsername("");
-    setSuccess(true)
-    navigate("/Layout")
   };
-  
 
   return (
     <>
-     
-        <section>
-          <Header />
+      <section>
+        <Header />
 
-          <br />
-          <p
-            ref={errRef}
-            className={errMsg ? "errmsg" : "offscreen"}
-            aria-live="assertive"
-          >
-            {errMsg}
-          </p>
-          <h1>
-            <b>#We are here</b>
-          </h1>
-          <br />
-          <p className="title-bh1">
-            <u>Trainee Login</u>
-          </p>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="username">Username:</label>
-            <input
-              type="text"
-              id="username"
-              ref={userRef}
-              autoComplete="off"
-              onChange={(e) => setUsername(e.target.value)}
-              value={username}
-              required
-            />
+        <br />
+        <p
+          ref={errRef}
+          className={errMsg ? "errmsg" : "offscreen"}
+          aria-live="assertive"
+        >
+          {errMsg}
+        </p>
+        <h1>
+          <b>#We are here</b>
+        </h1>
+        <br />
+        <p className="title-bh1">
+          <u>Trainee Login</u>
+        </p>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="username">Username:</label>
+          <input
+            type="text"
+            id="username"
+            ref={userRef}
+            autoComplete="off"
+            onChange={(e) => setUsername(e.target.value)}
+            value={username}
+            required
+          />
 
-            <label htmlFor="password">Password:</label>
-            <input
-              type="password"
-              id="password"
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
-              required
-            />
-              <button className="login__button">Sign In</button>
-          </form>
-          <p>
-            Need an Account?
-            <br />
-            <i>Click on the button below to sign up</i>
-          </p>
-        </section>
-      
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            required
+          />
+          <button className="login__button">Sign In</button>
+        </form>
+        <p>
+          Need an Account?
+          <br />
+          <i>Click on the button below to sign up</i>
+        </p>
+      </section>
     </>
   );
 };
