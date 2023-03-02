@@ -1,23 +1,22 @@
-import React,{ useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import {
   faCheck,
   faTimes,
   faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import axios from "./Api/axios";
+import axios from "./Api/axios";
+import "./index.css";
 import "./StudentDashboard/Header.css"
 import Header from "./StudentDashboard/Header";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-const EMAIL_REGEX =
-  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@volunteers\.codeyourfuture\.io$/;
 
+const VOLUNTEER_REGISTER_URL = "/VolunteerRegister";
 
-const REGISTER_URL = "https://cyf-student-register.onrender.com/api/auth/";
-
-const Register = () => {
+const VolunteerRegister = () => {
   const userRef = useRef();
   const errRef = useRef();
   const emailRef = useRef();
@@ -28,24 +27,16 @@ const Register = () => {
     fetchUsers();
   }, [users])
 
-
-  // useEffect(() => {
-  //   console.log(users);
-  // }, [users])
-
   function fetchUsers(){
-    fetch("https://cyf-student-register.onrender.com/api/auth/")
+  fetch("https://cyf-student-register.onrender.com/api/auth/")
+  .then((res) => {
+    return res.json();
+  })
+  .then((data) => setUsers(data))
+  .catch((error) => console.log(error));
+}
 
-    .then((res) => res.json())
-    .then((data) => setUsers(data))
-    .catch((error) => console.log(error))
-  }
-
-  // useEffect(() =>{
-  //   console.log(users)
-  // }, )
-
-  const [username, setUserName] = useState("");
+  const [username, setUserName] = useState([]);
   const [validuserName, setValiduserName] = useState(false);
   const [userNameFocus, setUserNameFocus] = useState(false);
 
@@ -63,8 +54,6 @@ const Register = () => {
 
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
-
-  const [cohort, setCohort] = useState(false);
 
   // useEffect(() => {
   //   userRef.current.focus();
@@ -94,10 +83,9 @@ const Register = () => {
 
     const newUser = {
       username,
-      password, 
-      cohort, 
+      password,  
       email,
-      isVolunteer: false
+      isVolunteer: true
     }
 
     fetch('http://127.0.0.1:4200/api/auth/signup', {
@@ -118,19 +106,18 @@ const Register = () => {
     setPassword("");
     setEmail("");
     setMatchPassword("");
-    setCohort("")
   };
+
   return (
     <>
       {success ? (
         <section>
           <h1>Success!</h1>
-          <p>Welcome you have successfully signed up</p>
+          <p>Welcome you have successfully Signed up as a volunteer</p>
         </section>
       ) : (
         <section>
-        <Header />
-        <br />
+        <Header/>
           <p
             ref={errRef}
             className={errMsg ? "errmsg" : "offscreen"}
@@ -143,11 +130,9 @@ const Register = () => {
           </h1>
           <br />
           <p className="title-bh1">
-            <u className ="title-bh1">Student Register </u>
+            <u>Volunteer Register </u>
           </p>
-
-          <form>
-
+          <form onSubmit={handleSubmit}>
             <label htmlFor="username">
               Username:
               <FontAwesomeIcon
@@ -186,7 +171,7 @@ const Register = () => {
               Letters, numbers, underscores, hyphens allowed.
             </p>
             <label htmlFor="email">
-              Email Address:
+              CYF Email:
               <FontAwesomeIcon
                 icon={faCheck}
                 className={validEmail ? "valid" : "hide"}
@@ -220,18 +205,6 @@ const Register = () => {
               <FontAwesomeIcon icon={faInfoCircle} />
               Please enter a valid email address.
             </p>
-            <label htmlFor="dropdown">Cohort</label>
-            <select
-              id="dropdown"
-              value={cohort}
-              onChange={(e) => setCohort(e.target.value)}
-            >
-              <option value="">Class Region</option>
-              <option value="west-midlands-5">WM5</option>
-              <option value="north-west-6">NW6</option>
-              <option value="london-7">LDN7</option>
-              <option value="south-africa-6">SA6</option>
-            </select>
 
             <label htmlFor="password">
               Password:
@@ -251,12 +224,12 @@ const Register = () => {
               value={password}
               required
               aria-invalid={validPassword ? "false" : "true"}
-              aria-describedby="pwdnote"
+              aria-describedby="passwordnote"
               onFocus={() => setPasswordFocus(true)}
               onBlur={() => setPasswordFocus(false)}
             />
             <p
-              id="pwdnote"
+              id="passwordnote"
               className={passwordFocus && !validPassword ? "instructions" : "offscreen"}
             >
               <FontAwesomeIcon icon={faInfoCircle} />
@@ -280,7 +253,7 @@ const Register = () => {
               />
               <FontAwesomeIcon
                 icon={faTimes}
-                className={validMatch || !matchPassword? "hide" : "invalid"}
+                className={validMatch || !matchPassword ? "hide" : "invalid"}
               />
             </label>
             <input
@@ -304,8 +277,8 @@ const Register = () => {
               Must match the first password input field.
             </p>
 
-            <button onClick={handleSubmit} type='submit'
-              className="login__button"
+            <button
+              className="sign-up-button"
               disabled={!validuserName || !validPassword || !validMatch ? true : false}
             >
               Sign Up
@@ -321,5 +294,5 @@ const Register = () => {
     </>
   );
 };
-export default Register;
 
+export default VolunteerRegister;

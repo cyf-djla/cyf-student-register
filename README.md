@@ -37,3 +37,43 @@ localhost:4200/api/classes/postflag/:id -post trainee flag
   const userRef = useRef();
   const errRef = useRef();
   const emailRef = useRef();
+
+  // if someone attempts to edit button messing with the code
+    const v1 = USER_REGEX.test(username);
+    const v2 = PWD_REGEX.test(password);
+    const v3 = EMAIL_REGEX.test(email);
+    if (!v1 || !v2 || !v3) {
+      setErrMsg("Invalid Entry");
+      return;
+    }
+    setSuccess(true);
+
+    try {
+      let result = await axios.post(
+        `${REGISTER_URL}/signup`,
+        JSON.stringify({ username, password, email, cohort}),
+        {
+          headers: { "Content-Type": "application/json" },
+        
+        }
+        
+      );
+      console.log(result.response.data);
+      setSuccess(true);
+      //clear state and controlled inputs
+      //need value attrib on inputs for this
+      setUserName("");
+      setPassword("");
+      setEmail("");
+      setMatchPassword("");
+      setCohort("")
+    } catch (err) {
+      if (!err?.response) {
+        setErrMsg("No Server Response");
+      } else if (err.response?.status === 409) {
+        setErrMsg("Username Taken");
+      } else {
+        setErrMsg("Registration Failed");
+      }
+      // errRef.current.focus();
+    }

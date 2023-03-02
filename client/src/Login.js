@@ -13,31 +13,33 @@ import { Route, Routes } from "react-router-dom";
 const LOGIN_URL = "http://localhost:8080/login";
 
 const Login = () => {
-  const { setAuth } = useContext(AuthContext);
+  // const { setAuth } = useContext(AuthContext);
   const userRef = useRef();
   const errRef = useRef();
 
-  const [user, setUser] = useState("");
-  const [pwd, setPwd] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
 
-  const [validUsers, setValidUsers] = useState([]);
-  const navigate=useNavigate()
-  // const [Flag, setFlag] = useState(false);
+
+  const [validUsernames, setValidUsernames] = useState([]);
+  const navigate = useNavigate()
 
   useEffect(() => {
     userRef.current.focus();
     // Load valid users from JSON file
-    fetch("/credentials.json")
+    fetch(""http://127.0.0.1:4200/api/auth/")
       .then((response) => response.json())
-      .then((data) => setValidUsers(data))
+      .then((data) => setValidUsernames(data))
       .catch((error) => console.error(error));
   }, []);
 
+
   useEffect(() => {
     setErrMsg("");
-  }, [user, pwd]);
+  }, [username, password]);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -45,25 +47,70 @@ const Login = () => {
     setErrMsg("");
 
     // Check if user credentials are valid
-    const validUser = validUsers.find((u) => u.user === user && u.pwd === pwd);
+    const validUsername = validUsernames.find((u) => u.username === username && u.password === password);
 
-    if (validUser) {
+    if (validUsername) {
       // if user credentials are valid
       setAuth({
-        user: validUser.user,
-        pwd: validUser.pwd,
-        roles: ["user"],
+        username: validUsername.username,
+        password: validUsername.password,
+        roles: ["username"],
         accessToken: "fake_access_token",
       });
-      setUser("");
-      setPwd("");
+      setUsername("");
+      setPassword("");
       setSuccess(true);
       navigate("/Layout")
     } else {
       // User credentials are invalid
       setErrMsg("Invalid credentials. Please try again.");
     }
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+
+  //   setErrMsg("");
+
+  //   // Check if user credentials are valid
+  //   const validUser = validUsers.find((u) => u.username === username && u.password === password);
+
+  //   if (validUser) {
+  //     // if user credentials are valid
+  //     setAuth({
+  //       user: validUser.username,
+  //       pwd: validUser.password,
+  //       // token: "HT_WS_3001",
+  //     });
+  //     setUsername("");
+  //     setPassword("");
+  //     setSuccess(true);
+  //     navigate("/Layout")
+  //   } else {
+  //     // User credentials are invalid
+  //     setErrMsg("Invalid credentials. Please try again.");
+  //   }
+  // };
+
+  const handleSubmit =  (e) => {
+    e.preventDefault();
+
+    fetch('http://127.0.0.1:4200/api/auth/login', {
+      method: "post",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify({username, password})
+    })
+    .then((res) => res.json())
+    .then((data) => console.log(data))
+    .catch((error) => console.log(error))
+     
+    setPassword("");
+    setUsername("");
+    setSuccess(true)
+    navigate("/Layout")
   };
+  
 
   return (
     <>
@@ -93,8 +140,8 @@ const Login = () => {
               id="username"
               ref={userRef}
               autoComplete="off"
-              onChange={(e) => setUser(e.target.value)}
-              value={user}
+              onChange={(e) => setUsername(e.target.value)}
+              value={username}
               required
             />
 
@@ -102,13 +149,11 @@ const Login = () => {
             <input
               type="password"
               id="password"
-              onChange={(e) => setPwd(e.target.value)}
-              value={pwd}
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
               required
             />
-            {/* <Link to="/Layout"> */}
               <button className="login__button">Sign In</button>
-            {/* </Link> */}
           </form>
           <p>
             Need an Account?
