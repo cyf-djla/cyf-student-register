@@ -13,7 +13,7 @@ import { Route, Routes } from "react-router-dom";
 const LOGIN_URL = "http://localhost:8080/login";
 
 const Login = () => {
-  const { setAuth } = useContext(AuthContext);
+  // const { setAuth } = useContext(AuthContext);
   const userRef = useRef();
   const errRef = useRef();
 
@@ -22,21 +22,24 @@ const Login = () => {
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
 
+
   const [validUsernames, setValidUsernames] = useState([]);
   const navigate = useNavigate()
 
   useEffect(() => {
     userRef.current.focus();
     // Load valid users from JSON file
-    fetch("/credentials.json")
+    fetch(""http://127.0.0.1:4200/api/auth/")
       .then((response) => response.json())
       .then((data) => setValidUsernames(data))
       .catch((error) => console.error(error));
   }, []);
 
+
   useEffect(() => {
     setErrMsg("");
   }, [username, password]);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -62,7 +65,52 @@ const Login = () => {
       // User credentials are invalid
       setErrMsg("Invalid credentials. Please try again.");
     }
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+
+  //   setErrMsg("");
+
+  //   // Check if user credentials are valid
+  //   const validUser = validUsers.find((u) => u.username === username && u.password === password);
+
+  //   if (validUser) {
+  //     // if user credentials are valid
+  //     setAuth({
+  //       user: validUser.username,
+  //       pwd: validUser.password,
+  //       // token: "HT_WS_3001",
+  //     });
+  //     setUsername("");
+  //     setPassword("");
+  //     setSuccess(true);
+  //     navigate("/Layout")
+  //   } else {
+  //     // User credentials are invalid
+  //     setErrMsg("Invalid credentials. Please try again.");
+  //   }
+  // };
+
+  const handleSubmit =  (e) => {
+    e.preventDefault();
+
+    fetch('http://127.0.0.1:4200/api/auth/login', {
+      method: "post",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify({username, password})
+    })
+    .then((res) => res.json())
+    .then((data) => console.log(data))
+    .catch((error) => console.log(error))
+     
+    setPassword("");
+    setUsername("");
+    setSuccess(true)
+    navigate("/Layout")
   };
+  
 
   return (
     <>
