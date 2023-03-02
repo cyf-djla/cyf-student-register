@@ -143,7 +143,7 @@ const Register = () => {
           </h1>
           <br />
           <p className="title-bh1">
-            <u className ="title-bh1">Student Register </u>
+            <u className ="title-bh1">Trainee Register </u>
           </p>
 
           <form>
