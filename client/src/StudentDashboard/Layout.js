@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
   }, [classes]);
 
   function fetchClasses() {
-    fetch("https://cyf-student-register.onrender.com/api/classes")
+    fetch("http://127.0.0.1:4200/api/classes")
     .then((res) => res.json())
     .then((data) => setClasses(data))
     .catch((error) => console.log(error))
@@ -32,7 +32,6 @@ const Layout = ({ children }) => {
 
       {children}
       <div className="body">
-trainee-dashboard-connection
         <StudentDetail />
         <DisplayTime />
         <Modules classes={classes}/>
