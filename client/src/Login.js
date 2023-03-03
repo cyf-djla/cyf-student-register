@@ -13,55 +13,22 @@ import { Route, Routes } from "react-router-dom";
 const LOGIN_URL = "http://localhost:8080/login";
 
 const Login = () => {
-  // const { setAuth } = useContext(AuthContext);
+ 
   const userRef = useRef();
   const errRef = useRef();
 
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
 
-  // const [validUsers, setValidUsers] = useState([]);
   const navigate=useNavigate()
-  // const [Flag, setFlag] = useState(false);
 
-  // useEffect(() => {
-  //   userRef.current.focus();
-  //   fetch("http://127.0.0.1:4200/api/auth/")
-  //     .then((response) => response.json())
-  //     .then((data) => setValidUsers(data))
-  //     .catch((error) => console.error(error));
-  // }, []);
 
   useEffect(() => {
     setErrMsg("");
-  }, [username, password]);
+  }, [email, password]);
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   setErrMsg("");
-
-  //   // Check if user credentials are valid
-  //   const validUser = validUsers.find((u) => u.username === username && u.password === password);
-
-  //   if (validUser) {
-  //     // if user credentials are valid
-  //     setAuth({
-  //       user: validUser.username,
-  //       pwd: validUser.password,
-  //       // token: "HT_WS_3001",
-  //     });
-  //     setUsername("");
-  //     setPassword("");
-  //     setSuccess(true);
-  //     navigate("/Layout")
-  //   } else {
-  //     // User credentials are invalid
-  //     setErrMsg("Invalid credentials. Please try again.");
-  //   }
-  // };
 
   const handleSubmit =  (e) => {
     e.preventDefault();
@@ -71,14 +38,14 @@ const Login = () => {
       headers: {
         "Content-type": "application/json"
       },
-      body: JSON.stringify({username, password})
+      body: JSON.stringify({email, password})
     })
     .then((res) => res.json())
     .then((data) => console.log(data))
     .catch((error) => console.log(error))
      
     setPassword("");
-    setUsername("");
+    setEmail("");
     setSuccess(true)
     navigate("/Layout")
   };
@@ -105,15 +72,15 @@ const Login = () => {
           <p className="title-bh1">
             <u>Trainee Login</u>
           </p>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="username">Username:</label>
+          <form >
+            <label htmlFor="email">Email:</label>
             <input
-              type="text"
-              id="username"
+              type="email"
+              id="email"
               ref={userRef}
               autoComplete="off"
-              onChange={(e) => setUsername(e.target.value)}
-              value={username}
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
               required
             />
 
@@ -126,7 +93,7 @@ const Login = () => {
               required
             />
             {/* <Link to="/Layout"> */}
-              <button className="login__button">Sign In</button>
+              <button className="login__button" type='submit' onClick={handleSubmit}>Sign In</button>
             {/* </Link> */}
           </form>
           <p>

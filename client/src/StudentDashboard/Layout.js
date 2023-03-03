@@ -16,9 +16,9 @@ const Layout = ({ children }) => {
     fetchClasses();
   },[classes])
 
-  useEffect(() =>{
-    console.log(classes);
-  }, [classes]);
+  // useEffect(() =>{
+  //   console.log(classes);
+  // }, [classes]);
 
   function fetchClasses() {
     fetch("http://127.0.0.1:4200/api/classes")

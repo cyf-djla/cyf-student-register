@@ -4,8 +4,7 @@ const User = require("../models/user");
 
 // signup
 exports.signup = async (req, res, next) => {
-	console.log('hit here')
-	console.log(req.body)
+	
 	try {
 		const hash = await bcrypt.hash(req.body.password, 10);
 		const user = new User({
@@ -26,35 +25,77 @@ exports.signup = async (req, res, next) => {
 	}
 };
 
-// login
-exports.login = async (req, res, next) => {
-	try {
-		const user = await User.findOne({email: req.body.email});
-		if (!user) {
-			return res.status(401).json({
-				error: new Error("User not found!"),
-			});
-		}
-		const valid = await bcrypt.compare(req.body.password, user.password);
-		if (!valid) {
-			return res.status(401).json({
-				error: new Error("Incorrect password!"),
-			});
-		}
-		const token = jwt.sign({userId: user._id, username: user.username, isVolunteer: user.isVolunteer}, process.env.TOKEN, {expiresIn: "24h"});
-		// res.cookie("nToken", token, {maxAge: 900000, httpOnly: true});
-		res.status(200).json({
-			userId: user._id,
-			token: token,
-			isVolunteer: user.isVolunteer,
-			username: user.username
-		});
-	} catch (error) {
-		res.status(500).json({
-			error: error,
-		});
-	}
-};
+exports.login = (req, res, next) => {
+    User.findOne({ email: req.body.email }).then(
+    (user) => {
+        if (!user) {
+          return res.status(401).json({
+            error: new Error('User not found!')
+          });
+          }
+          bcrypt.compare(req.body.password, user.password).then(
+            (valid) => {
+              if (!valid) {
+                return res.status(401).json({
+                  error: new Error('Incorrect password!')
+                  });
+                }
+				
+              const token = jwt.sign(
+                { userId: user._id },
+                process.env.TOKEN,
+                { expiresIn: '24h' });
+              res.status(200).json({
+                userId: user._id,
+                token: token
+                });
+              }
+            ).catch(
+              (error) => {
+                res.status(500).json({
+                  error: error
+                });
+              }
+            );
+          }
+        ).catch(
+          (error) => {
+            res.status(500).json({
+              error: error
+            });
+          }
+        );
+      }
+
+// // login
+// exports.login = async (req, res, next) => {
+// 	try {
+// 		const user = await User.findOne({email: req.body.email});
+// 		if (!user) {
+// 			return res.status(401).json({
+// 				error: new Error("User not found!"),
+// 			});
+// 		}
+// 		const valid = await bcrypt.compare(req.body.password, user.password);
+// 		if (!valid) {
+// 			return res.status(401).json({
+// 				error: new Error("Incorrect password!"),
+// 			});
+// 		}
+// 		const token = jwt.sign({userId: user._id}, process.env.TOKEN, {expiresIn: "24h"});
+// 		// res.cookie("nToken", token, {maxAge: 900000, httpOnly: true});
+// 		res.status(200).json({
+// 			userId: user._id,
+// 			token: token,
+// 			// isVolunteer: user.isVolunteer,
+// 			// username: user.username
+// 		});
+// 	} catch (error) {
+// 		res.status(500).json({
+// 			error: error,
+// 		});
+// 	}
+// };
 
 // logout
 exports.logout = async (req, res) => {
