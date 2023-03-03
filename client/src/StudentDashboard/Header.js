@@ -35,16 +35,10 @@ const Header = () => {
                 About
               </Link>
             </li>
-            <li>
-              <Link className="link" to="/menu">
-                Main Menu
-              </Link>
-            </li>
+           
 
-            {/* <Link className="link" to="/main-menu">
-              Main-Menu
-            </Link>
-             */}
+          
+             
           </ul>
         </div>
       </div>
