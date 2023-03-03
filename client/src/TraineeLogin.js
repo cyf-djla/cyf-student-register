@@ -11,8 +11,10 @@ const handleShowLogin = () => {
   return (
     <main className="trainee-login-page">
       {showLogin ? <Login /> : <Register />}
-      <button className="signup__btn" onClick={handleShowLogin}>
-        {showLogin ? "Sign up" : "Login"}
+      <button className="login__button" onClick={handleShowLogin}>
+        {showLogin ? "Register" : "Login"}
+      //<button className="signup__btn" onClick={handleShowLogin}>
+       //{showLogin ? "Sign up" : "Login"}
       </button>
     </main>
   );
