@@ -10,6 +10,11 @@ import LoginTime from "./LoginTime";
 import LogoutTime from "./LogoutTime";
 const Layout = ({ children }) => {
 
+  const userId = localStorage.getItem("userId");
+const isVolunteer = localStorage.getItem("isVolunteer");
+const username = localStorage.getItem("username");
+
+
   const [classes, setClasses] = useState([]);
 
   useEffect(() => {

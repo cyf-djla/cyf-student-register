@@ -48,7 +48,10 @@ const Login = () => {
 			})
 			.then((data) => {
 				if (isMounted) {
-					localStorage.setItem("token", data.token, "userId", data.userId, "isVolunteer", data.isVolunteer, "username", data.username);
+					localStorage.setItem("token", data.token);
+					localStorage.setItem("userId", data.userId);
+					localStorage.setItem("isVolunteer", data.isVolunteer);
+					localStorage.setItem("username", data.username);
 					console.log(data.token, data.userId, data.isVolunteer, data.username);
 					navigate("/Layout");
 					setPassword("");
