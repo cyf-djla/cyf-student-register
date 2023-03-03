@@ -41,12 +41,13 @@ exports.login = async (req, res, next) => {
 				error: new Error("Incorrect password!"),
 			});
 		}
-		const token = jwt.sign({userId: user._id, isVolunteer: user.isVolunteer}, process.env.TOKEN, {expiresIn: "24h"});
-		res.cookie("nToken", token, {maxAge: 900000, httpOnly: true});
+		const token = jwt.sign({userId: user._id, username: user.username, isVolunteer: user.isVolunteer}, process.env.TOKEN, {expiresIn: "24h"});
+		// res.cookie("nToken", token, {maxAge: 900000, httpOnly: true});
 		res.status(200).json({
 			userId: user._id,
 			token: token,
 			isVolunteer: user.isVolunteer,
+			username: user.username
 		});
 	} catch (error) {
 		res.status(500).json({
