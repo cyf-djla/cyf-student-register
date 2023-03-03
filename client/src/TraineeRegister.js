@@ -14,7 +14,7 @@ const TraineeRegister = () => {
       <main className="App">
         {!showLogin ? <Login /> : <Register />}
         <button className="login__button" onClick={handleShowLogin}>
-          {!showLogin ? "Login" : "Sign up"}
+          {!showLogin ? "Login" : "Register"}
         </button>
       </main>
     );
