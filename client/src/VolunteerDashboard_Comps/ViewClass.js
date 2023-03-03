@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "C:/Users/Dewayne/Documents/CYF/cyf-student-register/client/src/index.css"
 const ViewClass = () => {
   const navigate = useNavigate();
   function handleClick() {

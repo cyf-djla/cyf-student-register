@@ -4,7 +4,7 @@ import VolunteerDetail from "./VolunteerDashboard_Comps/VolunteerDetail";
 import DisplayTime from "./StudentDashboard/DisplayTime";
 import Modules from "./StudentDashboard/DropdownMenu";
 import ViewClass from "./VolunteerDashboard_Comps/ViewClass.js";
-import "C:/Users/Dewayne/Documents/CYF/cyf-student-register/client/src/index.css"
+import "./index.css"
 const VolunteerDashboard = ({ children }) => {
 
   const [classes, setClasses] = useState([]);
