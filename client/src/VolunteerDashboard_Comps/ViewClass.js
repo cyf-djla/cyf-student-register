@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./ViewClass.css";
+import "C:/Users/Dewayne/Documents/CYF/cyf-student-register/client/src/index.css"
 const ViewClass = () => {
   const navigate = useNavigate();
   function handleClick() {
@@ -8,7 +8,7 @@ const ViewClass = () => {
   }
   return (
     <div className="buttons">
-      <button className="view_class" onClick={handleClick}>
+      <button className="login__button" onClick={handleClick}>
         View Class
       </button>
     </div>
