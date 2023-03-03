@@ -7,11 +7,6 @@ import About from "./StudentDashboard/About";
 import GoodBye from "./StudentDashboard/GoodBye";
 import TraineeRegister from './TraineeRegister';
 
-import MainMenu from './MainMenu';
-import VolunteerDashboard from "./VolunteerDashboard";
-import VolunteerMenu from './VolunteerMenu';
-import VolunteerRegister from './VolunteerRegister';
-import VolunteerLogin from './VolunteerLogin';
 import "./index.css";
 
 
@@ -24,9 +19,6 @@ function App() {
 
       <Route path="/about" element={<About />} />
 
-      {/* <Route path="/" element={<TraineeLogin />} />
-      <Route path="/Layout" element={<Layout />} /> */}
-
         <Route path="/TraineeRegister" element={<TraineeRegister />} /> 
         <Route path="/TraineeLogin" element={<TraineeLogin />} /> 
         <Route path="/VolunteerMenu" element={<VolunteerMenu />} /> 
@@ -35,6 +27,7 @@ function App() {
         <Route path="/Layout" element={<Layout />} /> 
         <Route path="/" element={<MainMenu/>} /> 
         <Route path="/VolunteerDashboard" element={<VolunteerDashboard/>} />
+
       </Routes>
   );
 }

@@ -7,6 +7,9 @@ import Header from "./StudentDashboard/Header";
 import {Route, Routes} from "react-router-dom";
 
 const Login = () => {
+
+
+  
 	const userRef = useRef();
 	const errRef = useRef();
 
@@ -87,11 +90,11 @@ const Login = () => {
 
 					<label htmlFor='password'>Password:</label>
 					<input type='password' id='password' onChange={(e) => setPassword(e.target.value)} value={password} required />
-					{/* <Link to="/Layout"> */}
+		
 					<button className='login__button' type='submit' onClick={handleSubmit}>
 						Sign In
 					</button>
-					{/* </Link> */}
+					
 					{errorMessage && <p className='error'>{errorMessage}</p>}
 				</form>
 				<p>
