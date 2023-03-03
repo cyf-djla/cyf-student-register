@@ -157,11 +157,16 @@ display: none;
   align-items: center;
   flex-direction: column;
 }
-.background-wrapper{
+.background-wrapper b{
   background-image: url("./Images/Intro-to-Coding\ 1.svg");
 background-size: cover;
 background-repeat: no-repeat;
+  padding: 70px 42px;
 
+
+}
+.background-wrapper {
+  margin-top: 50px;
 }
 
 
@@ -176,6 +181,12 @@ background-repeat: no-repeat;
   margin: 1rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+}
+.buttons-container{
+  margin-top: -300px;
+  border-right: solid 1px rgb(200, 197, 197);
+  border-left: solid 1px rgb(200, 197, 197);
+  padding: 20px;    
 }
 
 .massive-red-button:hover {
