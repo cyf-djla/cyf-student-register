@@ -31,7 +31,9 @@ app.use((req, res, next) => {
 	next();
 });
 
-mongoose
+const connectToDB = async()=>{
+  mongoose.set("strictQuery", false);
+await mongoose
 	.connect("mongodb+srv://" + process.env.MONGO_USERNAME + ":" + process.env.MONGO_PASSWORD + "@" + process.env.MONGO_HOST + "/" + process.env.MONGO_DATABASE_NAME)
 	.then(() => {
 		console.log("Successfully connected to MongoDB Atlas!");
@@ -40,6 +42,8 @@ mongoose
 		console.log("Unable to connect to MongoDB Atlas!");
 		console.error(error);
 	});
+}
+connectToDB()
 
 app.use((req, res, next) => {
 
