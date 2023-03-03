@@ -21,8 +21,17 @@ body{
    padding:0 35%;
     margin: 0 auto;
     align-items: center;
+
   } 
-  .good__bye{
+  .login__class{
+    margin-bottom: 130px;
+    margin-top: 100px;
+  }
+  .logout__class{
+    margin-bottom: 130px;
+     margin-top: 100px;
+  }
+    .good__bye{
     font-size: 25px;
     font-weight: bold;
     font-family: cormorant;

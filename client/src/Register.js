@@ -139,7 +139,7 @@ const Register = () => {
             {errMsg}
           </p>
           <h1>
-            <b>#We are here</b>
+            <b className="mobile__title">#We are here</b>
           </h1>
           <br />
           <p className="title-bh1">

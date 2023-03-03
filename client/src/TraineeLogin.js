@@ -9,10 +9,12 @@ const handleShowLogin = () => {
   setShowLogin((prevShowLogin) => !prevShowLogin);
 };
   return (
-    <main className="App">
+    <main className="trainee-login-page">
       {showLogin ? <Login /> : <Register />}
       <button className="login__button" onClick={handleShowLogin}>
         {showLogin ? "Register" : "Login"}
+      //<button className="signup__btn" onClick={handleShowLogin}>
+       //{showLogin ? "Sign up" : "Login"}
       </button>
     </main>
   );
