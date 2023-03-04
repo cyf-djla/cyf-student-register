@@ -6,24 +6,20 @@ import moment from "moment";
 import {useNavigate} from "react-router-dom";
 import "./LoginAndOutClass.css";
 
-	
-
 const Modules = ({classes}) => {
 	const navigate = useNavigate();
-	function handleClick() {
-		setLogintime(moment(currentdateandtime).format("h:mm a on MMMM Do YY"));
-	}
 
-  function handleLogout() {
-		setLogouttime(moment(currentdateandtime).format("h:mm a on MMMM Do YY"));
-	}
-  // value={`${moment(date).format("DD/MM/YY")}
-  const currentdateandtime = Date.now()
-  const [logintime, setLogintime] = useState('--:-- on --/--/-----')
-  const [logouttime, setLogouttime] = useState('--:-- on --/--/-----')
+	
+	// value={`${moment(date).format("DD/MM/YY")}
+	const currentdateandtime = Date.now();
+	const [logintime, setLogintime] = useState("--:-- on --/--/-----");
+	const [logouttime, setLogouttime] = useState("--:-- on --/--/-----");
 	const [selectedModule, setSelectedModule] = useState("");
 	const [startDateTime, setStartDateTime] = useState("");
-	const[date,setDate] = useState("")
+	const [date, setDate] = useState("");
+	const [classid, setClassid] = useState("");
+	const userId = localStorage.getItem('userId')
+	const username = localStorage.getItem('username')
 
 	// function handleOptionChange(event) {
 	// setSelectedOption(event.target.value);
@@ -35,10 +31,32 @@ const Modules = ({classes}) => {
 		const newclass = classes.find((m) => m.name === selectedModule);
 		if (newclass) {
 			setStartDateTime(newclass.time);
-			setDate(newclass.date)
+			setDate(newclass.date);
+			setClassid(newclass._id)
 		} else {
 			setStartDateTime("");
 		}
+	}
+
+	
+
+	
+			
+
+	function handleLogin() {
+		fetch(`https://cyf-student-register.onrender.com/api/classes/classsignin/${classid}`, {
+			method: "post",
+			headers: {
+				"Content-type": "application/json",
+			},
+			body: JSON.stringify({userId, username}),
+		})
+		setLogintime(moment(currentdateandtime).format("h:mm a on MMMM Do YY"));
+		console.log({userId, username, classid})
+	}
+
+	function handleLogout() {
+		setLogouttime(moment(currentdateandtime).format("h:mm a on MMMM Do YY"));
 	}
 
 	return (
@@ -62,37 +80,37 @@ const Modules = ({classes}) => {
 			<select id='module' value={selectedModule} onChange={handleModuleChange}>
 				<option value=''>-- Please select a module --</option>
 				{classes.map((newclass) => (
-					<option key={newclass.name} value={newclass.name}>
+					<option key={newclass._id} >
 						{newclass.name}
 					</option>
 				))}
 			</select>
 			{startDateTime && (
-				<div>
+				<div >
 					<label htmlFor='startDateTime'>Scheduled start time/date:</label>
 					<input type='text' id='startDateTime' placeholder='Starting date and time' value={`${moment(date).format("DD/MM/YY")} ${startDateTime}`} readOnly />
 				</div>
 			)}
+			<div>
 				<div>
-			<div>
-				<label> Login time / date</label>
-				<input value={logintime}/>
+					<label> Login time / date</label>
+					<input value={logintime} />
+				</div>
+				<div>
+					<label> Log out time / date</label>
+					<input value={logouttime} />
+				</div>
+				<div className='buttons'>
+					<button className='login__class' value={classid} onClick={handleLogin}>
+						Log in class
+					</button>
+					<button className='logout__class' onClick={handleLogout}>
+						Log out class
+					</button>
+				</div>
 			</div>
-			<div>
-				<label> Log out time / date</label>
-				<input value={logouttime} />
-			</div>
-			<div className='buttons'>
-				<button className='login__class' onClick={handleClick}>
-					Log in class
-				</button>
-				<button className='logout__class' onClick={handleLogout}>
-					Log out class
-				</button>
-			</div>
-		</div>
 		</div>
 	);
 };
 
-export default Modules;
+export default Modules;     
