@@ -2,10 +2,11 @@ import React from "react";
 
 const LoginTime = () => {
   return (
-    <div>
-      <label> Login time / date</label>
-      <input placeholder="--:-- on --/--/-----" />
-    </div>
+    <div></div>
+    // <div>
+    //   <label> Login time / date</label>
+    //   <input placeholder="--:-- on --/--/-----" />
+    // </div>
   );
 };
 
