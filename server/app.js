@@ -2,7 +2,7 @@ const axios = require('axios');
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require("path");
-const helmet = require("helmet");
+// const helmet = require("helmet");
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const cors = require("cors");
@@ -13,7 +13,7 @@ dotenv.config();
 const app = express();
 
 app.use(cookieParser())
-app.use(helmet());
+// app.use(helmet());
 
 app.use(bodyParser.json());
 
@@ -21,15 +21,15 @@ app.use(bodyParser.json());
 const userRoutes = require('./routes/user');
 const classRoutes = require("./routes/class");
 
-var corsOptions = {
-	origin: "http://localhost:3000",
-};
-app.use(cors(corsOptions));
+// var corsOptions = {
+// 	origin: "http://localhost:3000",
+// };
+// app.use(cors(corsOptions));
 
-app.use((req, res, next) => {
-	res.removeHeader("Cross-Origin-Embedder-Policy");
-	next();
-});
+// app.use((req, res, next) => {
+// 	res.removeHeader("Cross-Origin-Embedder-Policy");
+// 	next();
+// });
 
 const connectToDB = async()=>{
   mongoose.set("strictQuery", false);
@@ -52,6 +52,8 @@ app.use((req, res, next) => {
 	res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, PATCH, OPTIONS");
 	next();
 });
+
+
 
 
 
