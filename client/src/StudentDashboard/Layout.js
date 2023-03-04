@@ -10,11 +10,6 @@ import LoginTime from "./LoginTime";
 import LogoutTime from "./LogoutTime";
 const Layout = ({ children }) => {
 
-  const userId = localStorage.getItem("userId");
-const isVolunteer = localStorage.getItem("isVolunteer");
-const username = localStorage.getItem("username");
-
-
   const [classes, setClasses] = useState([]);
 
   useEffect(() => {
@@ -26,7 +21,7 @@ const username = localStorage.getItem("username");
   // }, [classes]);
 
   function fetchClasses() {
-    fetch("http://127.0.0.1:4200/api/classes")
+    fetch("https://cyf-student-register.onrender.com/api/classes")
     .then((res) => res.json())
     .then((data) => setClasses(data))
     .catch((error) => console.log(error))
