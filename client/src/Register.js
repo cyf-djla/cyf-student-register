@@ -311,10 +311,10 @@ const Register = () => {
               Sign Up
             </button>
           </form>
-          <p>
+          <p className = "bottom-description">
             Already registered?
             <br />
-            <i>Click on the button below to sign in </i>
+            <i>Click on the Menu at the top right to return to the home page</i>
           </p>
         </section>
       )}

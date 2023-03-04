@@ -81,9 +81,11 @@ const Login = () => {
 					<b>#We are here</b>
 				</h1>
 				<br />
+				<div className = 'title-bh1'>
 				<p className='title-bh1'>
 					<u>Trainee Login</u>
 				</p>
+				</div>
 				<form>
 					<label htmlFor='email'>Email:</label>
 					<input type='email' id='email' ref={userRef} autoComplete='off' onChange={(e) => setEmail(e.target.value)} value={email} required />
@@ -97,10 +99,10 @@ const Login = () => {
 					
 					{errorMessage && <p className='error'>{errorMessage}</p>}
 				</form>
-				<p>
+				<p className= "bottom-description">
 					Need an Account?
 					<br />
-					<i>Click on the button below to sign up</i>
+					<i>Click on the Menu at the top right to return to the home page </i>
 				</p>
 			</section>
 		</>

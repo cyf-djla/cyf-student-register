@@ -20,7 +20,7 @@ function Menu() {
               Trainee Login
             </NavLink>
             <NavLink to="/Register" className="massive-red-button">
-              Trainee Sign-up
+              Trainee Register
             </NavLink>
             <NavLink to="/VolunteerMenu" className="massive-red-button">
               Volunteer
