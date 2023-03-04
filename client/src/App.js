@@ -2,10 +2,10 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Layout from "./StudentDashboard/Layout";
-import TraineeLogin from "./TraineeLogin";
+import Login from "./Login";
 import About from "./StudentDashboard/About";
 import GoodBye from "./StudentDashboard/GoodBye";
-import TraineeRegister from "./TraineeRegister";
+import Register from "./Register";
 import MainMenu from "./MainMenu";
 import VolunteerDashboard from "./VolunteerDashboard";
 import VolunteerMenu from "./VolunteerMenu";
@@ -22,8 +22,8 @@ function App() {
       <Route path="/about" element={<About />} />
       {/* <Route path="/" element={<TraineeLogin />} />
       <Route path="/Layout" element={<Layout />} /> */}
-      <Route path="/TraineeRegister" element={<TraineeRegister />} />
-      <Route path="/TraineeLogin" element={<TraineeLogin />} />
+      <Route path="/Register" element={<Register />} />
+      <Route path="/Login" element={<Login />} />
       <Route path="/VolunteerMenu" element={<VolunteerMenu />} />
       <Route path="/VolunteerRegister" element={<VolunteerRegister />} />
       <Route path="/VolunteerLogin" element={<VolunteerLogin />} />

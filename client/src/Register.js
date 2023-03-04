@@ -92,7 +92,7 @@ const Register = () => {
 			isVolunteer: false,
 		};
 
-		fetch("https://cyf-student-register.onrender.com/api/auth/signup", {
+		fetch("http://127.0.0.1:4200/api/auth/signup", {
 			method: "post",
 			headers: {
 				"Content-type": "application/json",

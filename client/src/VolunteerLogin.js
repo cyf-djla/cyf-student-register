@@ -102,7 +102,7 @@ const VolunteerLogin = () => {
           />
           <button className="login__button">Sign In</button>
         </form>
-        <p>
+        <p className = "bottom-description">
           Need an Account?
           <br />
           <i>Click on the Menu at the top right to return to the home page</i>
