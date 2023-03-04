@@ -163,6 +163,7 @@ display: none;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 30px;
 }
 .background-wrapper b{
   background-image: url("./Images/Intro-to-Coding\ 1.svg");
@@ -180,16 +181,20 @@ background-repeat: no-repeat;
 
 
 .massive-red-button {
-  font-size: 2rem;
+  font-size: 20px;
   text-align: center;
   padding: 1rem 2rem;
   background-color: #d12f2f;
   color: rgb(248, 242, 242);
   border: none;
-  border-radius: 1rem;
-  margin: 1rem;
+  border-radius: 10px;
+  margin-bottom: 47.5px;
+  text-align: center;
+  width: 9rem;
+  height: 5.5rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  z-index: 1;
 }
 .buttons-container{
   margin-top: -300px;
@@ -213,8 +218,9 @@ background-repeat: no-repeat;
 .buttons-container{
   display: flex;
   flex-direction: row;
-  margin-bottom: -300px;
-    gap: 40px;
+  margin-bottom: -20px;
+  gap: 40px;
+
 }
 /* .desktop__title{
   display: none;
@@ -226,7 +232,7 @@ background-repeat: no-repeat;
   margin-top: 8rem;
 }
 .massive-red-button {
-  font-size: 2rem;
+  font-size: 20px;
   text-align: center;
   padding: 1rem 2rem;
   background-color: #d12f2f;
@@ -237,6 +243,7 @@ background-repeat: no-repeat;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
+
 
 .massive-red-button:hover {
   transform: scale(1.1);
@@ -306,6 +313,7 @@ margin: 0 auto;
 h1 {
   text-align: center;
   font-weight: 900;
+  text-align: center;
 }
 
  /* section {
@@ -344,12 +352,18 @@ textarea {
   font-size: 22px;
   padding: 0.25rem;
   border-radius: 0.5rem;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }
 #dropdown {
   font-family: "Nunito", sans-serif;
   font-size: 22px;
   padding: 0.25rem;
   border-radius: 0.5rem;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }
 label,
 button {
@@ -371,17 +385,19 @@ button {
 }
 
 .login__button {
-  margin:30px;
-  padding: 0.5rem;
   background-color: #d12f2f;
-  /* align-self: center; */
-  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin: auto;
+  margin-top: 40px; 
 }
 .title-bh1 {
   justify-content: center;
-  align-self: center;
   font-weight: 700;
+  text-align: center;
   font-size: 30px;
+  padding: 20px;
 }
 .sign-up-button {
   background-color: #d12f2f;
@@ -470,6 +486,12 @@ button {
  
 
   }
+
+  .bottom-description{
+    text-align: center;
+    margin: auto;
+    padding: 20px; 
+  }
   .about__us h1{
   margin-top: -250px;
   margin-bottom: ;
@@ -520,6 +542,5 @@ button {
      
 
 }
- 
  
 

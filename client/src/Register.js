@@ -241,16 +241,93 @@ const Register = () => {
 								Sign Up
 							</button>
 
-							<p>
-								Already registered?
-								<br />
-								<i>Click on the button below to sign in </i>
-							</p>
-						</div>
-					</form>
-				</section>
-			)}
-		</>
-	);
+
+            <label htmlFor="password">
+              Password:
+              <FontAwesomeIcon
+                icon={faCheck}
+                className={validPassword ? "valid" : "hide"}
+              />
+              <FontAwesomeIcon
+                icon={faTimes}
+                className={validPassword || !password ? "hide" : "invalid"}
+              />
+            </label>
+            <input
+              type="password"
+              id="password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              required
+              aria-invalid={validPassword ? "false" : "true"}
+              aria-describedby="pwdnote"
+              onFocus={() => setPasswordFocus(true)}
+              onBlur={() => setPasswordFocus(false)}
+            />
+            <p
+              id="pwdnote"
+              className={passwordFocus && !validPassword ? "instructions" : "offscreen"}
+            >
+              <FontAwesomeIcon icon={faInfoCircle} />
+              8 to 24 characters.
+              <br />
+              Must include uppercase and lowercase letters, a number and a
+              special character.
+              <br />
+              Allowed special characters:{" "}
+              <span aria-label="exclamation mark">!</span>{" "}
+              <span aria-label="at symbol">@</span>{" "}
+              <span aria-label="hashtag">#</span>{" "}
+              <span aria-label="dollar sign">$</span>{" "}
+              <span aria-label="percent">%</span>
+            </p>
+            <label htmlFor="confirm_pwd">
+              Confirm Password:
+              <FontAwesomeIcon
+                icon={faCheck}
+                className={validMatch && matchPassword ? "valid" : "hide"}
+              />
+              <FontAwesomeIcon
+                icon={faTimes}
+                className={validMatch || !matchPassword? "hide" : "invalid"}
+              />
+            </label>
+            <input
+              type="password"
+              id="confirm_pwd"
+              onChange={(e) => setMatchPassword(e.target.value)}
+              value={matchPassword}
+              required
+              aria-invalid={validMatch ? "false" : "true"}
+              aria-describedby="confirmnote"
+              onFocus={() => setMatchFocus(true)}
+              onBlur={() => setMatchFocus(false)}
+            />
+            <p
+              id="confirmnote"
+              className={
+                matchFocus && !validMatch ? "instructions" : "offscreen"
+              }
+            >
+              <FontAwesomeIcon icon={faInfoCircle} />
+              Must match the first password input field.
+            </p>
+
+            <button onClick={handleSubmit} type='submit'
+              className="login__button"
+              disabled={!validuserName || !validPassword || !validMatch ? true : false}
+            >
+              Sign Up
+            </button>
+          </form>
+          <p className = "bottom-description">
+            Already registered?
+            <br />
+            <i>Click on the Menu at the top right to return to the home page</i>
+          </p>
+        </section>
+      )}
+    </>
+  );
 };
 export default Register;
