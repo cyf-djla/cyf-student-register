@@ -44,18 +44,34 @@ const Modules = ({classes}) => {
 			
 
 	function handleLogin() {
-		fetch(`https://cyf-student-register.onrender.com/api/classes/classsignin/${classid}`, {
+
+		const newUser = {
+			username,
+			logintime: currentdateandtime
+		};
+		fetch(`http://127.0.0.1:4200/api/classes/classsignin/${classid}`, {
 			method: "post",
 			headers: {
 				"Content-type": "application/json",
 			},
-			body: JSON.stringify({userId, username}),
+			body: JSON.stringify(newUser),
 		})
 		setLogintime(moment(currentdateandtime).format("h:mm a on MMMM Do YY"));
 		console.log({userId, username, classid})
 	}
 
 	function handleLogout() {
+		const newUser = {
+			username,
+			logouttime: currentdateandtime
+		};
+		fetch(`https://cyf-student-register.onrender.com/api/classes/classsignout/${classid}`, {
+			method: "post",
+			headers: {
+				"Content-type": "application/json",
+			},
+			body: JSON.stringify(newUser),
+		})
 		setLogouttime(moment(currentdateandtime).format("h:mm a on MMMM Do YY"));
 	}
 
@@ -101,7 +117,7 @@ const Modules = ({classes}) => {
 					<input value={logouttime} />
 				</div>
 				<div className='buttons'>
-					<button className='login__class' value={classid} onClick={handleLogin}>
+					<button className='login__class'onClick={handleLogin}>
 						Log in class
 					</button>
 					<button className='logout__class' onClick={handleLogout}>
