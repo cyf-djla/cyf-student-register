@@ -1,14 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.e1136e04.css",
-    "main.js": "/static/js/main.5673872d.js",
-    "static/media/Intro-to-Coding 1.svg": "/static/media/Intro-to-Coding 1.173eeb4cc0144e090eef.svg",
+    "main.css": "/static/css/main.1b26c7c4.css",
+    "main.js": "/static/js/main.5e8d1a19.js",
+    "static/media/Intro-to-Coding 2.svg": "/static/media/Intro-to-Coding 2.a8497e76554940695e34.svg",
+    "static/media/Intro-to-Coding 1.svg": "/static/media/Intro-to-Coding 1.5b3ff2200aa26151b2ab.svg",
     "index.html": "/index.html",
-    "main.e1136e04.css.map": "/static/css/main.e1136e04.css.map",
-    "main.5673872d.js.map": "/static/js/main.5673872d.js.map"
+    "main.1b26c7c4.css.map": "/static/css/main.1b26c7c4.css.map",
+    "main.5e8d1a19.js.map": "/static/js/main.5e8d1a19.js.map"
   },
   "entrypoints": [
-    "static/css/main.e1136e04.css",
-    "static/js/main.5673872d.js"
+    "static/css/main.1b26c7c4.css",
+    "static/js/main.5e8d1a19.js"
   ]
 }
