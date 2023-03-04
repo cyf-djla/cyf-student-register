@@ -161,7 +161,9 @@ display: none;
   background-image: url("./Images/Intro-to-Coding\ 1.svg");
 background-size: cover;
 background-repeat: no-repeat;
-  padding: 70px 42px;
+  padding: 20% 10%;
+  background-size: 420px;
+  
 
 
 }
