@@ -24,11 +24,11 @@ const Layout = ({ children }) => {
     .catch((error) => console.log(error))
   }
   return (
-    <div>
+    <div className="layout">
       <Header />
 
       {children}
-      <div className="body">
+      <div className="layout__body">
         <StudentDetail />
         <DisplayTime />
         <Modules classes={classes}/>

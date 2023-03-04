@@ -1,4 +1,4 @@
-body{
+.layout__body{
     max-width: 420px;
     margin: 0 auto;
     border-right: solid 2px rgb(226, 213, 213);
@@ -6,17 +6,26 @@ body{
     border-left: solid 2px rgb(226, 213, 213);
 }
 @media (min-width:420px){
-    body{
-     max-width: none;
-    }
-  .body{
-    background-image: url("../Images/Intro-to-Coding\ 1.svg");
-    background-size: cover;
-    repeat:no-repeat;
+  
+  .layout__body{
+
+background-color: white;
+margin-top: 80px;
+
+
+
+
 
    
- 
-  }
+}
+.layout{
+
+      background-image: url("../Images/Intro-to-Coding\ 1.svg");
+    background-size: cover;
+    background-repeat:no-repeat;
+  
+
+}
   .dashBoard__components{
    padding:0 35%;
     margin: 0 auto;
