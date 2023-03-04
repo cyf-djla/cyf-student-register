@@ -4,6 +4,14 @@ const About = () => {
   return (
     <div>
       <Header />
+      <div className="about__hero">
+        {/* <img
+          src=".src/Images/Intro-to-Coding2.svg"
+          className="about__hero-image"
+          alt="hero"
+        /> */}
+        <h1 className="mobile__title">#We are here </h1>
+      </div>
       <div className="about__us">
         <h1>About Us</h1>
         <p>
@@ -11,8 +19,9 @@ const About = () => {
           punctuality and behavior during classes. This allows volunteers to
           provide the best possible service for trainees, with expense and
           teaching support, and mentorship.
-          <br/>
-          <br /> OUR MISSION:
+          <br />
+          <br />
+          <b> OUR MISSION:</b>
           <br /> Our vision is an application that'll allow students to
           digitally log into classes via mobile or laptop device easily and
           efficiently. Their participation then stored to a database, accessed
