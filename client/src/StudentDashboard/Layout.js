@@ -5,15 +5,10 @@ import "./Layout.css";
 import StudentDetail from "./StudentDetail";
 import DisplayTime from "./DisplayTime";
 import Modules from "./DropdownMenu";
-import LoginAndOutClass from "./LoginAndOutClass";
-import LoginTime from "./LoginTime";
-import LogoutTime from "./LogoutTime";
+// import LoginAndOutClass from "./LoginAndOutClass";
+// import LoginTime from "./LoginTime";
+// import LogoutTime from "./LogoutTime";
 const Layout = ({ children }) => {
-
-  const userId = localStorage.getItem("userId");
-const isVolunteer = localStorage.getItem("isVolunteer");
-const username = localStorage.getItem("username");
-
 
   const [classes, setClasses] = useState([]);
 
@@ -21,12 +16,9 @@ const username = localStorage.getItem("username");
     fetchClasses();
   },[classes])
 
-  // useEffect(() =>{
-  //   console.log(classes);
-  // }, [classes]);
-
+ 
   function fetchClasses() {
-    fetch("http://127.0.0.1:4200/api/classes")
+    fetch("https://cyf-student-register.onrender.com/api/classes")
     .then((res) => res.json())
     .then((data) => setClasses(data))
     .catch((error) => console.log(error))
@@ -40,9 +32,9 @@ const username = localStorage.getItem("username");
         <StudentDetail />
         <DisplayTime />
         <Modules classes={classes}/>
-        <LoginTime classes={classes}/>
+        {/* <LoginTime classes={classes}/>
         <LogoutTime classes={classes}/>
-        <LoginAndOutClass classes={classes}/>
+        <LoginAndOutClass classes={classes}/> */}
 
       </div>
     </div>

@@ -35,7 +35,7 @@ const Login = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		fetch("http://127.0.0.1:4200/api/auth/login", {
+		fetch("https://cyf-student-register.onrender.com/api/auth/login", {
 			method: "post",
 			headers: {
 				"Content-type": "application/json",

@@ -25,9 +25,11 @@ body {
     align-items: center;
     box-shadow: 0 4px rgba(0, 0, 0, 0.25);
   }
+  
   .logo {
     height: 60px;
     width: 160px;
+    margin-left: 20px;
   }
   .menu__icon {
     display: block;
@@ -81,6 +83,7 @@ body {
 
   @media (min-width:420px){
       .header {
+        padding:20px;
     height: 130px;
     background-color: #efefef;
     display: flex;
@@ -91,6 +94,10 @@ body {
      .logo {
     height: 110px;
     width: 300px;
+  }
+
+  .header h1{
+    margin-bottom: -27px;
   }
 
     /* .mobile__title{
@@ -158,11 +165,18 @@ display: none;
   flex-direction: column;
   margin-bottom: 30px;
 }
-.background-wrapper{
+.background-wrapper b{
   background-image: url("./Images/Intro-to-Coding\ 1.svg");
 background-size: cover;
 background-repeat: no-repeat;
+  padding: 20% 10%;
+  background-size: 420px;
+  
 
+
+}
+.background-wrapper {
+  margin-top: 50px;
 }
 
 
@@ -181,6 +195,12 @@ background-repeat: no-repeat;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   z-index: 1;
+}
+.buttons-container{
+  margin-top: -300px;
+  border-right: solid 1px rgb(200, 197, 197);
+  border-left: solid 1px rgb(200, 197, 197);
+  padding: 20px;    
 }
 
 .massive-red-button:hover {
@@ -291,6 +311,7 @@ margin: 0 auto;
 
 
 h1 {
+  text-align: center;
   font-weight: 900;
   text-align: center;
 }
@@ -348,6 +369,19 @@ label,
 button {
   margin-top: 1rem;
   color: black;
+}
+
+.title-bh1{
+  text-align: center;
+}
+
+
+.form_div{
+  padding:30px;
+  display:flex;
+  flex-direction: column;
+  margin:auto;
+  text-align: center;
 }
 
 .login__button {
@@ -440,14 +474,73 @@ button {
   padding: 45px 45px 45px 45px;
   position: relative;
 } */
+@media (min-width:419px){
   .about__us{
+
     background-image: url("./Images/Intro-to-Coding\ 1.svg");
-    background-size: cover;
+     background-size: cover; 
     background-repeat: no-repeat;
-  color: brown;
+  color: black;
+  font-weight: bolder;
+
+ 
+
   }
+
   .bottom-description{
     text-align: center;
     margin: auto;
     padding: 20px; 
   }
+  .about__us h1{
+  margin-top: -250px;
+  margin-bottom: ;
+  }
+  .about__us p{
+    margin-bottom: -150px;
+  }
+}
+@media (max-width:420px){
+    .about__us{
+ 
+  margin-top: -50px;
+  color: black;
+  font-weight: bolder;
+  text-align: center;
+  padding: 0 30px;
+ 
+  box-shadow: 0 4px rgba(8, 8, 8, 0.25);
+
+  }
+  .about__hero{
+      
+      
+    background-image: url("./Images/Intro-to-Coding\ 2.svg");
+
+  background-repeat: no-repeat;
+  height: 250px; 
+  width: 100%; 
+  margin: 0 auto;
+  }
+    /* .about__hero-image{
+      height: 60px;
+      width:100%;
+    } */
+    .about__hero h1{
+      margin: 0 auto;
+      padding-top: 50px;
+      
+    }
+     .about__us h1{
+      font-size:30px;
+     }
+
+      .about__us p{
+      font-size:20px;
+      margin-top: 30px;
+     }
+     
+
+}
+ 
+
