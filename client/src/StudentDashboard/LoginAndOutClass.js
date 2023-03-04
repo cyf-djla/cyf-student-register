@@ -17,7 +17,7 @@ const LoginAndOutClass = () => {
   const [logouttime, setLogouttime] = useState('--:-- on --/--/-----')
 	return (
 		<div>
-			<div>
+			{/* <div>
 				<label> Login time / date</label>
 				<input value={logintime}/>
 			</div>
@@ -32,7 +32,7 @@ const LoginAndOutClass = () => {
 				<button className='logout__class' onClick={handleLogout}>
 					Log out class
 				</button>
-			</div>
+			</div> */}
 		</div>
 	);
 };
