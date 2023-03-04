@@ -16,10 +16,10 @@ function Menu() {
         </h1>
         <div className="volunteer-menu-container">
           <div className="buttons-container">
-            <NavLink to="/TraineeLogin" className="massive-red-button">
+            <NavLink to="/Login" className="massive-red-button">
               Trainee Login
             </NavLink>
-            <NavLink to="/TraineeRegister" className="massive-red-button">
+            <NavLink to="/Register" className="massive-red-button">
               Trainee Sign-up
             </NavLink>
             <NavLink to="/VolunteerMenu" className="massive-red-button">
