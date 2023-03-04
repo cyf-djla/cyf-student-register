@@ -10,7 +10,7 @@ const StudentDetail = () => {
       <h2 className="mobile__title"># We are here</h2>
       <p>Trainee Dashboard</p>
       
-      <p>Hello! {username} (id:{userId})</p>
+      <p>Hello! {username} </p>
     </div>
   );
 };
