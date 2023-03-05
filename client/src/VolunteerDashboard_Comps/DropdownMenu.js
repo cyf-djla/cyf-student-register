@@ -42,8 +42,12 @@ const DropdownMenu = ({ classes }) => {
             value={`${moment(date).format("DD/MM/YY")} ${startDateTime}`}
             readOnly
           />
+          <div style={{ marginTop: "60px", marginBottom: "60px" }}>
           <ClassTable classId={selectedModule} />
+          </div>
+        
         </div>
+        
       )}
     </div>
   );
