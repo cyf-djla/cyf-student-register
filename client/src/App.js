@@ -13,6 +13,7 @@ import VolunteerMenu from './VolunteerMenu';
 import VolunteerRegister from './VolunteerRegister';
 import VolunteerLogin from './VolunteerLogin';
 import "./index.css";
+import VolunteerClassDashboard from "./ClassTable";
 
 
 
@@ -35,6 +36,7 @@ function App() {
         <Route path="/Layout" element={<Layout />} /> 
         <Route path="/" element={<MainMenu/>} /> 
         <Route path="/VolunteerDashboard" element={<VolunteerDashboard/>} />
+        <Route path="/VolunteerClassDashboard" element={<VolunteerClassDashboard />} /> 
       </Routes>
   );
 }

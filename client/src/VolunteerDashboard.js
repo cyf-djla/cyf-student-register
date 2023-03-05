@@ -3,8 +3,9 @@ import Header from "./StudentDashboard/Header.js";
 import VolunteerDetail from "./VolunteerDashboard_Comps/VolunteerDetail";
 import DisplayTime from "./StudentDashboard/DisplayTime";
 import Modules from "./StudentDashboard/DropdownMenu";
-import ViewClass from "./VolunteerDashboard_Comps/ViewClass.js";
 import "./index.css"
+import ClassTable from "./ClassTable.js"; 
+
 const VolunteerDashboard = ({ children }) => {
 
   const [classes, setClasses] = useState([]);
@@ -31,7 +32,7 @@ const VolunteerDashboard = ({ children }) => {
         <VolunteerDetail />
         <DisplayTime />
          <Modules classes={classes}/>
-         <ViewClass />
+          <ClassTable />
          
       </div>
     </div>
