@@ -4,15 +4,15 @@
     border-right: solid 2px rgb(226, 213, 213);
 
     border-left: solid 2px rgb(226, 213, 213);
+    text-align: center;
 }
 @media (min-width:420px){
   
   .layout__body{
 
 background-color: white;
-margin-top: 80px;
-
-
+margin-top: 60px;
+height:700px;
 
 
 
@@ -61,11 +61,16 @@ margin: 0 auto;
 padding: 20% 30%;
   }
   .student__detail{
-     margin-left: 20%; 
+     /* margin-left: 20%;  */
      
   }
   select, input{
-    margin-left: 5%;
+    /* margin-left: 5%; */
   }
 
+}
+
+.student__detail {
+  margin:0;
+  padding-top:20px;
 }

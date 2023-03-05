@@ -76,7 +76,7 @@ const Modules = ({classes}) => {
 	}
 
 	return (
-		<div>
+		<div className="dropdown_wrapper">
 			{/* <label>Select Module/Class:</label>
       <select
         id="dropdown"
@@ -116,7 +116,7 @@ const Modules = ({classes}) => {
 					<label> Log out time / date</label>
 					<input value={logouttime} />
 				</div>
-				<div className='buttons'>
+				<div className='dashboard_buttons'>
 					<button className='login__class'onClick={handleLogin}>
 						Log in class
 					</button>

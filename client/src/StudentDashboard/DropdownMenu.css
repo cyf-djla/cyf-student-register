@@ -6,6 +6,7 @@ label{
     select ,input {
         width: 90%;
         text-align: center;
+        margin: auto;
   padding: 8px;
   font-size: 16px;
 
@@ -33,3 +34,43 @@ label {
   font-weight: bold;
 
 }
+
+button {
+  padding: 8px 8px;
+
+  border-radius: 4px;
+  border: none;
+
+  color: #fff;
+  cursor: pointer;
+  margin-top: 40px;
+  width: 170px;
+}
+.dashboard_buttons {
+  display: flex;
+  height:150px;
+  justify-content: space-around;
+}
+.login__class {
+  background-color: green;
+  color: white;
+width:160px;
+  font-size: 20px;
+}
+.logout__class {
+  background-color: #DB514A;
+  font-size: 20px;
+  width:160px;
+}
+
+.dropdown_wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width:420px) {
+.dashboard_buttons{
+  height:80px;
+}
+  }
