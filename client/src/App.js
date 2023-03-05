@@ -6,6 +6,7 @@ import TraineeLogin from "./TraineeLogin";
 import About from "./StudentDashboard/About";
 import GoodBye from "./StudentDashboard/GoodBye";
 import TraineeRegister from './TraineeRegister';
+import ClassTable from "./VolunteerDashboard_Comps/ClassTable";
 
 import MainMenu from './MainMenu';
 import VolunteerDashboard from "./VolunteerDashboard";
@@ -13,7 +14,6 @@ import VolunteerMenu from './VolunteerMenu';
 import VolunteerRegister from './VolunteerRegister';
 import VolunteerLogin from './VolunteerLogin';
 import "./index.css";
-import VolunteerClassDashboard from "./ClassTable";
 
 
 
@@ -36,7 +36,8 @@ function App() {
         <Route path="/Layout" element={<Layout />} /> 
         <Route path="/" element={<MainMenu/>} /> 
         <Route path="/VolunteerDashboard" element={<VolunteerDashboard/>} />
-        <Route path="/VolunteerClassDashboard" element={<VolunteerClassDashboard />} /> 
+        <Route path="/VolunteerDashboard_comps/ClassTable" element={<ClassTable />} />
+        
       </Routes>
   );
 }

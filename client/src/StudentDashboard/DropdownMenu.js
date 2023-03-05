@@ -3,7 +3,7 @@ import "./DropdownMenu.css";
 import moment from "moment";
 // import modules from "./ModulesData";
 
-const DropdownMenu = ({classes}) => {
+const Modules = ({classes}) => {
 	const [selectedModule, setSelectedModule] = useState("");
 	const [startDateTime, setStartDateTime] = useState("");
 	const[date,setDate] = useState("")
@@ -60,4 +60,4 @@ const DropdownMenu = ({classes}) => {
 	);
 };
 
-export default DropdownMenu;
+export default Modules;

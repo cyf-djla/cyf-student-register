@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
-import './index.css';
+
 
 function ClassTable() {
   const [logs, setLogs] = useState([]);

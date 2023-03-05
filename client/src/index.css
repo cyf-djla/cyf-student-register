@@ -218,3 +218,28 @@ button {
   font-size: 60px;
 }
 }
+
+.class-logs-wrapper {
+  background-color: white;
+  padding: 50px;
+}
+
+.class-logs-table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  background-color: lightgray;
+}
+
+.class-logs-table th {
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  padding: 8px;
+  border: 1px solid white;
+  border-right: 1px solid black;
+}
+
+.class-logs-table td {
+  padding: 8px;
+  border-right: 1px solid black;
+}
