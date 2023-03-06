@@ -49,7 +49,7 @@ const Modules = ({classes}) => {
 			username,
 			logintime: currentdateandtime
 		};
-		fetch(`http://127.0.0.1:4200/api/classes/classsignin/${classid}`, {
+		fetch(`https://cyf-student-register.onrender.com/api/classes/classsignin/${classid}`, {
 			method: "post",
 			headers: {
 				"Content-type": "application/json",
