@@ -9,7 +9,7 @@ function Menu() {
   return (
     <section>
       <Header />
-      <div className="background-wrapper">
+      <div className="about__hero">
         <br />
         <h1>
           <b className="mobile__title">#We are here</b>
@@ -23,7 +23,7 @@ function Menu() {
               Trainee Register
             </NavLink>
             <NavLink to="/VolunteerMenu" className="massive-red-button">
-              Volunteer
+              Volunteer Menu
             </NavLink>
           </div>
         </div>

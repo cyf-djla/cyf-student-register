@@ -99,7 +99,7 @@ const Login = () => {
 					
 					{errorMessage && <p className='error'>{errorMessage}</p>}
 				</form>
-				<p className= "bottom-description">
+				<p>
 					Need an Account?
 					<br />
 					<i>Click on the Menu at the top right to return to the home page </i>

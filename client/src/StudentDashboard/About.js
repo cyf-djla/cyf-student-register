@@ -10,7 +10,7 @@ const About = () => {
           className="about__hero-image"
           alt="hero"
         /> */}
-        <h1 className="mobile__title">#We are here </h1>
+        <h1 className="mobile__title2">#We are here </h1>
       </div>
       <div className="about__us">
         <h1>About Us</h1>
