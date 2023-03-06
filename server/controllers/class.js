@@ -121,10 +121,10 @@ exports.deleteClass = async (req, res, next) => {
 	try {
 		const found = await Class.findOne({_id: req.params.id});
 
-		if (req.auth.isVolunteer !== true) {
-			res.status(403).json({message: "You are not authorized"});
-			return;
-		}
+		// if (req.auth.isVolunteer !== true) {
+		// 	res.status(403).json({message: "You are not authorized"});
+		// 	return;
+		// }
 
 		await Class.deleteOne({_id: req.params.id});
 
@@ -137,12 +137,11 @@ exports.deleteClass = async (req, res, next) => {
 // createClass
 exports.createClass = async (req, res, next) => {
 	try {
-		if (req.auth.isVolunteer !== true) {
-			res.status(403).json({message: "You are not authorised"});
-			return;
-		}
+		// if (req.auth.isVolunteer !== true) {
+		// 	res.status(403).json({message: "You are not authorised"});
+		// 	return;
+		// }
 		let newClass = new Class({
-			classId: req.body.classId,
 			name: req.body.name,
 			time: req.body.time,
 			date: req.body.date,
