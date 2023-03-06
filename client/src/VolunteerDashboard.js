@@ -2,9 +2,9 @@ import {useState, useEffect} from "react";
 import Header from "./StudentDashboard/Header.js";
 import VolunteerDetail from "./VolunteerDashboard_Comps/VolunteerDetail";
 import DisplayTime from "./StudentDashboard/DisplayTime";
-import Modules from "./StudentDashboard/DropdownMenu";
-import ViewClass from "./VolunteerDashboard_Comps/ViewClass.js";
-import "./index.css"
+import DropdownMenu from "./VolunteerDashboard_Comps/DropdownMenu";
+import "./index.css" 
+
 const VolunteerDashboard = ({ children }) => {
 
   const [classes, setClasses] = useState([]);
@@ -30,8 +30,8 @@ const VolunteerDashboard = ({ children }) => {
       <div className="body">
         <VolunteerDetail />
         <DisplayTime />
-         <Modules classes={classes}/>
-         <ViewClass />
+         <DropdownMenu classes={classes}/>
+          
          
       </div>
     </div>

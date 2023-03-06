@@ -327,6 +327,38 @@ h1 {
   background-color: #fff;
 }  */
 
+
+.class-logs-wrapper {
+  background-color: white;
+  padding: 50px;
+}
+
+.class-logs-table {
+  border-collapse: collapse;
+    margin: 0 auto;
+    background-color: lightgray;
+}
+
+.class-logs-table th {
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  padding: 8px;
+  border: 1px solid white;
+  border-right: 1px solid black;
+}
+
+.class-logs-table td {
+  padding: 8px;
+  border-right: 1px solid black;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  padding-bottom: 1rem;
+
 button{
   align-self: center;
 }
@@ -334,6 +366,7 @@ button{
   background-color:#d12f2f;
   margin-left: 46%;
   margin-bottom: 12%;
+
 }
 
 link,
@@ -544,5 +577,30 @@ button {
      
 
 }
- 
+
+
+.class-logs-wrapper {
+  background-color: white;
+  padding: 50px;
+}
+
+.class-logs-table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  background-color: lightgray;
+}
+
+.class-logs-table th {
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  padding: 8px;
+  border: 1px solid white;
+  border-right: 1px solid black;
+}
+
+.class-logs-table td {
+  padding: 8px;
+  border-right: 1px solid black;
+}
 
