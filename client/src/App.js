@@ -5,13 +5,11 @@ import Layout from "./StudentDashboard/Layout";
 import Login from "./Login";
 import About from "./StudentDashboard/About";
 import GoodBye from "./StudentDashboard/GoodBye";
-
 import TraineeRegister from './TraineeRegister';
+import TraineeLogin from './TraineeLogin';
 import ClassTable from "./VolunteerDashboard_Comps/ClassTable";
-
 import MainMenu from './MainMenu';
 import Register from "./Register";
-import MainMenu from "./MainMenu";
 import VolunteerDashboard from "./VolunteerDashboard";
 import VolunteerMenu from "./VolunteerMenu";
 import VolunteerRegister from "./VolunteerRegister";
