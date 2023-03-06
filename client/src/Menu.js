@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Footer from "./Footer.js"
 import "./index.css";
 import Header from "./StudentDashboard/Header";
 import "./StudentDashboard/Header.css";
@@ -9,8 +10,7 @@ function Menu() {
   return (
     <section>
       <Header />
-      <div className="about__hero">
-        <br />
+      <div className="background-wrapper">
         <h1>
           <b className="mobile__title">#We are here</b>
         </h1>
@@ -27,6 +27,7 @@ function Menu() {
             </NavLink>
           </div>
         </div>
+        <Footer/>
       </div>
     </section>
   );

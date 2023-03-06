@@ -1,6 +1,8 @@
 
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
 import Layout from "./StudentDashboard/Layout";
 import Login from "./Login";
 import About from "./StudentDashboard/About";
