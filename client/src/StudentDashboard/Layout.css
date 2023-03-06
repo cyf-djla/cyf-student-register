@@ -1,28 +1,46 @@
-body{
+.layout__body{
     max-width: 420px;
     margin: 0 auto;
     border-right: solid 2px rgb(226, 213, 213);
 
     border-left: solid 2px rgb(226, 213, 213);
+    text-align: center;
 }
 @media (min-width:420px){
-    body{
-     max-width: none;
-    }
-  .body{
-    background-image: url("../Images/Intro-to-Coding\ 1.svg");
-    background-size: cover;
-    repeat:no-repeat;
+  
+  .layout__body{
+
+background-color: white;
+margin-top: 60px;
+height:700px;
+
+
 
    
- 
-  }
+}
+.layout{
+
+      background-image: url("../Images/Intro-to-Coding\ 1.svg");
+    background-size: cover;
+    background-repeat:no-repeat;
+  
+
+}
   .dashBoard__components{
    padding:0 35%;
     margin: 0 auto;
     align-items: center;
+
   } 
-  .good__bye{
+  .login__class{
+    margin-bottom: 130px;
+    margin-top: 100px;
+  }
+  .logout__class{
+    margin-bottom: 130px;
+     margin-top: 100px;
+  }
+    .good__bye{
     font-size: 25px;
     font-weight: bold;
     font-family: cormorant;
@@ -43,11 +61,16 @@ margin: 0 auto;
 padding: 20% 30%;
   }
   .student__detail{
-     margin-left: 20%; 
+     /* margin-left: 20%;  */
      
   }
   select, input{
-    margin-left: 5%;
+    /* margin-left: 5%; */
   }
 
+}
+
+.student__detail {
+  margin:0;
+  padding-top:20px;
 }

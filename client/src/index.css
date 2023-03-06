@@ -5,31 +5,318 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 html {
   font-family: "Nunito", sans-serif;
   font-size: 22px;
   color: #fff;
 }
-
 body {
   min-height: 100vh;
   background-color: #f0e5e5;
 }
+}
+/*HEADER*/
+@media(max-width:419px){
+  .header {
+    height: 100px;
+    background-color: #efefef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  .logo {
+    height: 60px;
+    width: 160px;
+    margin-left: 20px;
+  }
+  .menu__icon {
+    display: block;
+    height: 50px;
+    width: 60px;
+    background-color: #db514a;
 
-.App {
+    margin-right: 10px;
+    border-radius: 10px;
+  }
+ 
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+  }
+  a.link {
+    
+    width: 8rem;
+    align-self: center;
+    color: white;
+    text-decoration: none; 
+  
+    font-weight: bold;
+    text-align: center;
+    background:  green;
+     box-shadow: 0 4px rgba(186, 186, 195, 0.5);
+   
+    border-radius: 3px;
+     margin-top: 7rem;
+   margin-right: -130px;
+    font-size: 18px;
+    padding: 5px 10px;
+  }
+  
+
+  .link:hover {
+  
+    text-decoration: none;
+  }
+  .small {
+    flex-direction: column;
+  }
+  .large {
+    display: none;
+  }
+}
+
+  @media (min-width:420px){
+      .header {
+        padding:20px;
+    height: 130px;
+    background-color: #efefef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px rgba(0, 0, 0, 0.25);
+  }
+     .logo {
+    height: 110px;
+    width: 300px;
+  }
+
+  .header h1{
+    margin-bottom: -27px;
+  }
+
+    /* .mobile__title{
+display: none;
+    } */
+    /* .header{
+      display: flex;
+
+    } */
+     .right-nav {
+    display: flex;
+    flex-direction: row;
+  }
+    .small {
+display: none;
+  }
+  .large{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+  }
+ 
+  .menu__icon{
+    display: none;
+  }
+     ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+     list-style-type:none;
+    /* height: 100%;
+    width: 100%; */
+    gap: 20px;
+  } 
+  a.link {
+    list-style-type:none;
+    
+    align-self: center;
+    color: white;
+    text-decoration: none; 
+  
+    font-weight: bold;
+    text-align: center;
+    background: #db514a;
+     box-shadow: 0 4px rgba(246, 246, 249, 0.5);
+   
+    border-radius: 5px;
+  
+
+    font-size: 18px;
+    padding: 5px 10px;
+  }
+
+
+}
+
+  /*MENU*/
+  @media (max-width:419px){
+.buttons-container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  padding: 1rem 0.5rem;
+  flex-direction: column;
+  margin-bottom: 30px;
 }
-h1 {
-  font-weight: 900;
+.background-wrapper b{
+  background-image: url("./Images/Intro-to-Coding\ 1.svg");
+background-size: cover;
+background-repeat: no-repeat;
+  padding: 20% 10%;
+  background-size: 420px;
+  
+
+
+}
+.background-wrapper {
+  margin-top: 50px;
 }
 
-/* section {
+
+.massive-red-button {
+  font-size: 20px;
+  text-align: center;
+  padding: 1rem 2rem;
+  background-color: #d12f2f;
+  color: rgb(248, 242, 242);
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 47.5px;
+  text-align: center;
+  width: 9rem;
+  height: 5.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+}
+.buttons-container{
+  margin-top: -300px;
+  border-right: solid 1px rgb(200, 197, 197);
+  border-left: solid 1px rgb(200, 197, 197);
+  padding: 20px;    
+}
+
+.massive-red-button:hover {
+  transform: scale(1.1);
+}
+}
+  @media (min-width:420px){
+.volunteer-menu-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.buttons-container{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: -20px;
+  gap: 40px;
+
+}
+/* .desktop__title{
+  display: none;
+} */
+.mobile__title{
+  color: #d12f2f;
+  text-decoration: underline;
+  padding: 30rem;
+  margin-top: 8rem;
+}
+.massive-red-button {
+  font-size: 20px;
+  text-align: center;
+  padding: 1rem 2rem;
+  background-color: #d12f2f;
+  color: rgb(248, 242, 242);
+  border: none;
+  border-radius: 1rem;
+  margin: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+
+.massive-red-button:hover {
+  transform: scale(1.1);
+}
+/* .background-wrapper h1 {
+  text-align: center;
+  position: relative;
+  font-weight: 900;
+  font-size: 60px;
+} */
+
+.background-wrapper{
+  background-image: url("./Images/Intro-to-Coding\ 1.svg");
+background-size: cover;
+background-repeat: no-repeat;
+
+}
+  }
+  @media (min-width:420px){
+
+  }
+
+/*TRAINEE LOGIN*/
+ @media (max-width:419px){
+    
+
+  }
+   @media (min-width:420px){
+    
+    .trainee-login__form{
+      width: 50%;
+      margin: 0 auto;
+      align-items: center;
+      text-align: center;
+
+    }
+    .nav-link{
+      margin-top: 70px;
+    }
+   
+    .desktop__title{
+
+    }
+    .mobile__title{
+      display: none;
+    }
+   
+    .trainee-login-page{
+  
+background-image: url("./Images/Intro-to-Coding\ 1.svg");
+background-size: cover;
+background-repeat: no-repeat;
+align-items: center;
+justify-content: center;
+margin: 0 auto;
+
+
+  }
+ .desktop__title{
+    color:#d12f2f;
+    text-decoration-line: underline;
+}
+
+}
+
+
+h1 {
+  text-align: center;
+  font-weight: 900;
+  text-align: center;
+}
+
+ /* section {
   width: 100%;
   max-width: 420px;
   min-height: 400px;
@@ -38,7 +325,8 @@ h1 {
   justify-content: flex-start;
   padding: 1rem;
   background-color: #fff;
-} */
+}  */
+
 
 .class-logs-wrapper {
   background-color: white;
@@ -70,6 +358,15 @@ form {
   justify-content: space-evenly;
   flex-grow: 1;
   padding-bottom: 1rem;
+
+button{
+  align-self: center;
+}
+.signup__btn{
+  background-color:#d12f2f;
+  margin-left: 46%;
+  margin-bottom: 12%;
+
 }
 
 link,
@@ -88,12 +385,18 @@ textarea {
   font-size: 22px;
   padding: 0.25rem;
   border-radius: 0.5rem;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }
 #dropdown {
   font-family: "Nunito", sans-serif;
   font-size: 22px;
   padding: 0.25rem;
   border-radius: 0.5rem;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }
 label,
 button {
@@ -101,16 +404,35 @@ button {
   color: black;
 }
 
+.title-bh1{
+  text-align: center;
+}
+
+
+.form_div{
+  padding:30px;
+  display:flex;
+  flex-direction: column;
+  margin:auto;
+  text-align: center;
+}
+
 .login__button {
-  padding: 0.5rem;
   background-color: #d12f2f;
-  align-self: center;
+
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin: auto;
+  margin-top: 40px; 
+
 }
 .title-bh1 {
   justify-content: center;
-  align-self: center;
   font-weight: 700;
+  text-align: center;
   font-size: 30px;
+  padding: 20px;
 }
 .sign-up-button {
   background-color: #d12f2f;
@@ -176,30 +498,8 @@ button {
   align-items: center;
   height: 100vh;
 }
+/*MENU*/
 
-.buttons-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.massive-red-button {
-  font-size: 2rem;
-  text-align: center;
-  padding: 1rem 2rem;
-  background-color: #d12f2f;
-  color: rgb(248, 242, 242);
-  border: none;
-  border-radius: 1rem;
-  margin: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-
-.massive-red-button:hover {
-  transform: scale(1.1);
-}
 /* 
 .background-wrapper {
   background-size: cover;
@@ -209,15 +509,75 @@ button {
   padding: 45px 45px 45px 45px;
   position: relative;
 } */
+@media (min-width:419px){
+  .about__us{
 
+    background-image: url("./Images/Intro-to-Coding\ 1.svg");
+     background-size: cover; 
+    background-repeat: no-repeat;
+  color: black;
+  font-weight: bolder;
 
-.background-wrapper h1 {
+ 
+
+  }
+
+  .bottom-description{
+    text-align: center;
+    margin: auto;
+    padding: 20px; 
+  }
+  .about__us h1{
+  margin-top: -250px;
+ 
+  }
+  .about__us p{
+    margin-bottom: -150px;
+  }
+}
+@media (max-width:420px){
+    .about__us{
+ 
+  margin-top: -50px;
+  color: black;
+  font-weight: bolder;
   text-align: center;
-  position: relative;
-  font-weight: 900;
-  font-size: 60px;
+  padding: 0 30px;
+ 
+  box-shadow: 0 4px rgba(8, 8, 8, 0.25);
+
+  }
+  .about__hero{
+      
+      
+    background-image: url("./Images/Intro-to-Coding\ 2.svg");
+
+  background-repeat: no-repeat;
+  height: 250px; 
+  width: 100%; 
+  margin: 0 auto;
+  }
+    /* .about__hero-image{
+      height: 60px;
+      width:100%;
+    } */
+    .about__hero h1{
+      margin: 0 auto;
+      padding-top: 50px;
+      
+    }
+     .about__us h1{
+      font-size:30px;
+     }
+
+      .about__us p{
+      font-size:20px;
+      margin-top: 30px;
+     }
+     
+
 }
-}
+
 
 .class-logs-wrapper {
   background-color: white;
@@ -243,3 +603,4 @@ button {
   padding: 8px;
   border-right: 1px solid black;
 }
+

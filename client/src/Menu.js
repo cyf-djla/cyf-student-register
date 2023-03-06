@@ -8,20 +8,26 @@ import "./StudentDashboard/Header.css";
 function Menu() {
   return (
     <section>
-    <Header/>
-    <div className="background-wrapper">
-    <br />
-    <h1>
-    <b>#We are here</b>
-    </h1>
-    <div className="volunteer-menu-container">
-      <div className="buttons-container">
-        <NavLink to="/TraineeLogin" className="massive-red-button">Trainee Login</NavLink>
-        <NavLink to="/TraineeRegister" className="massive-red-button">Trainee Sign-up</NavLink>
-        <NavLink to="/VolunteerMenu" className="massive-red-button">Volunteer</NavLink>
+      <Header />
+      <div className="background-wrapper">
+        <br />
+        <h1>
+          <b className="mobile__title">#We are here</b>
+        </h1>
+        <div className="volunteer-menu-container">
+          <div className="buttons-container">
+            <NavLink to="/Login" className="massive-red-button">
+              Trainee Login
+            </NavLink>
+            <NavLink to="/Register" className="massive-red-button">
+              Trainee Register
+            </NavLink>
+            <NavLink to="/VolunteerMenu" className="massive-red-button">
+              Volunteer
+            </NavLink>
+          </div>
+        </div>
       </div>
-    </div>
-    </div>
     </section>
   );
 }
