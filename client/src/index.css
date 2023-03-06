@@ -29,6 +29,7 @@ body {
   
     .links__container > li{
     display: flex;
+    
     justify-content: center;
     /* margin: 0; */
     padding: 3em 0;
@@ -38,12 +39,21 @@ body {
    
   }
    .links__container{
-    width: 260px;
-    margin-left: -200px;
-    margin-bottom: -600px;
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    margin-left: -280px;
+    margin-bottom: -500px;
+    background-color: white;
+     position: absolute;
+     border-radius: 4px;
+     padding: 20px;
+     
+ 
+  
    
     
-    height: 400px;
+    height: 480%;
    }
   .logo {
     height: 60px;
@@ -173,7 +183,7 @@ display: none;
   margin-bottom: 30px;
 }
 .background-wrapper b{
-  background-image: url("./Images/Intro-to-Coding\ 1.svg");
+   background-image: url("./Images/Intro-to-Coding\ 1.svg"); 
 background-size: cover;
 background-repeat: no-repeat;
   padding: 20% 10%;
