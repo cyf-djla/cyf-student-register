@@ -9,7 +9,7 @@ function VolunteerMenu() {
   return (
     <section>
     <Header/>
-    <div className="background-wrapper">
+    <div className="about__hero">
     <br />
     <h1>
     <b>#We are here</b>

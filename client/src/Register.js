@@ -244,7 +244,7 @@ const Register = () => {
 							<p>
 								Already registered?
 								<br />
-								<i>Click on the button below to sign in </i>
+								<i>Click on the Menu at the top right to return to the home page </i>
 							</p>
 						</div>
 					</form>

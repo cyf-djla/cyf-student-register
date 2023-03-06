@@ -278,7 +278,7 @@ const VolunteerRegister = () => {
             </p>
 
             <button
-              className="sign-up-button"
+              className="login__button"
               disabled={!validuserName || !validPassword || !validMatch ? true : false}
             >
               Sign Up
