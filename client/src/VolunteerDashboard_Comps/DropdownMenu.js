@@ -43,11 +43,9 @@ const DropdownMenu = ({ classes }) => {
             readOnly
           />
           <div style={{ marginTop: "60px", marginBottom: "60px" }}>
-          <ClassTable classId={selectedModule} />
+            <ClassTable classId={selectedModule} />
           </div>
-        
         </div>
-        
       )}
     </div>
   );

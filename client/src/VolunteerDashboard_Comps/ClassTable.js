@@ -1,88 +1,76 @@
-import React, { useState, useEffect } from 'react';
-import moment from 'moment';
+import React, { useState, useEffect } from "react";
+import moment from "moment";
 
-
-function ClassTable() {
+function ClassTable({ classId }) {
   const [logs, setLogs] = useState([]);
 
   useEffect(() => {
-    fetch('https://cyf-student-register.onrender.com/api/classes')
+    fetch("https://cyf-student-register.onrender.com/api/classes")
       .then((response) => response.json())
       .then((data) => setLogs(data))
       .catch((error) => console.error(error));
   }, []);
 
-  const shouldShowRow = (element) => {
-    return element.trainees.some((trainee) => {
-      return (
-        trainee._id !== null ||
-        trainee.username !== null ||
-        trainee.flags !== null ||
-        trainee.logintime !== null ||
-        trainee.logouttime !== null
-      );
-    });
+  const filteredLogs = logs.filter((element) => {
+    return (
+      element._id === classId ||
+      element.name.toLowerCase().includes(classId.toLowerCase())
+    );
+  });
+
+  const shouldShowRow = (trainee) => {
+    return (
+      trainee._id !== null ||
+      trainee.username !== null ||
+      trainee.flags !== null ||
+      trainee.logintime !== null ||
+      trainee.logouttime !== null
+    );
   };
 
   return (
-    <table className="class-logs-table">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Username</th>
-          <th>Flag</th>
-          <th>Login Time</th>
-          <th>Logout Time</th>
-        </tr>
-      </thead>
-      <tbody>
-        {logs
-          .filter((element) => shouldShowRow(element))
-          .map((element) => (
-            <tr key={element._id}>
-              <td>
-                {element.trainees.map((trainee) => (
-                  <div key={trainee._id}>
-                    <p>{trainee._id}</p>
-                  </div>
-                ))}
-              </td>
-              <td>
-                {element.trainees.map((trainee) => (
-                  <div key={trainee._id}>
-                    <p>{trainee.username}</p>
-                  </div>
-                ))}
-              </td>
-              <td>
-                {element.trainees.map((trainee) => (
-                  <div key={trainee._id}>
-                    <p>{trainee.flags}</p>
-                  </div>
-                ))}
-              </td>
-              <td>
-                {element.trainees.map((trainee) => (
-                  <p key={trainee._id}>
-                    {moment(trainee.logintime).format('h:mm a')}
-                  </p>
-                ))}
-              </td>
-              <td>
-                {element.trainees.map((trainee) => (
-                  <div key={trainee._id}>
-                    {trainee.logouttime ? (
-                      <p>{moment(trainee.logouttime).format('h:mm a')}</p>
-                    ) : (
-                      <p>Still logged in</p>
-                    )}
-                  </div>
-                ))}
-              </td>
+    <div className="class-logs">
+      {filteredLogs.length === 0 ? (
+        <p>No logs found for this class</p>
+      ) : (
+        <table className="class-logs-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Username</th>
+              <th>Flag</th>
+              <th>Login Time</th>
+              <th>Logout Time</th>
             </tr>
-          ))}
-      </tbody>
-    </table>
+          </thead>
+          <tbody>
+            {filteredLogs[0].trainees
+              .filter((trainee) => shouldShowRow(trainee))
+              .map((trainee) => (
+                <tr key={trainee._id}>
+                  <td>{trainee._id}</td>
+                  <td>{trainee.username}</td>
+                  <td>{trainee.flags}</td>
+                  <td>
+                    {trainee.logintime ? (
+                      moment(trainee.logintime).format("h:mm a")
+                    ) : (
+                      "-"
+                    )}
+                  </td>
+                  <td>
+                    {trainee.logouttime ? (
+                      moment(trainee.logouttime).format("h:mm a")
+                    ) : (
+                      "Still logged in"
+                    )}
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+      )}
+    </div>
   );
 }
 
