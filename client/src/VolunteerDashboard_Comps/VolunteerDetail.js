@@ -2,13 +2,18 @@ import React from "react";
 import "./VolunteerDetail.css";
 
 const VolunteerDetail = () => {
+  const username = localStorage.getItem("username");
+  const userId = localStorage.getItem('userId')
+  // console.log(token)
   return (
     <div className="volunteer__detail">
-      <h2 className="title"># We are here</h2>
+      <h2 className="mobile__title"># We are here</h2>
       <p>Volunteer Dashboard</p>
-      <p>Hello! Steve.cyf </p>
+      
+      <p>Hello, {username}! </p>
     </div>
   );
 };
+
 
 export default VolunteerDetail;
