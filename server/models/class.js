@@ -7,7 +7,7 @@ const classSchema = mongoose.Schema({
 	time: {type: String, required: true},
 	date: {type: Date, required: true},
 	trainees: [{
-		 _id: {type: String, required: true},
+		_id: {type: String, required: true},
 		username: {type: String, required: true},
 		logintime: {type: Date},
 		logouttime: {type: Date},

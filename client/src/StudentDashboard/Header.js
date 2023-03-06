@@ -19,7 +19,7 @@ const Header = () => {
       </div>
       <div className={`right-nav ${Flag ? "small" : "large"}`}>
         <div className="nav-link">
-          <ul>
+          <ul className="links__container">
             <li>
               <Link className="link" to="/">
                 Main Menu
