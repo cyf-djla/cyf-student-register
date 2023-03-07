@@ -83,6 +83,7 @@ body {
     background-color: green;
    
   }
+  
 
   
   
@@ -308,6 +309,9 @@ background-repeat: no-repeat;
 
     }
     .mobile__title{
+      display: none;
+    }
+    .mobile__title2{
       display: none;
     }
    
