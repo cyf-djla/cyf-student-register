@@ -6,7 +6,7 @@ function Footer() {
   return (
     <footer>
       <div className="rounded-social-buttons">
-        <a className="social-button facebook" href="https://github.com/CodeYourFuture" target="_blank" rel="noreferrer">
+        <a className="social-button facebook" href="https://www.facebook.com/codeyourfuture.io/?locale=en_GB" target="_blank" rel="noreferrer">
           <FontAwesomeIcon icon={faFacebookF} />
         </a>
         <a className="social-button twitter" href="https://twitter.com/codeyourfuture?lang=en" target="_blank" rel="noreferrer">
@@ -18,7 +18,7 @@ function Footer() {
         <a className="social-button instagram" href="https://www.instagram.com/codeyourfuture_/?hl=en" target="_blank" rel="noreferrer">
           <FontAwesomeIcon icon={faInstagram} />
         </a>
-        <a className="social-button youtube" href="https://www.youtube.com/" target="_blank" rel="noreferrer">
+        <a className="social-button youtube" href="https://www.youtube.com/channel/UCcSWVMCzKDu3tDeV2kT3kcw" target="_blank" rel="noreferrer">
           <FontAwesomeIcon icon={faYoutube} />
         </a>
       </div>
