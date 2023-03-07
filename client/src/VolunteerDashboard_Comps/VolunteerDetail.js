@@ -8,7 +8,7 @@ const VolunteerDetail = () => {
   return (
 
     <div className="student__detail">
-      <h2 className="mobile__title"># We are here</h2>
+      <h2 className="title"># We are here</h2>
       <p>Trainee Dashboard</p>
       
       <p>Hello! {username} </p>
