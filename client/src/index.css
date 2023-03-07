@@ -176,7 +176,9 @@ display: none;
 }
 
   /*MENU*/
+
   @media (max-width:610px){
+
 .buttons-container {
   display: flex;
   justify-content: center;
@@ -279,7 +281,7 @@ display: none;
 } */
 
 .background-wrapper{
-  background-image: url("./Images/Intro-to-Coding\ 1.svg");
+background-image: url("./Images/Intro-to-Coding\ 1.svg");
 background-size: cover;
 background-repeat: no-repeat;
 
