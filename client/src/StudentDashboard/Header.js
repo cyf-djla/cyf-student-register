@@ -14,15 +14,19 @@ const Header = () => {
         src="https://codeyourfuture.io/wp-content/uploads/2019/03/cyf_brand.png"
         alt=""
       />
-      <div>
-        {/* <h1 className="desktop__title"># We are here</h1> */}
-      </div>
+      <div>{/* <h1 className="desktop__title"># We are here</h1> */}</div>
       <div className={`right-nav ${Flag ? "small" : "large"}`}>
         <div className="nav-link">
           <ul className="links__container">
             <li>
               <Link className="link" to="/">
-              Home
+                Home
+              </Link>
+            </li>
+
+            <li>
+              <Link className="link" to="/about">
+                About
               </Link>
             </li>
             <li>
@@ -30,15 +34,6 @@ const Header = () => {
                 Sign Out
               </Link>
             </li>
-            <li>
-              <Link className="link" to="/about">
-                About
-              </Link>
-            </li>
-           
-
-          
-             
           </ul>
         </div>
       </div>
