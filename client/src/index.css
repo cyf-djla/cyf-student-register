@@ -473,7 +473,12 @@ button {
   color: red;
   margin-left: 0.25rem;
 }
-
+.error {
+  display:flex;
+  flex-direction: column;
+  margin:auto;
+  text-align: center;
+}
 .errmsg {
   background-color: lightpink;
   color: firebrick;
