@@ -47,7 +47,7 @@ const Modules = ({classes}) => {
 
 		const newUser = {
 			username,
-			userId,
+			_id:userId,
 			logintime: currentdateandtime
 		};
 		fetch(`https://cyf-student-register.onrender.com/api/classes/classsignin/${classid}`, {
