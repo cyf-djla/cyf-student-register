@@ -235,11 +235,10 @@ const Register = () => {
 							<FontAwesomeIcon icon={faInfoCircle} />
 							Must match the first password input field.
 						</p>
-						<div className='form_div'>
 							<button onClick={handleSubmit} type='submit' className='login__button' disabled={!validuserName || !validPassword || !validMatch ? true : false}>
 								Sign Up
 							</button>
-							<br/>
+							<div className='form_div'>
 							<p>
 								Already registered?
 								<br />
