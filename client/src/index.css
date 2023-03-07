@@ -26,6 +26,9 @@ body {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 4px rgba(0, 0, 0, 0.25);
+    position: sticky;
+    top: 0;
+    z-index: 100;
    /* position: fixed;  */
   }
   
@@ -99,14 +102,17 @@ body {
 }
 
   @media (min-width:605px){
-      .header {
-        padding:20px;
+  .header {
+    padding:20px;
     height: 130px;
     background-color: #efefef;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 4px rgba(0, 0, 0, 0.25);
+    position: sticky;
+    top: 0;
+    z-index: 100;
   }
      .logo {
     height: 110px;
