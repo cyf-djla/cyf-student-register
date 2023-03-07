@@ -15,7 +15,9 @@ const Header = () => {
         alt=""
       />
       <div>
+
         <h1 className="desktop__title">#We are here</h1>
+
       </div>
       <div className={`right-nav ${Flag ? "small" : "large"}`}>
         <div className="nav-link">

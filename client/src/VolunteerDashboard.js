@@ -3,7 +3,7 @@ import Header from "./StudentDashboard/Header.js";
 import VolunteerDetail from "./VolunteerDashboard_Comps/VolunteerDetail";
 import DisplayTime from "./StudentDashboard/DisplayTime";
 import DropdownMenu from "./VolunteerDashboard_Comps/DropdownMenu";
-import "./index.css" 
+import "./VolunteerDashboard_Comps/VDLayout.css";
 
 const VolunteerDashboard = ({ children }) => {
 
@@ -26,13 +26,16 @@ const VolunteerDashboard = ({ children }) => {
   return (
     <div className="layout">
       <Header />
+      <div className="vdlayout__body">
       {children}
-      <div className="layout__body">
+
+      <div className="vdlayout__body">
+
         <VolunteerDetail />
         <DisplayTime />
          <DropdownMenu  classes={classes}/>
           
-         
+         </div>
       </div>
     </div>
   );

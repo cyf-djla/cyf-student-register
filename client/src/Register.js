@@ -130,7 +130,6 @@ const Register = () => {
 					<h1>
 						<b className='mobile__title'>#We are here</b>
 					</h1>
-					<br />
 					<p className='title-bh1'>
 						<u className='title-bh1'>Trainee Register </u>
 					</p>
@@ -237,11 +236,10 @@ const Register = () => {
 							<FontAwesomeIcon icon={faInfoCircle} />
 							Must match the first password input field.
 						</p>
-						<div className='form_div'>
 							<button onClick={handleSubmit} type='submit' className='login__button' disabled={!validuserName || !validPassword || !validMatch ? true : false}>
 								Sign Up
 							</button>
-
+							<div className='form_div'>
 							<p>
 								Already registered?
 								<br />

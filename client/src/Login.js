@@ -80,7 +80,6 @@ const Login = () => {
 				<h1>
 					<b>#We are here</b>
 				</h1>
-				<br />
 				<div className = 'title-bh1'>
 				<p className='title-bh1'>
 					<u>Trainee Login</u>
@@ -96,14 +95,15 @@ const Login = () => {
 					<button className='login__button' type='submit' onClick={handleSubmit}>
 						Sign In
 					</button>
-					
 					{errorMessage && <p className='error'>{errorMessage}</p>}
 				</form>
+				<div className='form_div'>
 				<p>
 					Need an Account?
 					<br />
 					<i>Click on the Menu at the top right to return to the home page </i>
 				</p>
+				</div>
 			</section>
 		</>
 	);
