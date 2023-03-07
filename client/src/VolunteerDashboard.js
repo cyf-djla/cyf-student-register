@@ -24,13 +24,13 @@ const VolunteerDashboard = ({ children }) => {
     .catch((error) => console.log(error))
   }
   return (
-    <div>
+    <div className="layout">
       <Header />
       {children}
-      <div className="body">
+      <div className="layout__body">
         <VolunteerDetail />
         <DisplayTime />
-         <DropdownMenu classes={classes}/>
+         <DropdownMenu  classes={classes}/>
           
          
       </div>
