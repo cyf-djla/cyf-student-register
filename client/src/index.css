@@ -192,6 +192,7 @@ display: none;
   align-items: center;
   flex-direction: column;
 }
+
 .background-wrapper h1{
 
   background-image: url("./Images/Intro-to-Coding\ 1.svg");
@@ -227,6 +228,22 @@ display: none;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
+.massive-red-button-2 {
+  font-size: 20px;
+  text-align: center;
+  padding: 1rem 2rem;
+  background-color: #d12f2f;
+  color: rgb(248, 242, 242);
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 82.5px;
+  text-align: center;
+  width: 9rem;
+  height: 5.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-top: -57px;
+}
 .buttons-container{
   margin-top: -30px;
   border-right: solid 1px rgb(200, 197, 197);
@@ -236,6 +253,9 @@ display: none;
 }
 
 .massive-red-button:hover {
+  transform: scale(1.1);
+}
+.massive-red-button-2:hover {
   transform: scale(1.1);
 }
 }
@@ -275,11 +295,26 @@ display: none;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
-
+.massive-red-button-2 {
+  font-size: 20px;
+  text-align: center;
+  padding: 1rem 2rem;
+  background-color: #d12f2f;
+  color: rgb(248, 242, 242);
+  border: none;
+  border-radius: 1rem;
+  margin: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
 
 .massive-red-button:hover {
   transform: scale(1.1);
 }
+.massive-red-button-2:hover {
+  transform: scale(1.1);
+}
+
 /* .background-wrapper h1 {
   text-align: center;
   position: relative;
