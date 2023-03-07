@@ -69,7 +69,7 @@ width:160px;
   justify-content: center;
 }
 
-@media (max-width:420px) {
+@media (max-width:500px) {
 .dashboard_buttons{
   height:80px;
 }
