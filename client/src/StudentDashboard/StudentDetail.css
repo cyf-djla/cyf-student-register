@@ -17,6 +17,9 @@
     text-align: center;
     
  }
+ .student__detail h2{
+    margin-top: 0.5rem;
+  }
 }
 
 p{

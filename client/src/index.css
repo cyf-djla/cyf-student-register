@@ -86,6 +86,7 @@ body {
     background-color: green;
    
   }
+  
 
   
   
@@ -319,6 +320,9 @@ background-repeat: no-repeat;
 
     }
     .mobile__title{
+    }
+    .mobile__title2{
+      display: none;
     }
    
     .trainee-login-page{
