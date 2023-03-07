@@ -22,7 +22,7 @@ const Header = () => {
           <ul className="links__container">
             <li>
               <Link className="link" to="/">
-                Main Menu
+              Home
               </Link>
             </li>
             <li>

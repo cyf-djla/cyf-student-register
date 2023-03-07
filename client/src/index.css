@@ -33,7 +33,7 @@ body {
     
     justify-content: center;
     /* margin: 0; */
-    padding: 3em 0;
+    /* padding: 3em 0; */
     width: 100%;
    
    
@@ -42,19 +42,19 @@ body {
    .links__container{
     display: flex;
     flex-direction: column;
-    width: 320px;
-    margin-left: -280px;
-    margin-bottom: -500px;
-    background-color: white;
+    width: 140px;
+    margin-left:-25px ;
+    margin-top: 26px;
+   
      position: absolute;
      border-radius: 4px;
-     padding: 20px;
+
      
  
   
    
     
-    height: 100%;
+    
    }
   .logo {
     height: 60px;
@@ -78,8 +78,8 @@ body {
 
     padding: 0.5em 0;
     width: 100%;
-   
-    background-color: black;
+   font-size: 18px;
+    background-color: green;
    
   }
 
