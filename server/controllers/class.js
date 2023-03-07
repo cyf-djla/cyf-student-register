@@ -3,12 +3,12 @@ const Class = require("../models/class");
 // trainee sign into class
 exports.traineeClassSignIn = async (req, res, next) => {
 	try {
-		let user = {username: req.body.username, _id: req.body.userId, logintime: new Date(Date.now())};
+		let user = {username: req.body.username, _id: req.body._id, logintime: new Date(Date.now())};
 
 		const todaysclass = await Class.findOne({_id: req.params.id});
 		
 
-		const traineeIndex = todaysclass.trainees.findIndex((trainee) => trainee.username === user.username);
+		const traineeIndex = todaysclass.trainees.findIndex((trainee) => trainee._id === user._id);
 
 		
 		if (traineeIndex === -1) {		

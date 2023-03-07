@@ -47,6 +47,7 @@ const Modules = ({classes}) => {
 
 		const newUser = {
 			username,
+			_id:userId,
 			logintime: currentdateandtime
 		};
 		fetch(`https://cyf-student-register.onrender.com/api/classes/classsignin/${classid}`, {
@@ -63,6 +64,7 @@ const Modules = ({classes}) => {
 	function handleLogout() {
 		const newUser = {
 			username,
+			userId,
 			logouttime: currentdateandtime
 		};
 		fetch(`https://cyf-student-register.onrender.com/api/classes/classsignout/${classid}`, {

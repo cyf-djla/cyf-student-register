@@ -22,7 +22,7 @@ const DropdownMenu = ({ classes }) => {
   }
 
   return (
-    <div>
+    <div >
       <label htmlFor="module">Select Module/Class:</label>
       <select id="module" value={selectedModule} onChange={handleModuleChange}>
         <option value="">-- Please select a module --</option>

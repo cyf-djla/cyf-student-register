@@ -1,4 +1,20 @@
-CYF student attendance register.
+#WE ARE HERE
+
+The Problem-
+CYF need to keep record of students attendance, punctuality and behaviour during classes. This allows volunteers to manage expense reimbursement, teaching support and general student participation.
+Currently a manual register is recorded then copied onto a spreadsheet by hand. This method is unreliable and limited.
+
+Our Solution-
+Develop a tool that'll allow students to log into classes. Their login/logout times will be registered to a database for each class.
+Volunteers can view this data and flag students to comment or flag common issues.
+
+-link to the app: https://cyf-register.onrender.com/
+-Tech stack: HTML, CSS, JavaScript, MongoDB, JSON, react, Node.js
+-Team Githup names
+-PM: Dewayne Sewell
+-FE Dev: Abdirahim Hussein, Luna Mzelo
+-BE Dev: Jade Jones
+
 
 npm i in client
 
@@ -6,12 +22,11 @@ npm i in server
 
 you may need to npm i helmet in server separatley
 
-npm start in client to run server
+npm start in \client to run react app
 
-nodemon server in server to run backend
+npm run dev in \server to run backend node server
 
 Routes
-
 
 localhost:4200/api/auth/ -post signup
 localhost:4200/api/auth/login -post login
