@@ -18,7 +18,7 @@ body {
 }
 
 /*HEADER*/
-@media(max-width:419px){
+@media(max-width:500px){
   .header {
     height: 100px;
     background-color: #efefef;
@@ -99,7 +99,7 @@ body {
   }
 }
 
-  @media (min-width:420px){
+  @media (min-width:501px){
       .header {
         padding:20px;
     height: 130px;
@@ -177,7 +177,7 @@ display: none;
 }
 
   /*MENU*/
-  @media (max-width:419px){
+  @media (max-width:500px){
 .buttons-container {
   display: flex;
   justify-content: center;
@@ -228,7 +228,7 @@ display: none;
   transform: scale(1.1);
 }
 }
-  @media (min-width:420px){
+  @media (min-width:501px){
 .volunteer-menu-container{
   display: flex;
   flex-direction: row;
@@ -283,16 +283,16 @@ background-repeat: no-repeat;
 
 }
   }
-  @media (min-width:420px){
+  @media (min-width:501px){
 
   }
 
 /*TRAINEE LOGIN*/
- @media (max-width:419px){
+ @media (max-width:500px){
     
 
   }
-   @media (min-width:420px){
+   @media (min-width:501px){
     
     .trainee-login__form{
       width: 50%;
@@ -502,7 +502,7 @@ button {
   padding: 45px 45px 45px 45px;
   position: relative;
 } */
-@media (min-width:419px){
+@media (min-width:501px){
   .about__us{
 
     background-image: url("./Images/Intro-to-Coding\ 1.svg");
@@ -528,7 +528,7 @@ button {
     margin-bottom: -150px;
   }
 }
-@media (max-width:420px){
+@media (max-width:500px){
     .about__us{
  
   margin-top: -50px;
