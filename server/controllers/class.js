@@ -8,7 +8,7 @@ exports.traineeClassSignIn = async (req, res, next) => {
 		const todaysclass = await Class.findOne({_id: req.params.id});
 		
 
-		const traineeIndex = todaysclass.trainees.findIndex((trainee) => trainee.username === user.username);
+		const traineeIndex = todaysclass.trainees.findIndex((trainee) => trainee._id === user._id);
 
 		
 		if (traineeIndex === -1) {		
