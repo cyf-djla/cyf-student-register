@@ -24,7 +24,7 @@ const DisplayTime = () => {
   return (
     <div className="display__time">
       <p>Time: {time}</p>
-      <p>Date:{date}</p>
+      <p>Date: {date}</p>
     </div>
   );
 };

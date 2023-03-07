@@ -15,14 +15,14 @@ const Header = () => {
         alt=""
       />
       <div>
-        <h1 className="desktop__title"># We are here</h1>
+        {/* <h1 className="desktop__title"># We are here</h1> */}
       </div>
       <div className={`right-nav ${Flag ? "small" : "large"}`}>
         <div className="nav-link">
           <ul className="links__container">
             <li>
               <Link className="link" to="/">
-                Main Menu
+              Home
               </Link>
             </li>
             <li>

@@ -5,6 +5,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 html {
   font-family: "Nunito", sans-serif;
   font-size: 22px;
@@ -17,7 +18,7 @@ body {
 }
 
 /*HEADER*/
-@media(max-width:419px){
+@media(max-width:610px){
   .header {
     height: 100px;
     background-color: #efefef;
@@ -33,7 +34,7 @@ body {
     
     justify-content: center;
     /* margin: 0; */
-    padding: 3em 0;
+    /* padding: 3em 0; */
     width: 100%;
    
    
@@ -42,19 +43,19 @@ body {
    .links__container{
     display: flex;
     flex-direction: column;
-    width: 320px;
-    margin-left: -280px;
-    margin-bottom: -500px;
-    background-color: white;
+    width: 140px;
+    margin-left:-25px ;
+    margin-top: 26px;
+   
      position: absolute;
      border-radius: 4px;
-     padding: 20px;
+
      
  
   
    
     
-    height: 100%;
+    
    }
   .logo {
     height: 60px;
@@ -78,8 +79,8 @@ body {
 
     padding: 0.5em 0;
     width: 100%;
-   
-    background-color: black;
+   font-size: 18px;
+    background-color: green;
    
   }
 
@@ -97,7 +98,7 @@ body {
   }
 }
 
-  @media (min-width:420px){
+  @media (min-width:605px){
       .header {
         padding:20px;
     height: 130px;
@@ -175,7 +176,8 @@ display: none;
 }
 
   /*MENU*/
-  @media (max-width:419px){
+
+  @media (max-width:610px){
 
 .buttons-container {
   display: flex;
@@ -183,20 +185,23 @@ display: none;
   align-items: center;
   flex-direction: column;
 }
-.background-wrapper b{
+.background-wrapper h1{
 
   background-image: url("./Images/Intro-to-Coding\ 1.svg");
   background-size: cover; 
   background-repeat: no-repeat;
-
-  padding: 20% 10%;
-  background-size: 420px;
-  
+  padding-right: 40px;
+  padding-top: 40px;
+  size: 420px;
+  margin-top: -46px;
+  padding-left: 25px;
+  padding-bottom: 50px;
 
 
 }
 .background-wrapper {
   margin-top: 50px;
+  width: 100%;
 }
 
 
@@ -216,7 +221,7 @@ display: none;
   transition: all 0.3s ease-in-out;
 }
 .buttons-container{
-  margin-top: -150px;
+  margin-top: -30px;
   border-right: solid 1px rgb(200, 197, 197);
   border-left: solid 1px rgb(200, 197, 197);
   padding: 20px;
@@ -227,7 +232,7 @@ display: none;
   transform: scale(1.1);
 }
 }
-  @media (min-width:420px){
+  @media (min-width:600px){
 .volunteer-menu-container{
   display: flex;
   flex-direction: row;
@@ -249,7 +254,7 @@ display: none;
   color: #d12f2f;
   text-decoration: underline;
   padding: 30rem;
-  margin-top: rem;
+  margin-top: 10px;
 }
 .massive-red-button {
   font-size: 20px;
@@ -308,7 +313,6 @@ background-repeat: no-repeat;
 
     }
     .mobile__title{
-      display: none;
     }
    
     .trainee-login-page{
@@ -322,10 +326,10 @@ margin: 0 auto;
 
 
   }
- .desktop__title{
+ /* .desktop__title{
     color:#d12f2f;
     text-decoration-line: underline;
-}
+} */
 
 }
 
@@ -498,7 +502,7 @@ button {
   padding: 45px 45px 45px 45px;
   position: relative;
 } */
-@media (min-width:419px){
+@media (min-width:700px){
   .about__us{
 
     background-image: url("./Images/Intro-to-Coding\ 1.svg");
@@ -524,7 +528,7 @@ button {
     margin-bottom: -150px;
   }
 }
-@media (max-width:420px){
+@media (max-width:700px){
     .about__us{
  
   margin-top: -50px;
@@ -553,7 +557,7 @@ button {
     .about__hero h1{
       margin: 0 auto;
       padding-top: 50px;
-      
+      width: 100%;
     }
      .about__us h1{
       font-size:30px;
