@@ -112,11 +112,11 @@ const Modules = ({classes}) => {
 			<div>
 				<div>
 					<label> Login time / date</label>
-					<input value={logintime} />
+					<input id='logtime'value={logintime} />
 				</div>
 				<div>
 					<label> Log out time / date</label>
-					<input value={logouttime} />
+					<input id='logtime' value={logouttime} />
 				</div>
 				<div className='dashboard_buttons'>
 					<button className='login__class'onClick={handleLogin}>
