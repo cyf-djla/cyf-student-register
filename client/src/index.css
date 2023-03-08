@@ -567,8 +567,22 @@ button {
   color: black;
   font-weight: bolder;
 
+padding: 20% 30%;
+   font-size: 25px;
+    font-weight: bold;
+    
+margin: 0 auto; 
+    text-align: center;
+  }
  
 
+  
+  
+  .about__container{
+    background-color: white;
+    padding: 0 40px;
+    border-radius: 8px;
+    
   }
 
   .bottom-description{
