@@ -69,43 +69,67 @@ const Login = () => {
 	};
 
 	return (
-		<>
-			<section>
-				<Header />
-				<br />
-				<p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live='assertive'>
-					{errMsg}
-				</p>
-				<h1>
-					<b>#We are here</b>
-				</h1>
-				
-				<p className='title-bh1'>
-					<u>Trainee Login</u>
-				</p>
-				
-				<form>
-					<label htmlFor='email'>Email:</label>
-					<input type='email' id='email' ref={userRef} autoComplete='off' onChange={(e) => setEmail(e.target.value)} value={email} required />
+    <>
+      <section>
+        <Header />
+        <div className="trainee__page">
+          <br />
+          <p
+            ref={errRef}
+            className={errMsg ? "errmsg" : "offscreen"}
+            aria-live="assertive"
+          >
+            {errMsg}
+          </p>
 
-					<label htmlFor='password'>Password:</label>
-					<input type='password' id='password' onChange={(e) => setPassword(e.target.value)} value={password} required />
-		
-					<button className='login__button' type='submit' onClick={handleSubmit}>
-						Sign In
-					</button>
-					{errorMessage && <p className='error'>{errorMessage}</p>}
-				</form>
-				<div className='form_div'>
-				<p>
-					Need an Account?
-					<br />
-					<i>Click on the Menu at the top right to return to the home page </i>
-				</p>
-				</div>
-			</section>
-		</>
-	);
+          <p className="title-bh1">
+            <u>Trainee Login</u>
+          </p>
+          <div className="form__container">
+            <form>
+              <label htmlFor="email">Email:</label>
+              <input
+                type="email"
+                id="email"
+                ref={userRef}
+                autoComplete="off"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                required
+              />
+
+              <label htmlFor="password">Password:</label>
+              <input
+                type="password"
+                id="password"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                required
+              />
+
+              <button
+                className="login__button"
+                type="submit"
+                onClick={handleSubmit}
+              >
+                Sign In
+              </button>
+              {errorMessage && <p className="error">{errorMessage}</p>}
+            </form>
+          </div>
+          <div className="form_div">
+            <p>
+              Need an Account?
+              <br />
+              <i>
+                Click on the Menu at the top right to return to the home page{" "}
+              </i>
+            </p>
+          </div>
+        </div>
+      </section>
+    </>
+  );
 };
 
 export default Login;
