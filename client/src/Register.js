@@ -142,7 +142,7 @@ const Register = () => {
         </section>
       ) : (
         <section>
-          <div className="trainee__page">
+          <div className="login__page">
             <Header />
             <br />
             <p
