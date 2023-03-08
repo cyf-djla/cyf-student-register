@@ -251,6 +251,23 @@ display: none;
   transition: all 0.3s ease-in-out;
   margin-top: -57px;
   font-weight: bolder;
+}
+.massive-red-button-signed-out {
+  font-size: 20px;
+  text-align: center;
+  padding: 1rem 2rem;
+  background-color: #d12f2f;
+  color: rgb(248, 242, 242);
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 82.5px;
+  text-align: center;
+  width: 9rem;
+  height: 5.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-top: -180px;
+  font-weight: bolder;
 
 }
 .buttons-container{
@@ -267,6 +284,10 @@ display: none;
 .massive-red-button-2:hover {
   transform: scale(1.1);
 }
+.massive-red-button-signed-out:hover {
+  transform: scale(1.1);
+}
+
   }
 
   @media (min-width:501px){
@@ -322,11 +343,29 @@ display: none;
   font-weight: bolder;
 
 }
+.massive-red-button-signed-out {
+  font-size: 20px;
+  text-align: center;
+  padding: 1rem 2rem;
+  background-color: #d12f2f;
+  color: rgb(248, 242, 242);
+  border: none;
+  border-radius: 1rem;
+  margin: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-weight: bolder;
+  margin-bottom: 300px;
+  margin-top: -80px;
+}
 
 .massive-red-button:hover {
   transform: scale(1.1);
 }
 .massive-red-button-2:hover {
+  transform: scale(1.1);
+}
+.massive-red-button-signed-out:hover {
   transform: scale(1.1);
 }
 
