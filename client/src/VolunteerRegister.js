@@ -5,6 +5,7 @@ import {
   faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { NavLink } from "react-router-dom";
 import axios from "./Api/axios";
 import "./index.css";
 import "./StudentDashboard/Header.css"
@@ -112,8 +113,21 @@ const VolunteerRegister = () => {
     <>
       {success ? (
         <section>
-          <h1>Success!</h1>
-          <p>Welcome you have successfully Signed up as a volunteer</p>
+          <Header/>
+          <div>
+            <p className="title-bh1">
+              Success!
+              <br />
+              Welcome you have successfully signed up
+            </p>
+          </div>
+          <div className="volunteer-menu-container">
+            <div className="buttons-container">
+              <NavLink to="/" className="massive-red-button-signed-out">
+                Home Page
+              </NavLink>
+            </div>
+          </div>
         </section>
       ) : (
         <section>

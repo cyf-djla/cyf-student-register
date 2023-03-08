@@ -24,9 +24,6 @@ const GoodBye = () => {
             <br />
             See you Soon!
           </p>
-          {/* <p className="title-bh1">
-            See you Soon!
-          </p> */}
       </div>
       <div className="volunteer-menu-container">
       <div className="buttons-container">
