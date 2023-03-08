@@ -67,7 +67,6 @@ const VolunteerLogin = () => {
 		<>
 			<section>
 				<Header />
-
 				<br />
 				<p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live='assertive'>
 					{errMsg}
@@ -75,12 +74,9 @@ const VolunteerLogin = () => {
 				<h1>
 					<b>#We are here</b>
 				</h1>
-				<br />
-				<div className='title-bh1'>
 					<p className='title-bh1'>
 						<u>Volunteer Login</u>
 					</p>
-				</div>
 				<form>
 					<label htmlFor='email'>Email:</label>
 					<input type='email' id='email' ref={userRef} autoComplete='off' onChange={(e) => setEmail(e.target.value)} value={email} required />
@@ -94,11 +90,13 @@ const VolunteerLogin = () => {
 
 					{errorMessage && <p className='error'>{errorMessage}</p>}
 				</form>
+				<div className='form_div'>
 				<p className='bottom-description'>
 					Need an Account?
 					<br />
 					<i>Click on the Menu at the top right to return to the home page </i>
 				</p>
+				</div>
 			</section>
 		</>
 	);

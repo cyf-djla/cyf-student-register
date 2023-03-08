@@ -16,10 +16,10 @@ function VolunteerMenu() {
         <div className="volunteer-menu-container">
           <div className="buttons-container">
             <NavLink to="/VolunteerLogin" className="massive-red-button-2">
-              Volunteer Login
+            Volunteer Login
             </NavLink>
             <NavLink to="/VolunteerRegister" className="massive-red-button-2">
-              Volunteer Register
+            Volunteer Register
             </NavLink>
           </div>
         </div>

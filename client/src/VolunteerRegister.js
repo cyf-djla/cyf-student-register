@@ -118,6 +118,7 @@ const VolunteerRegister = () => {
       ) : (
         <section>
         <Header/>
+        <br />
           <p
             ref={errRef}
             className={errMsg ? "errmsg" : "offscreen"}
@@ -128,7 +129,6 @@ const VolunteerRegister = () => {
           <h1>
             <b>#We are here</b>
           </h1>
-          <br />
           <p className="title-bh1">
             <u>Volunteer Register </u>
           </p>
@@ -283,12 +283,14 @@ const VolunteerRegister = () => {
             >
               Sign Up
             </button>
-          </form>
-          <p className = "bottom-description">
+            <div className='form_div'>
+          <p>
             Already registered?
             <br />
             <i>Click on the Menu at the top right to return to the home page  </i>
           </p>
+          </div>
+          </form>
         </section>
       )}
     </>
