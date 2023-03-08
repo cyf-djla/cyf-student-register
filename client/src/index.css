@@ -173,14 +173,14 @@ display: none;
   
     font-weight: bold;
     text-align: center;
-    background: #db514a;
+    background: #db514a ;
      box-shadow: 0 4px rgba(246, 246, 249, 0.5);
    
     border-radius: 5px;
   
 
     font-size: 18px;
-    padding: 5px 10px;
+    padding: 10px 25px;
   }
 
 
@@ -231,6 +231,9 @@ display: none;
   height: 5.5rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  font-weight: bolder;
+
+  
 }
 .massive-red-button-2 {
   font-size: 20px;
@@ -247,6 +250,8 @@ display: none;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   margin-top: -57px;
+  font-weight: bolder;
+
 }
 .buttons-container{
   margin-top: -30px;
@@ -263,6 +268,7 @@ display: none;
   transform: scale(1.1);
 }
   }
+
   @media (min-width:501px){
 
 .volunteer-menu-container{
@@ -299,6 +305,8 @@ display: none;
   margin: 1rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  font-weight: bolder;
+
 }
 .massive-red-button-2 {
   font-size: 20px;
@@ -311,6 +319,8 @@ display: none;
   margin: 1rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  font-weight: bolder;
+
 }
 
 .massive-red-button:hover {
@@ -339,10 +349,7 @@ background-repeat: no-repeat;
   }
 
 /*TRAINEE LOGIN*/
- @media (max-width:500px){
-    
 
-  }
    @media (min-width:501px){
     
     .trainee-login__form{
@@ -356,15 +363,16 @@ background-repeat: no-repeat;
       margin-top: 70px;
     }
    
-    .desktop__title{
-
-    }
+    
     .mobile__title{
+ display: none;
     }
     .mobile__title2{
       display: none;
     }
-   
+   b{
+     display: none;
+    }
     .trainee-login-page{
   
 background-image: url("./Images/Intro-to-Coding\ 1.svg");
@@ -568,8 +576,22 @@ button {
   color: black;
   font-weight: bolder;
 
+padding: 20% 30%;
+   font-size: 25px;
+    font-weight: bold;
+    
+margin: 0 auto; 
+    text-align: center;
+  }
  
 
+  
+  
+  .about__container{
+    background-color: white;
+    padding: 0 40px;
+    border-radius: 8px;
+    
   }
 
   .bottom-description{
