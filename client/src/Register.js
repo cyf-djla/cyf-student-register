@@ -1,6 +1,11 @@
-import React, {useRef, useState, useEffect} from "react";
-import {faCheck, faTimes, faInfoCircle} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import React, { useRef, useState, useEffect } from "react";
+import {
+  faCheck,
+  faTimes,
+  faInfoCircle,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { NavLink } from "react-router-dom";
 // import axios from "./Api/axios";
 import "./StudentDashboard/Header.css";
 import Header from "./StudentDashboard/Header";
@@ -8,117 +13,132 @@ import "./index.css";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+const EMAIL_REGEX =
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
 const REGISTER_URL = "https://cyf-student-register.onrender.com/api/auth/";
 
 const Register = () => {
-	const userRef = useRef();
-	const errRef = useRef();
-	const emailRef = useRef();
+  const userRef = useRef();
+  const errRef = useRef();
+  const emailRef = useRef();
 
-	const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([]);
 
-	useEffect(() => {
-		fetchUsers();
-	}, [users]);
+  useEffect(() => {
+    fetchUsers();
+  }, [users]);
 
-	// useEffect(() => {
-	//   console.log(users);
-	// }, [users])
+  // useEffect(() => {
+  //   console.log(users);
+  // }, [users])
 
-	function fetchUsers() {
-		fetch("https://cyf-student-register.onrender.com/api/auth/")
-			.then((res) => res.json())
-			.then((data) => setUsers(data))
-			.catch((error) => console.log(error));
-	}
+  function fetchUsers() {
+    fetch("https://cyf-student-register.onrender.com/api/auth/")
+      .then((res) => res.json())
+      .then((data) => setUsers(data))
+      .catch((error) => console.log(error));
+  }
 
-	// useEffect(() =>{
-	//   console.log(users)
-	// }, )
+  // useEffect(() =>{
+  //   console.log(users)
+  // }, )
 
-	const [username, setUserName] = useState("");
-	const [validuserName, setValiduserName] = useState(false);
-	const [userNameFocus, setUserNameFocus] = useState(false);
+  const [username, setUserName] = useState("");
+  const [validuserName, setValiduserName] = useState(false);
+  const [userNameFocus, setUserNameFocus] = useState(false);
 
-	const [email, setEmail] = useState("");
-	const [validEmail, setValidEmail] = useState(false);
-	const [emailFocus, setEmailFocus] = useState(false);
+  const [email, setEmail] = useState("");
+  const [validEmail, setValidEmail] = useState(false);
+  const [emailFocus, setEmailFocus] = useState(false);
 
-	const [password, setPassword] = useState("");
-	const [validPassword, setValidPassword] = useState(false);
-	const [passwordFocus, setPasswordFocus] = useState(false);
+  const [password, setPassword] = useState("");
+  const [validPassword, setValidPassword] = useState(false);
+  const [passwordFocus, setPasswordFocus] = useState(false);
 
-	const [matchPassword, setMatchPassword] = useState("");
-	const [validMatch, setValidMatch] = useState(false);
-	const [matchFocus, setMatchFocus] = useState(false);
+  const [matchPassword, setMatchPassword] = useState("");
+  const [validMatch, setValidMatch] = useState(false);
+  const [matchFocus, setMatchFocus] = useState(false);
 
-	const [errMsg, setErrMsg] = useState("");
-	const [success, setSuccess] = useState(false);
+  const [errMsg, setErrMsg] = useState("");
+  const [success, setSuccess] = useState(false);
 
-	const [cohort, setCohort] = useState(false);
+  const [cohort, setCohort] = useState(false);
 
-	// useEffect(() => {
-	//   userRef.current.focus();
-	// }, []);
+  // useEffect(() => {
+  //   userRef.current.focus();
+  // }, []);
 
-	useEffect(() => {
-		setValiduserName(USER_REGEX.test(username));
-	}, [username]);
+  useEffect(() => {
+    setValiduserName(USER_REGEX.test(username));
+  }, [username]);
 
-	useEffect(() => {
-		const isValidEmail = EMAIL_REGEX.test(email);
-		setValidEmail(isValidEmail);
-	}, [email]);
+  useEffect(() => {
+    const isValidEmail = EMAIL_REGEX.test(email);
+    setValidEmail(isValidEmail);
+  }, [email]);
 
-	useEffect(() => {
-		setValidPassword(PWD_REGEX.test(password));
-		setValidMatch(password === matchPassword);
-	}, [password, matchPassword]);
+  useEffect(() => {
+    setValidPassword(PWD_REGEX.test(password));
+    setValidMatch(password === matchPassword);
+  }, [password, matchPassword]);
 
-	useEffect(() => {
-		setErrMsg("");
-	}, [username, password, matchPassword, email]);
+  useEffect(() => {
+    setErrMsg("");
+  }, [username, password, matchPassword, email]);
 
-	const handleSubmit = (e) => {
-		e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-		const newUser = {
-			username,
-			password,
-			cohort,
-			email,
-			isVolunteer: false,
-		};
+    const newUser = {
+      username,
+      password,
+      cohort,
+      email,
+      isVolunteer: false,
+    };
 
-		fetch("https://cyf-student-register.onrender.com/api/auth/signup", {
-			method: "post",
-			headers: {
-				"Content-type": "application/json",
-			},
-			body: JSON.stringify(newUser),
-		})
-			.then((res) => res.json())
-			.then((data) => setUsers(data))
-			.catch((error) => console.log(error));
+    fetch("https://cyf-student-register.onrender.com/api/auth/signup", {
+      method: "post",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(newUser),
+    })
+      .then((res) => res.json())
+      .then((data) => setUsers(data))
+      .catch((error) => console.log(error));
 
-		setSuccess(true);
-		//clear state and controlled inputs
-		//need value attrib on inputs for this
-		setUserName("");
-		setPassword("");
-		setEmail("");
-		setMatchPassword("");
-		setCohort("");
-	};
-	return (
+    setSuccess(true);
+    //clear state and controlled inputs
+    //need value attrib on inputs for this
+    setUserName("");
+    setPassword("");
+    setEmail("");
+    setMatchPassword("");
+    setCohort("");
+  };
+  return (
     <>
       {success ? (
         <section>
           <Header />
-          <h1>Success!</h1>
-          <p>Welcome you have successfully signed up</p>
+          {/* <h1>Success!</h1>
+          <p>Welcome you have successfully signed up</p> */}
+          <div>
+            <p className="title-bh1">
+              Success!
+              <br />
+              Welcome you have successfully signed up
+            </p>
+          </div>
+          <div className="volunteer-menu-container">
+            <div className="buttons-container">
+              <NavLink to="/" className="massive-red-button-signed-out">
+                Home Page
+              </NavLink>
+            </div>
+          </div>
         </section>
       ) : (
         <section>
