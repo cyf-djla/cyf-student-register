@@ -623,6 +623,12 @@ margin: 0 auto;
  background-repeat: no-repeat;
  padding-bottom: 92px;
   }
+  .home__title{
+    padding-top:80px ;
+  }
+  .rounded-social-buttons{
+    padding-bottom: 30px;
+  }
 }
 @media (max-width:500px){
 
