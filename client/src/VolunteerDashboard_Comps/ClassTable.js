@@ -4,6 +4,7 @@ import "../index.css";
 
 function ClassTable({ classId }) {
   const [logs, setLogs] = useState([]);
+  const [selectedRowIndex, setSelectedRowIndex] = useState(null);
 
   useEffect(() => {
     fetch("https://cyf-student-register.onrender.com/api/classes")
@@ -29,6 +30,10 @@ function ClassTable({ classId }) {
     );
   };
 
+  const handleRowClick = (index) => {
+    setSelectedRowIndex(index);
+  };
+
   return (
     <div className="class-logs">
       {filteredLogs.length === 0 ? (
@@ -47,8 +52,12 @@ function ClassTable({ classId }) {
           <tbody>
             {filteredLogs[0].trainees
               .filter((trainee) => shouldShowRow(trainee))
-              .map((trainee) => (
-                <tr key={trainee._id}>
+              .map((trainee, index) => (
+                <tr
+                  key={trainee._id}
+                  onClick={() => handleRowClick(index)}
+                  className={selectedRowIndex === index ? "selected" : ""}
+                >
                   <td>{trainee._id}</td>
                   <td>{trainee.username}</td>
                   <td>{trainee.flags}</td>
@@ -76,3 +85,4 @@ function ClassTable({ classId }) {
 }
 
 export default ClassTable;
+
