@@ -18,7 +18,9 @@ body {
 }
 
 /*HEADER*/
-@media(max-width:610px){
+
+@media(max-width:500px){
+
   .header {
     height: 100px;
     background-color: #efefef;
@@ -102,9 +104,11 @@ body {
   }
 }
 
-  @media (min-width:605px){
-  .header {
-    padding:20px;
+
+  @media (min-width:501px){
+      .header {
+        padding:20px;
+
     height: 130px;
     background-color: #efefef;
     display: flex;
@@ -184,7 +188,7 @@ display: none;
 
   /*MENU*/
 
-  @media (max-width:610px){
+  @media (max-width:500px){
 
 .buttons-container {
   display: flex;
@@ -227,6 +231,9 @@ display: none;
   height: 5.5rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  font-weight: bolder;
+
+  
 }
 .massive-red-button-2 {
   font-size: 20px;
@@ -243,6 +250,8 @@ display: none;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   margin-top: -57px;
+  font-weight: bolder;
+
 }
 .buttons-container{
   margin-top: -30px;
@@ -258,8 +267,8 @@ display: none;
 .massive-red-button-2:hover {
   transform: scale(1.1);
 }
-}
-  @media (min-width:600px){
+  @media (min-width:501px){
+
 .volunteer-menu-container{
   display: flex;
   flex-direction: row;
@@ -294,6 +303,8 @@ display: none;
   margin: 1rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  font-weight: bolder;
+
 }
 .massive-red-button-2 {
   font-size: 20px;
@@ -306,6 +317,8 @@ display: none;
   margin: 1rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  font-weight: bolder;
+
 }
 
 .massive-red-button:hover {
@@ -329,16 +342,16 @@ background-repeat: no-repeat;
 
 }
   }
-  @media (min-width:420px){
+  @media (min-width:501px){
 
   }
 
 /*TRAINEE LOGIN*/
- @media (max-width:419px){
+ @media (max-width:500px){
     
 
   }
-   @media (min-width:420px){
+   @media (min-width:501px){
     
     .trainee-login__form{
       width: 50%;
@@ -552,7 +565,9 @@ button {
   padding: 45px 45px 45px 45px;
   position: relative;
 } */
-@media (min-width:700px){
+
+@media (min-width:501px){
+
   .about__us{
 
     background-image: url("./Images/Intro-to-Coding\ 1.svg");
@@ -561,8 +576,22 @@ button {
   color: black;
   font-weight: bolder;
 
+padding: 20% 30%;
+   font-size: 25px;
+    font-weight: bold;
+    
+margin: 0 auto; 
+    text-align: center;
+  }
  
 
+  
+  
+  .about__container{
+    background-color: white;
+    padding: 0 40px;
+    border-radius: 8px;
+    
   }
 
   .bottom-description{
@@ -578,7 +607,8 @@ button {
     margin-bottom: -150px;
   }
 }
-@media (max-width:700px){
+@media (max-width:500px){
+
     .about__us{
  
   margin-top: -50px;

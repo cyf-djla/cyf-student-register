@@ -13,6 +13,7 @@ const About = () => {
         <h1 className="mobile__title2">#We are here </h1>
       </div>
       <div className="about__us">
+
         <h1>ABOUT US</h1>
         <p>
           CODE YOUR FUTURE <br /> need to keep record of Trainee attendance,
@@ -28,6 +29,8 @@ const About = () => {
           by volunteers that'll support them in providing the best experience
           for trainees possible.
         </p>
+
+
       </div>
     </div>
   );
