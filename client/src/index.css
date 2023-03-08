@@ -231,6 +231,9 @@ display: none;
   height: 5.5rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  font-weight: bolder;
+
+  
 }
 .massive-red-button-2 {
   font-size: 20px;
@@ -247,6 +250,8 @@ display: none;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   margin-top: -57px;
+  font-weight: bolder;
+
 }
 .buttons-container{
   margin-top: -30px;
@@ -298,6 +303,8 @@ display: none;
   margin: 1rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  font-weight: bolder;
+
 }
 .massive-red-button-2 {
   font-size: 20px;
@@ -310,6 +317,8 @@ display: none;
   margin: 1rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  font-weight: bolder;
+
 }
 
 .massive-red-button:hover {
