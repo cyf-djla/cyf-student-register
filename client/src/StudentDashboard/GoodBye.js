@@ -1,5 +1,7 @@
 import React from 'react'
 import Header from './Header';
+import { NavLink } from 'react-router-dom';
+import "../index.css";
 
 const GoodBye = () => {
   fetch('https://cyf-student-register.onrender.com/api/auth/logout', {
@@ -15,9 +17,24 @@ const GoodBye = () => {
     <div className='signed-out__page'>
       <Header/>
       <div className="good__bye">
-        <p>Signed out</p>
-        <p>See You soon!</p>
+        {/* <p>Signed out</p>
+        <p>See You soon!</p>  */}       
+          <p className="title-bh1"> 
+            Signed out
+            <br />
+            See you Soon!
+          </p>
+          {/* <p className="title-bh1">
+            See you Soon!
+          </p> */}
       </div>
+      <div className="volunteer-menu-container">
+      <div className="buttons-container">
+            <NavLink to="/" className="massive-red-button-signed-out">
+              Home Page
+            </NavLink>
+            </div>
+            </div>
     </div>
   );
 }
