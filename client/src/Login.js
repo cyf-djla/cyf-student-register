@@ -72,7 +72,6 @@ const Login = () => {
 		<>
 			<section>
 				<Header />
-
 				<br />
 				<p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live='assertive'>
 					{errMsg}
@@ -80,11 +79,11 @@ const Login = () => {
 				<h1>
 					<b>#We are here</b>
 				</h1>
-				<div className = 'title-bh1'>
+				
 				<p className='title-bh1'>
 					<u>Trainee Login</u>
 				</p>
-				</div>
+				
 				<form>
 					<label htmlFor='email'>Email:</label>
 					<input type='email' id='email' ref={userRef} autoComplete='off' onChange={(e) => setEmail(e.target.value)} value={email} required />

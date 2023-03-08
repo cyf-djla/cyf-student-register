@@ -267,7 +267,8 @@ display: none;
 .massive-red-button-2:hover {
   transform: scale(1.1);
 }
-}
+  }
+
   @media (min-width:501px){
 
 .volunteer-menu-container{

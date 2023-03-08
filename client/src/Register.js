@@ -128,10 +128,10 @@ const Register = () => {
 						{errMsg}
 					</p>
 					<h1>
-						<b className='mobile__title'>#We are here</b>
+						<b>#We are here</b>
 					</h1>
 					<p className='title-bh1'>
-						<u className='title-bh1'>Trainee Register </u>
+						<u>Trainee Register</u>
 					</p>
 
 					<form>
