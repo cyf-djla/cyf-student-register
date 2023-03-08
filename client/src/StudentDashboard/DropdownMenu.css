@@ -69,6 +69,14 @@ width:160px;
   justify-content: center;
 }
 
+#module {
+  font-size: 20px;
+}
+
+#logtime {
+  font-size: 23px;
+}
+
 @media (max-width:500px) {
 .dashboard_buttons{
   height:80px;

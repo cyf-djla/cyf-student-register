@@ -1,5 +1,7 @@
 import React from 'react'
 import Header from './Header';
+import './About.css';
+
 const About = () => {
   return (
     <div>
@@ -13,23 +15,23 @@ const About = () => {
         <h1 className="mobile__title2">#We are here </h1>
       </div>
       <div className="about__us">
-
-        <h1>ABOUT US</h1>
+<div className="about__ustext">
+        <h1>About us</h1>
         <p>
-          CODE YOUR FUTURE <br /> need to keep record of Trainee attendance,
+          -CODE YOUR FUTURE- <br /> Our Volunteers need to keep record of Trainee attendance,
           punctuality and behavior during classes. This allows volunteers to
-          provide the best possible service for trainees, with expense and
-          teaching support, and mentorship.
+          provide the best possible service for our trainees with 
+          teaching support, mentorship and covering expenses.
           <br />
           <br />
           <b> OUR MISSION:</b>
           <br /> Our vision is an application that'll allow students to
           digitally log into classes via mobile or laptop device easily and
-          efficiently. Their participation then stored to a database, accessed
+          efficiently. A record of their participation then stored to a database, accessed
           by volunteers that'll support them in providing the best experience
           for trainees possible.
         </p>
-
+</div>
 
       </div>
     </div>

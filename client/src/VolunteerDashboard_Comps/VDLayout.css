@@ -7,7 +7,7 @@
     margin: 0 auto;
     border-right: solid 2px rgb(226, 213, 213);
     border-left: solid 2px rgb(226, 213, 213);
-    border-bottom: solid 20px rgb(226, 213, 213);
+    border-bottom: solid 2px rgb(226, 213, 213);
     text-align: center;
     background-color: #f0e5e5;
     margin-top: 0px;
@@ -33,6 +33,7 @@ text-overflow: ellipsis;
 white-space: nowrap;
 padding: 1px;
 border-right: 1px solid black;
+font-size: 20px;
 }
 
 .class-logs-table td {
@@ -41,6 +42,7 @@ overflow: hidden;
 text-overflow: ellipsis;
 white-space: nowrap;
 border-right: 1px solid black;
+font-size: 20px;
 }
 
 }
@@ -53,7 +55,7 @@ border-right: 1px solid black;
     margin: 0 auto;
       border-right: solid 2px rgb(226, 213, 213);
       border-left: solid 2px rgb(226, 213, 213);
-      border-bottom: solid 20px rgb(226, 213, 213);
+      border-bottom: solid 2px rgb(226, 213, 213);
       text-align: center;
       background-color: #f0e5e5;
       margin-top: 0px;
@@ -81,12 +83,14 @@ font-size: 16px;
 padding: 8px;
 border: 1px solid white;
 border-right: 1px solid black;
+font-size: 25px;
 }
 
 .class-logs-table td {
 padding: 8px;
 border-right: 1px solid black;
 word-wrap: break-word;
+font-size: 25px;
 }
 
 }
