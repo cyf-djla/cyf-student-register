@@ -24,7 +24,7 @@ const About = () => {
           teaching support, mentorship and covering expenses.
           <br />
           <br />
-          <h6> OUR MISSION:</h6>
+          <b> OUR MISSION:</b>
           <br /> Our vision is an application that'll allow students to
           digitally log into classes via mobile or laptop device easily and
           efficiently. A record of their participation then stored to a database, accessed

@@ -72,7 +72,7 @@ const Login = () => {
     <>
       <section>
         <Header />
-        <div className="login__page">
+        <div className="trainee__page">
           <br />
           <p
             ref={errRef}
