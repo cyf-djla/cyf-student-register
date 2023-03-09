@@ -2,10 +2,8 @@ const axios = require('axios');
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require("path");
-// const helmet = require("helmet");
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const cors = require("cors");
 
 var dotenv = require("dotenv");
 dotenv.config();
@@ -13,23 +11,11 @@ dotenv.config();
 const app = express();
 
 app.use(cookieParser())
-// app.use(helmet());
-
 app.use(bodyParser.json());
 
 
 const userRoutes = require('./routes/user');
 const classRoutes = require("./routes/class");
-
-// var corsOptions = {
-// 	origin: "http://localhost:3000",
-// };
-// app.use(cors(corsOptions));
-
-// app.use((req, res, next) => {
-// 	res.removeHeader("Cross-Origin-Embedder-Policy");
-// 	next();
-// });
 
 const connectToDB = async()=>{
   mongoose.set("strictQuery", false);
@@ -52,19 +38,6 @@ app.use((req, res, next) => {
 	res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, PATCH, OPTIONS");
 	next();
 });
-
-
-
-
-
-/* const apiLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
-    standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
-    legacyHeaders: false, // Disable the `X-RateLimit-*` headers
-  })
- */
-
 
 app.use(express.json());
 
