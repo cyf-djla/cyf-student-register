@@ -13,5 +13,4 @@ router.get('/:username' , userCtrl.findUserByUserName)
 router.put('/:id', userCtrl.updateUser)
 router.delete('/:id', userCtrl.deleteUser)
 
-
 module.exports = router;

@@ -6,17 +6,13 @@ exports.traineeClassSignIn = async (req, res, next) => {
 		let user = {username: req.body.username, _id: req.body._id, logintime: new Date(Date.now())};
 
 		const todaysclass = await Class.findOne({_id: req.params.id});
-		
-
 		const traineeIndex = todaysclass.trainees.findIndex((trainee) => trainee._id === user._id);
 
-		
-		if (traineeIndex === -1) {		
+		if (traineeIndex === -1) {
 			todaysclass.trainees.push(user);
 		} else {
 			todaysclass.trainees[traineeIndex].logintime = user.logintime;
 		}
-
 		const updatedClass = await todaysclass.save();
 
 		res.status(200).json({todaysclass: updatedClass});
@@ -31,7 +27,6 @@ exports.traineeClassSignOut = async (req, res, next) => {
 		let user = {username: req.body.username, _id: req.body.userId, logouttime: new Date(Date.now())};
 
 		const todaysclass = await Class.findOne({_id: req.params.id});
-
 		const traineeIndex = todaysclass.trainees.findIndex((trainee) => trainee.username === user.username);
 		if (traineeIndex === -1) {
 			res.status(400).json({error: "Trainee not found"});
@@ -39,7 +34,6 @@ exports.traineeClassSignOut = async (req, res, next) => {
 		} else {
 			todaysclass.trainees[traineeIndex].logouttime = user.logouttime;
 		}
-
 		const updatedClass = await todaysclass.save();
 
 		res.status(200).json({todaysclass: updatedClass});
@@ -51,7 +45,7 @@ exports.traineeClassSignOut = async (req, res, next) => {
 // trainee sign out of class
 exports.traineeFlags = async (req, res, next) => {
 	try {
-		let user = {username: req.body.username,flags: req.body.flags};
+		let user = {username: req.body.username, flags: req.body.flags};
 
 		const todaysclass = await Class.findOne({_id: req.params.id});
 
@@ -70,7 +64,6 @@ exports.traineeFlags = async (req, res, next) => {
 		res.status(400).json({error: error});
 	}
 };
-
 
 // getAllClasss
 exports.getAllClasses = async (req, res, next) => {
@@ -91,8 +84,6 @@ exports.getOneClass = async (req, res, next) => {
 		res.status(400).json({error: error.message});
 	}
 };
-
-
 
 // modify Class
 exports.modifyClass = async (req, res, next) => {
@@ -157,7 +148,6 @@ exports.createClass = async (req, res, next) => {
 exports.volunteerClassSignOut = async (req, res, next) => {
 	try {
 		let user = {name: req.body.name, logouttime: new Date(Date.now())};
-
 		const todaysclass = await Class.findOne({_id: req.params.id});
 
 		const volunteerIndex = todaysclass.volunteers.findIndex((volunteer) => volunteer.name === user.name);
@@ -169,7 +159,6 @@ exports.volunteerClassSignOut = async (req, res, next) => {
 		}
 
 		const updatedClass = await todaysclass.save();
-
 		res.status(200).json({todaysclass: updatedClass});
 	} catch (error) {
 		res.status(400).json({error: error});
@@ -180,26 +169,18 @@ exports.volunteerClassSignOut = async (req, res, next) => {
 exports.volunteerClassSignIn = async (req, res, next) => {
 	try {
 		let user = {name: req.body.name, logintime: new Date(Date.now())};
-
 		const todaysclass = await Class.findOne({_id: req.params.id});
 
 		const volunteerIndex = todaysclass.volunteers.findIndex((volunteer) => volunteer.name === user.name);
-		if (volunteerIndex === -1) {		
+		if (volunteerIndex === -1) {
 			todaysclass.volunteers.push(user);
 		} else {
 			todaysclass.volunteers[volunteerIndex].logintime = user.logintime;
 		}
 
 		const updatedClass = await todaysclass.save();
-
 		res.status(200).json({todaysclass: updatedClass});
 	} catch (error) {
 		res.status(400).json({error: error});
 	}
 };
-
-
-
-
-
-
