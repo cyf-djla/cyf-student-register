@@ -113,7 +113,7 @@ const VolunteerRegister = () => {
     <>
       {success ? (
         <section>
-          <Header/>
+          <Header />
           <div>
             <p className="title-bh1">
               Success!
@@ -311,17 +311,17 @@ const VolunteerRegister = () => {
                 >
                   Sign Up
                 </button>
+              </div>
 
-                <div className="form_div">
-                  <p>
-                    Already registered?
-                    <br />
-                    <i>
-                      Click on the Menu at the top right to return to the home
-                      page{" "}
-                    </i>
-                  </p>
-                </div>
+              <div className="form_div">
+                <p>
+                  Already registered?
+                  <br />
+                  <i>
+                    Click on the Menu at the top right to return to the home
+                    page{" "}
+                  </i>
+                </p>
               </div>
             </form>
           </div>
