@@ -498,6 +498,7 @@ button {
 }
 .title-sign-out{
   text-align: center;
+  margin-top: 140px;
 }
 
 
@@ -670,6 +671,9 @@ button {
  background-size: cover;
  background-repeat: no-repeat;
  padding-bottom: 92px;
+  }
+  .signed-out__page{
+    background-color: white;
   }
 }
 @media (max-width:500px){
