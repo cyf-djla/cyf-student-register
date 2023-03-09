@@ -36,7 +36,7 @@ function ClassTable({ classId }) {
   };
 
   const handleFlagChange = (event) => {
-    setSelectedFlag(event.target.value);
+    setSelectedFlag(event);
   };
 
   const handleFlagSubmit = async () => {
