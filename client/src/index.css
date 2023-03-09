@@ -240,7 +240,7 @@ display: none;
   background-size: cover; 
   background-repeat: no-repeat;
   padding-right: 40px;
-  padding-top: 40px;
+  padding-top: 50px;
   size: 420px;
   margin-top: -46px;
   padding-left: 25px;
@@ -264,8 +264,8 @@ display: none;
   border-radius: 10px;
   margin-bottom: 25px;
   text-align: center;
-  width: 9rem;
-  height: 5.5rem;
+  width: 9.2rem;
+  height: 5.8rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   font-weight: bolder;
@@ -282,8 +282,8 @@ display: none;
   border-radius: 10px;
   margin-bottom: 82.5px;
   text-align: center;
-  width: 9rem;
-  height: 5.5rem;
+  width: 9.2rem;
+  height: 5.8rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   margin-top: -57px;
@@ -299,8 +299,8 @@ display: none;
   border-radius: 10px;
   margin-bottom: 82.5px;
   text-align: center;
-  width: 9rem;
-  height: 5.5rem;
+  width: 9.2rem;
+  height: 5.8rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   margin-top: 0px;
@@ -308,7 +308,7 @@ display: none;
 
 }
 .buttons-container{
-  margin-top: -30px;
+  margin-top: -165px;
   border-right: solid 1px rgb(200, 197, 197);
   border-left: solid 1px rgb(200, 197, 197);
   padding: 20px;
@@ -637,7 +637,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 26rem;
+  height: calc(100vh - 100px); 
   margin-top: -10px;
 }
 /*MENU*/
