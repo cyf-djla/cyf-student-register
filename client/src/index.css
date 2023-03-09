@@ -71,8 +71,7 @@ body {
     display: block;
     height: 50px;
     width: 60px;
-    background-color: #db514a;
-
+    background-color: #d12f2f;
     margin-right: 10px;
     border-radius: 10px;
   }
@@ -266,7 +265,7 @@ display: none;
   height: 5.5rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  margin-top: -180px;
+  margin-top: 0px;
   font-weight: bolder;
 
 }
@@ -381,7 +380,7 @@ background-image: url("./Images/Intro-to-Coding\ 1.svg");
 background-size: cover;
 background-repeat: no-repeat;
 
-}
+} 
   }
   @media (min-width:501px){
 
@@ -656,17 +655,11 @@ margin: 0 auto;
   width: 600px;
   margin-top: 70px;
   }
-  .login__page{
+  .trainee__page{
  background-image: url("./Images/Intro-to-Coding\ 1.svg");
  background-size: cover;
  background-repeat: no-repeat;
  padding-bottom: 92px;
-  }
-  .home__title{
-    padding-top:80px ;
-  }
-  .rounded-social-buttons{
-    padding-bottom: 30px;
   }
 }
 @media (max-width:500px){

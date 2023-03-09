@@ -16,15 +16,15 @@ const GoodBye = () => {
   return (
     <div className='signed-out__page'>
       <Header/>
-      <div className="good__bye">
+      
         {/* <p>Signed out</p>
         <p>See You soon!</p>  */}       
           <p className="title-bh1"> 
             Signed out
             <br />
-            See you Soon!
+            See you soon!
           </p>
-      </div>
+      
       <div className="volunteer-menu-container">
       <div className="buttons-container">
             <NavLink to="/" className="massive-red-button-signed-out">
