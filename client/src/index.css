@@ -405,6 +405,10 @@ display: none;
 .massive-red-button-signed-out:hover {
   transform: scale(1.1);
 }
+.home__title{
+margin-bottom: -60px;
+  font-size: 80px;
+}
 
 /* .background-wrapper h1 {
   text-align: center;
@@ -417,6 +421,8 @@ display: none;
 background-image: url("./Images/Intro-to-Coding\ 1.svg");
 background-size: cover;
 background-repeat: no-repeat;
+height: 86vh;
+padding-top: 50px;
 
 } 
   }
