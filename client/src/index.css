@@ -6,8 +6,12 @@
   box-sizing: border-box;
 }
 
+.table_button{
+    background-color: #d12f2f;;
+  }
+
 .selected {
-  background-color: #db514a;
+  background-color: #d12f2f;
 }
 
 html {
@@ -38,8 +42,12 @@ body {
    /* position: fixed;  */
   }
     .selected {
-      background-color: #db514a;
+      background-color: #d12f2f;
     }
+
+     .table_button {
+      background-color: #d12f2f;
+     }
     
     .links__container > li{
     display: flex;
@@ -126,6 +134,14 @@ body {
     top: 0;
     z-index: 100;
   }
+
+.selected {
+  background-color: #d12f2f;
+}
+
+.table_button {
+  background-color: #d12f2f;
+}
      .logo {
     height: 110px;
     width: 300px;

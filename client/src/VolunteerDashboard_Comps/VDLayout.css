@@ -2,7 +2,7 @@
 @media (max-width:750px){
 
 .vdlayout__body {
-  
+  min-width: 420px;
     max-width: 420px;
     margin: 0 auto;
     border-right: solid 2px rgb(226, 213, 213);
@@ -15,6 +15,7 @@
   }
 
 .class-logs-table {
+  min-width: 420px;
 max-width: 420px;
 table-layout: fixed;
 border-collapse: collapse;
