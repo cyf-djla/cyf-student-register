@@ -214,8 +214,13 @@ display: none;
     font-size: 18px;
     padding: 10px 25px;
   }
-
-
+.signed-out__page{
+  background-color: white;
+  height: 100vh;
+}
+.title-sign-out{
+  margin-top: 120px;
+}
 }
 
   /*MENU*/
