@@ -19,7 +19,7 @@ const GoodBye = () => {
       
         {/* <p>Signed out</p>
         <p>See You soon!</p>  */}       
-          <p className="title-bh1"> 
+          <p className="title-sign-out"> 
             Signed out
             <br />
             See you soon!
