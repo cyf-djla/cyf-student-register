@@ -6,6 +6,22 @@
   box-sizing: border-box;
 }
 
+.table_button {
+  background-color: #d12f2f;
+  ;
+}
+
+.radio-button{
+  width: 50px;
+  color: #d12f2f;
+  background-color: #d12f2f;
+}
+
+
+.selected {
+  background-color: #d12f2f;
+}
+
 html {
   font-family: "Nunito", sans-serif;
   font-size: 22px;
@@ -63,6 +79,15 @@ body {
     
     
    }
+
+.table_button {
+  background-color: #d12f2f;
+  ;
+}
+
+.selected {
+  background-color: #d12f2f;
+}
   .logo {
     height: 60px;
     width: 160px;
@@ -124,7 +149,14 @@ body {
     width: 300px;
   }
 
+.table_button {
+  background-color: #d12f2f;
+  ;
+}
 
+.selected {
+  background-color: #d12f2f;
+}
 
   .header h1{
     margin-bottom: -27px;
