@@ -11,6 +11,13 @@
   ;
 }
 
+.radio-button{
+  width: 50px;
+  color: #d12f2f;
+  background-color: #d12f2f;
+}
+
+
 .selected {
   background-color: #d12f2f;
 }

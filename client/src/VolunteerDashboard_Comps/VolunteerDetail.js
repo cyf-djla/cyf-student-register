@@ -9,7 +9,7 @@ const VolunteerDetail = () => {
 
     <div className="student__detail">
       <h2 className="title"># We are here</h2>
-      <p>Trainee Dashboard</p>
+      <p>Volunteer Dashboard</p>
       
       <p>Hello! {username} </p>
     </div>

@@ -5,6 +5,7 @@ import "../index.css";
 function ClassTable({ classId }) {
   const [logs, setLogs] = useState([]);
   const [selectedRowIndex, setSelectedRowIndex] = useState(null);
+  const [selectedFlag, setSelectedFlag] = useState(null);
 
   useEffect(() => {
     fetch("https://cyf-student-register.onrender.com/api/classes")
@@ -34,11 +35,53 @@ function ClassTable({ classId }) {
     setSelectedRowIndex(index);
   };
 
-  return (
-    <div className="class-logs">
-      {filteredLogs.length === 0 ? (
-        <p>No logs found for this class</p>
-      ) : (
+  const handleFlagChange = (event) => {
+    setSelectedFlag(event.target.value);
+  };
+
+  const handleFlagSubmit = async () => {
+  if (selectedRowIndex !== null && selectedFlag !== null) {
+    const selectedTrainee = filteredLogs[0].trainees[selectedRowIndex];
+    const updatedTrainee = {
+      ...selectedTrainee,
+      flags: [...selectedTrainee.flags, selectedFlag],
+    };
+    const updatedTrainees = [...filteredLogs[0].trainees];
+    updatedTrainees[selectedRowIndex] = updatedTrainee;
+    const updatedLog = {
+      ...filteredLogs[0],
+      trainees: updatedTrainees,
+    };
+    const updatedLogs = [...logs];
+    updatedLogs[updatedLogs.indexOf(filteredLogs[0])] = updatedLog;
+    setLogs(updatedLogs);
+    setSelectedRowIndex(null);
+    setSelectedFlag(null);
+
+    try {
+      const response = await fetch(`https://cyf-student-register.onrender.com/api/classes/postflag/${selectedTrainee._id}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ flag: selectedFlag })
+      });
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+};
+
+
+ return (
+  <div className="class-logs">
+    {filteredLogs.length === 0 ? (
+      <p>No logs found for this class</p>
+    ) : (
+      <>
         <table className="class-logs-table">
           <thead>
             <tr>
@@ -60,7 +103,7 @@ function ClassTable({ classId }) {
                 >
                   <td>{trainee._id}</td>
                   <td>{trainee.username}</td>
-                  <td>{trainee.flags}</td>
+                  <td>{trainee.flags.join(", ")}</td>
                   <td>
                     {trainee.logintime ? (
                       moment(trainee.logintime).format("h:mm a")
@@ -79,9 +122,58 @@ function ClassTable({ classId }) {
               ))}
           </tbody>
         </table>
-      )}
-    </div>
-  );
-}
+
+        {selectedRowIndex !== null && (
+          <div className="flag box">
+            <p>Flag Trainee:</p>
+            <label>
+              <input
+                type="radio"
+                className="radio-button"
+                name="flags"
+                value="Late"
+                onChange={(e) => handleFlagChange(e.target.value)}
+              />
+              Late
+            </label>
+            <label>
+              <input
+                type="radio"
+                className="radio-button"
+                name="flags"
+                value="Left early"
+                onChange={(e) => handleFlagChange(e.target.value)}
+              />
+              Left early
+            </label>
+            <label>
+              <input
+                type="radio"
+                className="radio-button"
+                name="flags"
+                value="Not participating"
+                onChange={(e) => handleFlagChange(e.target.value)}
+              />
+              Not participating
+            </label>
+            <label>
+              <input
+                type="radio"
+                className="radio-button"
+                name="flags"
+                value="Absent/Camera off"
+                onChange={(e) => handleFlagChange(e.target.value)}
+              />
+              Absent/Camera off
+            </label>
+             <button className= "table_button" onClick={handleFlagSubmit}>Submit</button>
+          </div>
+        )}
+      </>
+    )}
+  </div>
+);
+
+};
 
 export default ClassTable;
