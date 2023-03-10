@@ -46,10 +46,11 @@ function ClassTable({ classId }) {
     setSelectedFlags(event);
     setSelectedTrainee(null);
   };
-  
 
-const handleFlagSubmit = async () => {
-  if (selectedRowIndex !== null && selectedFlags !== null) {
+
+const handleFlagSubmit = () => {
+
+    if (selectedRowIndex !== null && selectedFlags !== null) {
     const selectedTrainee = filteredLogs[0].trainees[selectedRowIndex];
     const updatedTrainee = {
       ...selectedTrainee,
@@ -66,29 +67,68 @@ const handleFlagSubmit = async () => {
     setLogs(updatedLogs);
     setSelectedRowIndex(null);
     setSelectedFlags(null);
-
-    const data = {
-      flags: [selectedFlags], 
-      _id: selectedTrainee._id
-    }
-
-    try {
-      const response = await fetch(`https://cyf-student-register.onrender.com/api/classes/postflag/${classId}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-      });
-      console.log(`this is the ${data}`)
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-    } catch (error) {
-      console.error(error);
-    }
+    
+  const data = {
+    flags: [selectedFlags], 
+    _id: selectedTrainee._id
   }
-};
+
+fetch(`https://cyf-student-register.onrender.com/api/classes/postflag/${classId}` , {
+    method: "post",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+  console.log(`this is classId ${classId} this is data ${data} `)
+    .then((res) => res.json())
+    .then((data) => console.log(data))
+    .catch((error) => console.log(error));
+}
+}
+  
+
+// const handleFlagSubmit = async () => {
+//   if (selectedRowIndex !== null && selectedFlags !== null) {
+//     const selectedTrainee = filteredLogs[0].trainees[selectedRowIndex];
+//     const updatedTrainee = {
+//       ...selectedTrainee,
+//       flags: [...selectedTrainee.flags, selectedFlags],
+//     };
+//     const updatedTrainees = [...filteredLogs[0].trainees];
+//     updatedTrainees[selectedRowIndex] = updatedTrainee;
+//     const updatedLog = {
+//       ...filteredLogs[0],
+//       trainees: updatedTrainees,
+//     };
+//     const updatedLogs = [...logs];
+//     updatedLogs[updatedLogs.indexOf(filteredLogs[0])] = updatedLog;
+//     setLogs(updatedLogs);
+//     setSelectedRowIndex(null);
+//     setSelectedFlags(null);
+
+//     const data = {
+//       flags: [selectedFlags], 
+//       _id: selectedTrainee._id
+//     }
+
+//     try {
+//       const response = await fetch(`https://cyf-student-register.onrender.com/api/classes/postflag/${classId}`, {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify(data)
+//       });
+//       console.log(`this is the ${data}`)
+//       if (!response.ok) {
+//         throw new Error(`HTTP error! Status: ${response.status}`);
+//       }
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   }
+// };
 
 
  return (

@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const path = require("path");
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const cors = require('cors')
 
 var dotenv = require("dotenv");
 dotenv.config();
@@ -16,6 +17,11 @@ app.use(bodyParser.json());
 
 const userRoutes = require('./routes/user');
 const classRoutes = require("./routes/class");
+
+var corsOptions = {
+	origin: "http://localhost:3000",
+};
+app.use(cors(corsOptions));
 
 const connectToDB = async()=>{
   mongoose.set("strictQuery", false);
