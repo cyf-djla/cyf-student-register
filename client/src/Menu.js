@@ -2,18 +2,19 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Footer from "./Footer.js"
 import "./index.css";
-import Header from "./StudentDashboard/Header";
+// import Header from "./StudentDashboard/Header";
 import "./StudentDashboard/Header.css";
+import HomeHeader from './HomeHeader.js';
 
 
 function Menu() {
   return (
     <section>
-      <Header />
+      <HomeHeader />
       <div className="background-wrapper">
-        <h1>
-          <b>#We are here</b>
-        </h1>
+     <h1 className='home__title'>#We are here</h1>
+        
+    
         <div className="volunteer-menu-container">
           <div className="buttons-container">
             <NavLink to="/Login" className="massive-red-button">

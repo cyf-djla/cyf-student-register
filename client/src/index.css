@@ -221,6 +221,9 @@ display: none;
 .title-sign-out{
   margin-top: 120px;
 }
+.about__hero-image{
+  display: none;
+}
 }
 
   /*MENU*/
@@ -237,21 +240,35 @@ display: none;
 .background-wrapper h1{
 
   background-image: url("./Images/Intro-to-Coding\ 1.svg");
-  background-size: cover; 
-  background-repeat: no-repeat;
-  padding-right: 40px;
-  padding-top: 40px;
-  size: 420px;
-  margin-top: -46px;
-  padding-left: 25px;
-  padding-bottom: 50px;
+  background-size: cover;   
+   background-repeat: no-repeat; 
+   /* padding-right: 40px; */
+  padding-top: 60px; 
 
-
+   
+   /* padding-left: 25px; */
+  padding-bottom: 60px; 
+  /* padding:20px 40px ; */
+/* padding: 40px 10px; */
+margin-bottom: 100px ;
 }
-.background-wrapper {
+.home__title{
+  /* height: 300px; */
+  width: 100%;
+height: 100%;
+}
+.about__hero-image h1{
+ background-image: url("./Images/Intro-to-Coding\ 1.svg");
+  background-size: cover;   
+   background-repeat: no-repeat; 
+     padding-top: 60px;
+      padding-bottom: 60px; 
+      /* margin-bottom: 100px ; */
+}
+/* .background-wrapper {
   margin-top: 50px;
   width: 100%;
-}
+} */
 
 
 .massive-red-button {
@@ -417,7 +434,12 @@ display: none;
 background-image: url("./Images/Intro-to-Coding\ 1.svg");
 background-size: cover;
 background-repeat: no-repeat;
-
+height: 86vh;
+padding-top: 50px;
+}
+.home__title{
+margin-bottom: -60px;
+  font-size: 80px;
 } 
   }
   @media (min-width:501px){
@@ -667,6 +689,8 @@ button {
   margin: 0 auto; 
     text-align: center;
     margin-top: -10px;
+    height: cal(100vh-130px);
+     
   }
  
 
