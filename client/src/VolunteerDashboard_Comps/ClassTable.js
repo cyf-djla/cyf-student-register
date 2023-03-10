@@ -124,8 +124,8 @@ function ClassTable({ classId }) {
         </table>
 
         {selectedRowIndex !== null && (
-          <div className="flag box">
-            <p>Flag Trainee:</p>
+          <div className="flag_box">
+            <h3>Flag Trainee:</h3>
             <label>
               <input
                 type="radio"

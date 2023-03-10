@@ -11,12 +11,17 @@
   ;
 }
 
-.radio-button{
-  width: 50px;
-  color: #d12f2f;
-  background-color: #d12f2f;
+
+.flag_box label {
+  font-size: 1rem
 }
 
+.flag_box label input {
+width: 2rem;
+height: 2rem;
+display: inline-block;
+margin-right: 20px;
+}
 
 .selected {
   background-color: #d12f2f;
@@ -51,6 +56,17 @@ body {
    /* position: fixed;  */
   }
   
+    .flag_box label {
+      font-size: 1rem
+    }
+  
+    .flag_box label input {
+      width: 2rem;
+      height: 2rem;
+      display: inline-block;
+      margin-right: 20px;
+    }
+
     .links__container > li{
     display: flex;
     
@@ -152,6 +168,17 @@ body {
 .table_button {
   background-color: #d12f2f;
   ;
+}
+
+.flag_box label {
+  font-size: 1rem
+}
+
+.flag_box label input {
+  width: 2rem;
+  height: 2rem;
+  display: inline-block;
+  margin-right: 20px;
 }
 
 .selected {
@@ -270,6 +297,16 @@ height: 100%;
   width: 100%;
 } */
 
+.flag_box label {
+  font-size: 1rem
+}
+
+.flag_box label input {
+  width: 2rem;
+  height: 2rem;
+  display: inline-block;
+  margin-right: 20px;
+}
 
 .massive-red-button {
   font-size: 20px;
