@@ -79,10 +79,11 @@ const VolunteerLogin = () => {
           <h1>
             <b>#We are here</b>
           </h1>
-          <p className="title-bh1">
-            <u>Volunteer Login</u>
-          </p>
           <div className="form__container">
+            <p className="title-bh1">
+              <u>Volunteer Login</u>
+            </p>
+
             <form>
               <label htmlFor="email">Email:</label>
               <input
