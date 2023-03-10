@@ -5,7 +5,9 @@ import "../index.css";
 function ClassTable({ classId }) {
   const [logs, setLogs] = useState([]);
   const [selectedRowIndex, setSelectedRowIndex] = useState(null);
-  const [selectedFlag, setSelectedFlag] = useState(null);
+  const [selectedFlags, setSelectedFlags] = useState(null);
+  const [selectedTrainee, setSelectedTrainee] = useState(null);
+
 
   useEffect(() => {
     fetch("https://cyf-student-register.onrender.com/api/classes")
@@ -23,6 +25,7 @@ function ClassTable({ classId }) {
 
   const shouldShowRow = (trainee) => {
     return (
+     
       trainee._id !== null ||
       trainee.username !== null ||
       trainee.flags !== null ||
@@ -31,20 +34,26 @@ function ClassTable({ classId }) {
     );
   };
 
+ 
   const handleRowClick = (index) => {
+    const selectedTrainee = filteredLogs[0].trainees[index];
     setSelectedRowIndex(index);
+    setSelectedFlags(null); // clear the selected flag
+    setSelectedTrainee(selectedTrainee); // add this line
   };
 
   const handleFlagChange = (event) => {
-    setSelectedFlag(event);
+    setSelectedFlags(event);
+    setSelectedTrainee(null);
   };
+  
 
-  const handleFlagSubmit = async () => {
-  if (selectedRowIndex !== null && selectedFlag !== null) {
+const handleFlagSubmit = async () => {
+  if (selectedRowIndex !== null && selectedFlags !== null) {
     const selectedTrainee = filteredLogs[0].trainees[selectedRowIndex];
     const updatedTrainee = {
       ...selectedTrainee,
-      flags: [...selectedTrainee.flags, selectedFlag],
+      flags: [...selectedTrainee.flags, selectedFlags],
     };
     const updatedTrainees = [...filteredLogs[0].trainees];
     updatedTrainees[selectedRowIndex] = updatedTrainee;
@@ -56,16 +65,22 @@ function ClassTable({ classId }) {
     updatedLogs[updatedLogs.indexOf(filteredLogs[0])] = updatedLog;
     setLogs(updatedLogs);
     setSelectedRowIndex(null);
-    setSelectedFlag(null);
+    setSelectedFlags(null);
+
+    const data = {
+      flags: [selectedFlags], 
+      _id: selectedTrainee._id
+    }
 
     try {
-      const response = await fetch(`https://cyf-student-register.onrender.com/api/classes/postflag/${selectedTrainee._id}`, {
+      const response = await fetch(`https://cyf-student-register.onrender.com/api/classes/postflag/${classId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ flag: selectedFlag })
+        body: JSON.stringify(data)
       });
+      console.log(`this is the ${data}`)
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }

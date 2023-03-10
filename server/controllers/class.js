@@ -24,10 +24,10 @@ exports.traineeClassSignIn = async (req, res, next) => {
 // trainee sign out of class
 exports.traineeClassSignOut = async (req, res, next) => {
 	try {
-		let user = {username: req.body.username, _id: req.body.userId, logouttime: new Date(Date.now())};
+		let user = {username: req.body.username, _id: req.body._id, logouttime: new Date(Date.now())};
 
 		const todaysclass = await Class.findOne({_id: req.params.id});
-		const traineeIndex = todaysclass.trainees.findIndex((trainee) => trainee.username === user.username);
+		const traineeIndex = todaysclass.trainees.findIndex((trainee) => trainee._id === user._id);
 		if (traineeIndex === -1) {
 			res.status(400).json({error: "Trainee not found"});
 			return;
@@ -45,11 +45,11 @@ exports.traineeClassSignOut = async (req, res, next) => {
 // trainee sign out of class
 exports.traineeFlags = async (req, res, next) => {
 	try {
-		let user = {username: req.body.username, flags: req.body.flags};
+		let user = {_id: req.body._id, flags: req.body.flags};
 
 		const todaysclass = await Class.findOne({_id: req.params.id});
 
-		const traineeIndex = todaysclass.trainees.findIndex((trainee) => trainee.username === user.username);
+		const traineeIndex = todaysclass.trainees.findIndex((trainee) => trainee._id === user._id);
 		if (traineeIndex === -1) {
 			res.status(400).json({error: "Trainee not found"});
 			return;
