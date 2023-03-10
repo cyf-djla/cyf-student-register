@@ -689,7 +689,8 @@ button {
   margin: 0 auto; 
     text-align: center;
     margin-top: -10px;
-    height: 86vh;
+    height: cal(100vh-130px);
+     
   }
  
 
