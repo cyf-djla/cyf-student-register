@@ -40,20 +40,20 @@ function ClassTable({ classId }) {
   };
 
   const handleFlagSubmit = async () => {
-  if (selectedRowIndex !== null && selectedFlag !== null) {
+
+  if (selectedRowIndex !== null && selectedFlag !== null) 
+  {
     const selectedTrainee = filteredLogs[0].trainees[selectedRowIndex];
-    const updatedTrainee = {
-      ...selectedTrainee,
-      flags: [...selectedTrainee.flags, selectedFlag],
-    };
+    
+    const updatedTrainee = {...selectedTrainee,
+      flags: [...selectedTrainee.flags, selectedFlag],};
+
     const updatedTrainees = [...filteredLogs[0].trainees];
     updatedTrainees[selectedRowIndex] = updatedTrainee;
-    const updatedLog = {
-      ...filteredLogs[0],
-      trainees: updatedTrainees,
-    };
-    const updatedLogs = [...logs];
-    updatedLogs[updatedLogs.indexOf(filteredLogs[0])] = updatedLog;
+
+    const updatedLog = {...filteredLogs[0], trainees: updatedTrainees, };
+
+    const updatedLogs = [...logs]; updatedLogs[updatedLogs.indexOf(filteredLogs[0])] = updatedLog;
     setLogs(updatedLogs);
     setSelectedRowIndex(null);
     setSelectedFlag(null);
