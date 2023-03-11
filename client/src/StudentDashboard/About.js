@@ -21,17 +21,16 @@ const About = () => {
         
         
         <div className="about__ustext">
-          <h1>About us</h1>
+          <h1 className='header_text'>About us</h1>
           <p>
             <h5>-CODE YOUR FUTURE- </h5>
-            <br /> Our Volunteers need to keep record of Trainee attendance,
+            Our Volunteers need to keep record of Trainee attendance,
             punctuality and behavior during classes. This allows volunteers to
             provide the best possible service for our trainees with teaching
             support, mentorship and covering expenses.
-            <br />
-            <br />
+           
             <h5> OUR MISSION:</h5>
-            <br /> Our vision is an application that'll allow students to
+           Our vision is an application that'll allow students to
             digitally log into classes via mobile or laptop device easily and
             efficiently. A record of their participation then stored to a
             database, accessed by volunteers that'll support them in providing
