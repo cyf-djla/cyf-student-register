@@ -5,9 +5,9 @@ import Register from "./Register";
 
 const TraineeLogin = () => {
   const [showLogin, setShowLogin] = useState(true);
-const handleShowLogin = () => {
-  setShowLogin((prevShowLogin) => !prevShowLogin);
-};
+  const handleShowLogin = () => {
+    setShowLogin((prevShowLogin) => !prevShowLogin);
+  };
   return (
     <main className="trainee-login-page">
       {showLogin ? <Login /> : <Register />}
@@ -16,6 +16,6 @@ const handleShowLogin = () => {
       </button>
     </main>
   );
-}
+};
 
-export default TraineeLogin
+export default TraineeLogin;
