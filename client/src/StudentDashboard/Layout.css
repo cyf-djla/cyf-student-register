@@ -1,10 +1,10 @@
-@media (max-width: 419px) {
-  .layout__body {
+
+@media (max-width:500px){
+  .layout__body{
+
     max-width: 420px;
     margin: 0 auto;
-    border-right: solid 2px rgb(226, 213, 213);
 
-    border-left: solid 2px rgb(226, 213, 213);
     text-align: center;
   }
 }
