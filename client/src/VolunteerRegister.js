@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
 import axios from "./Api/axios";
 import "./index.css";
-import "./StudentDashboard/Header.css"
+import "./StudentDashboard/Header.css";
 import Header from "./StudentDashboard/Header";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
@@ -26,16 +26,16 @@ const VolunteerRegister = () => {
 
   useEffect(() => {
     fetchUsers();
-  }, [users])
+  }, [users]);
 
-  function fetchUsers(){
-  fetch("https://cyf-student-register.onrender.com/api/auth/")
-  .then((res) => {
-    return res.json();
-  })
-  .then((data) => setUsers(data))
-  .catch((error) => console.log(error));
-}
+  function fetchUsers() {
+    fetch("https://cyf-student-register.onrender.com/api/auth/")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => setUsers(data))
+      .catch((error) => console.log(error));
+  }
 
   const [username, setUserName] = useState([]);
   const [validuserName, setValiduserName] = useState(false);
@@ -78,28 +78,27 @@ const VolunteerRegister = () => {
     setErrMsg("");
   }, [username, password, matchPassword, email]);
 
-  const handleSubmit =  (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
 
     const newUser = {
       username,
-      password,  
+      password,
       email,
-      isVolunteer: true
-    }
+      isVolunteer: true,
+    };
 
     fetch("https://cyf-student-register.onrender.com/api/auth/signup", {
       method: "post",
       headers: {
-        "Content-type": "application/json"
+        "Content-type": "application/json",
       },
-      body: JSON.stringify(newUser)
+      body: JSON.stringify(newUser),
     })
-    .then((res) => res.json())
-    .then((data) => setUsers(data))
-    .catch((error) => console.log(error))
-  
+      .then((res) => res.json())
+      .then((data) => setUsers(data))
+      .catch((error) => console.log(error));
+
     setSuccess(true);
     //clear state and controlled inputs
     //need value attrib on inputs for this
@@ -223,7 +222,7 @@ const VolunteerRegister = () => {
                   }
                 >
                   <FontAwesomeIcon icon={faInfoCircle} />
-                  Please enter a valid email address.
+                  Please enter a valid CYF email address.
                 </p>
 
                 <label htmlFor="password">
