@@ -1,54 +1,48 @@
-@media (max-width:419px){
-  .layout__body{
+@media (max-width: 419px) {
+  .layout__body {
     max-width: 420px;
     margin: 0 auto;
     border-right: solid 2px rgb(226, 213, 213);
 
     border-left: solid 2px rgb(226, 213, 213);
     text-align: center;
+  }
 }
-}
-@media (min-width:501px){
-  
-  .layout__body{
-max-width: 700px;
+@media (min-width: 501px) {
+  .layout__body {
+    max-width: 700px;
     margin: 0 auto;
 
-background-color: white;
+    background-color: white;
 
-margin-top: 60px;
- border-right: solid 2px rgb(226, 213, 213);
+    margin-top: 60px;
+    border-right: solid 2px rgb(226, 213, 213);
 
     border-left: solid 2px rgb(226, 213, 213);
     text-align: center;
     border-radius: 10px;
-/* height:auto; */
-/* width: 60%; */
-
-
-
-   
-}
-.layout{
-padding-bottom: 10%;
-  height: 100vh;
-
-}
+    /* height:auto; */
+    /* width: 60%; */
+  }
+  .layout {
+    padding-bottom: 10%;
+    height: 100vh;
+  }
   /* .dashBoard__components{
     padding:0 35%; 
     margin: 0 auto;
     align-items: center;
 
   }  */
-  .login__class{
+  .login__class {
     margin-bottom: 130px;
     margin-top: 100px;
   }
-  .logout__class{
+  .logout__class {
     margin-bottom: 130px;
-     margin-top: 100px;
+    margin-top: 100px;
   }
-    .good__bye{
+  .good__bye {
     font-size: 25px;
     font-weight: bold;
     font-family: cormorant;
@@ -57,18 +51,17 @@ padding-bottom: 10%;
 
     margin-top: 100px;
   }
-  
-  .student__detail{
-     /* margin-left: 20%;  */
-     
+
+  .student__detail {
+    /* margin-left: 20%;  */
   }
-  select, input{
+  select,
+  input {
     /* margin-left: 5%; */
   }
-
 }
 
 .student__detail {
-  margin:0;
-  padding-top:20px;
+  margin: 0;
+  padding-top: 20px;
 }

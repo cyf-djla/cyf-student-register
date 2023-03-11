@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./index.css";
-import Footer from "./Footer.js"
+import Footer from "./Footer.js";
 import Header from "./StudentDashboard/Header";
 import "./StudentDashboard/Header.css";
 
@@ -16,14 +16,14 @@ function VolunteerMenu() {
         <div className="volunteer-menu-container">
           <div className="buttons-container">
             <NavLink to="/VolunteerLogin" className="massive-red-button-2">
-            Volunteer Login
+              Volunteer Login
             </NavLink>
             <NavLink to="/VolunteerRegister" className="massive-red-button-2">
-            Volunteer Register
+              Volunteer Register
             </NavLink>
           </div>
         </div>
-        <Footer/>
+        <Footer />
       </div>
     </section>
   );

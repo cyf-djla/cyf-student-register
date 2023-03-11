@@ -1,22 +1,21 @@
-
-.about__ustext{
-    background-color: white;
+.about__ustext {
+  background-color: white;
 }
 
-.about__ustext h1{
-    padding-top: 5px;
+.about__ustext h1 {
+  padding-top: 5px;
 }
 
-.header_text{
-    /* margin-top: 0;
+.header_text {
+  /* margin-top: 0;
     margin-bottom: -10px; */
-    margin:0
+  margin: 0;
 }
 
-.about__ustext h5{
-    margin-top: 7px;
+.about__ustext h5 {
+  margin-top: 7px;
 }
 
-.about__ustext p{
-    margin-top:-5px;
+.about__ustext p {
+  margin-top: -5px;
 }
