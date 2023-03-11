@@ -95,11 +95,14 @@ const Modules = ({classes}) => {
 			<label htmlFor='module'>Select Module/Class:</label>
 			<select id='module' value={selectedModule} onChange={handleModuleChange}>
 				<option value=''>-- Please select a module --</option>
+				<div>
 				{classes.map((newclass) => (
 					<option key={newclass._id} >
 						{newclass.name}
 					</option>
 				))}
+				</div>
+				
 			</select>
 			{startDateTime && (
 				<div >

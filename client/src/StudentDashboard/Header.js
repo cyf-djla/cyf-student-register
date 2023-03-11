@@ -14,12 +14,12 @@ const Header = () => {
         src="https://codeyourfuture.io/wp-content/uploads/2019/03/cyf_brand.png"
         alt=""
       />
-
+{/* 
       <div>
 
         <h1 className="desktop__title">#We are here</h1>
 
-      </div>
+      </div> */}
 
       <div className={`right-nav ${Flag ? "small" : "large"}`}>
         <div className="nav-link">
