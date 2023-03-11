@@ -1,69 +1,69 @@
-import React, {useRef, useState, useEffect, useContext} from "react";
-import {useNavigate} from "react-router-dom";
+import React, { useRef, useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import "./StudentDashboard/Header.css";
 import Header from "./StudentDashboard/Header";
 import "./index.css";
 
 const VolunteerLogin = () => {
-	const userRef = useRef();
-	const errRef = useRef();
+  const userRef = useRef();
+  const errRef = useRef();
 
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
-	const [errMsg, setErrMsg] = useState("");
-	const [errorMessage, setErrorMessage] = useState("");
-	const [isMounted, setIsMounted] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errMsg, setErrMsg] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isMounted, setIsMounted] = useState(false);
 
-	useEffect(() => {
-		setIsMounted(true);
-		return () => {
-			setIsMounted(false);
-		};
-	}, []);
+  useEffect(() => {
+    setIsMounted(true);
+    return () => {
+      setIsMounted(false);
+    };
+  }, []);
 
-	const navigate = useNavigate();
+  const navigate = useNavigate();
 
-	useEffect(() => {
-		setErrMsg("");
-	}, [email, password]);
+  useEffect(() => {
+    setErrMsg("");
+  }, [email, password]);
 
-	const handleSubmit = (e) => {
-		e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-		fetch("https://cyf-student-register.onrender.com/api/auth/login", {
-			method: "post",
-			headers: {
-				"Content-type": "application/json",
-			},
-			body: JSON.stringify({email, password}),
-		})
-			.then((res) => {
-				if (res.ok) {
-					return res.json();
-				} else {
-					throw new Error("Login failed");
-				}
-			})
-			.then((data) => {
-				if (isMounted) {
-					localStorage.setItem("token", data.token);
-					localStorage.setItem("userId", data.userId);
-					localStorage.setItem("isVolunteer", data.isVolunteer);
-					localStorage.setItem("username", data.username);
-					console.log(data.token, data.userId, data.isVolunteer, data.username);
-					navigate("/Volunteerdashboard");
-					setPassword("");
-					setEmail("");
-					setErrorMessage("");
-				}
-			})
-			.catch((error) => {
-				console.log(error);
-				setErrorMessage("Invalid email or password");
-			});
-	};
+    fetch("https://cyf-student-register.onrender.com/api/auth/login", {
+      method: "post",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error("Login failed");
+        }
+      })
+      .then((data) => {
+        if (isMounted) {
+          localStorage.setItem("token", data.token);
+          localStorage.setItem("userId", data.userId);
+          localStorage.setItem("isVolunteer", data.isVolunteer);
+          localStorage.setItem("username", data.username);
+          console.log(data.token, data.userId, data.isVolunteer, data.username);
+          navigate("/Volunteerdashboard");
+          setPassword("");
+          setEmail("");
+          setErrorMessage("");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        setErrorMessage("Invalid email or password");
+      });
+  };
 
-	return (
+  return (
     <>
       <section>
         <Header />

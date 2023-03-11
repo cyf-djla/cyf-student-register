@@ -1,18 +1,18 @@
-
-label{
-        margin-top: 20px;
-        display: block;
-    } 
-    select ,input {
-        width: 90%;
-        text-align: center;
-        margin: auto;
+label {
+  margin-top: 20px;
+  display: block;
+}
+select,
+input {
+  width: 90%;
+  text-align: center;
+  margin: auto;
   padding: 8px;
   font-size: 16px;
 
-border-radius: 4px; 
-  border: 1px solid #EFEFEF;
-  background-color: #EFEFEF;
+  border-radius: 4px;
+  border: 1px solid #efefef;
+  background-color: #efefef;
   color: #333;
   height: 60px;
   box-shadow: 0 4px rgba(0, 0, 0, 0.25);
@@ -20,7 +20,8 @@ border-radius: 4px;
   /* outline: none; */
 }
 
-select:hover, select:focus {
+select:hover,
+select:focus {
   border-color: #666;
 }
 
@@ -32,7 +33,6 @@ label {
   margin-bottom: 8px;
   font-size: 18px;
   font-weight: bold;
-
 }
 
 button {
@@ -48,22 +48,22 @@ button {
 }
 .dashboard_buttons {
   display: flex;
-  height:150px;
+  height: 150px;
   justify-content: space-around;
 }
 .login__class {
   background-color: green;
   color: white;
-width:160px;
+  width: 160px;
   font-size: 20px;
 }
 .logout__class {
-  background-color: #DB514A;
+  background-color: #db514a;
   font-size: 20px;
-  width:160px;
+  width: 160px;
 }
 
-.dropdown_wrapper{
+.dropdown_wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -77,8 +77,8 @@ width:160px;
   font-size: 23px;
 }
 
-@media (max-width:500px) {
-.dashboard_buttons{
-  height:80px;
-}
+@media (max-width: 500px) {
+  .dashboard_buttons {
+    height: 80px;
   }
+}

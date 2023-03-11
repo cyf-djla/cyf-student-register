@@ -14,8 +14,9 @@ import "./index.css";
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const EMAIL_REGEX =
-  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-
+  // /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+  /^[a-zA-Z0-9._%+-]+@students\.codeyourfuture\.io$/;
+  
 const REGISTER_URL = "https://cyf-student-register.onrender.com/api/auth/";
 
 const Register = () => {
@@ -160,9 +161,9 @@ const Register = () => {
             </div> */}
             <form>
               <div className="form__container">
-              <p className="title-bh1">
-                <u>Trainee Register</u>
-              </p>
+                <p className="title-bh1">
+                  <u>Trainee Register</u>
+                </p>
                 <label htmlFor="username">
                   Username:
                   <FontAwesomeIcon
@@ -235,7 +236,7 @@ const Register = () => {
                   }
                 >
                   <FontAwesomeIcon icon={faInfoCircle} />
-                  Please enter a valid email address.
+                  Please enter a valid CYF email address.
                 </p>
                 <label htmlFor="dropdown">Cohort</label>
                 <select
