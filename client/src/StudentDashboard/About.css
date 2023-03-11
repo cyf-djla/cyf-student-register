@@ -20,3 +20,33 @@
 .about__ustext p{
     margin-top:-5px;
 }
+
+  /* Media Query for low resolution  Tablets, Ipads */
+  @media (min-width: 481px) and (max-width: 767px) {
+   
+}
+  
+/* Media Query for Tablets Ipads portrait mode
+@media (min-width: 768px) and (max-width: 1024px){
+    .about__ustext{
+        display: flex;
+        align-content: center;
+        justify-items: center;
+        width: 90vw;
+        height:90vh;
+        background-color: white;
+        margin-top: 100px;
+        margin:auto;
+     
+    }
+
+    .about__us{
+        display:flex;
+        /* flex-direction: column; */
+        /* align-items: center; */
+        /* justify-content: center;
+      */
+        
+      
+    /* } */
+/* } */ 

@@ -714,10 +714,118 @@ button {
   position: relative;
 } */
 
-@media (min-width:781px){
+@media (min-width:991px){
+  .about__us{
+    background-image: url("./Images/Intro-to-Coding\ 1.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  color: black;
+  font-weight: bolder;
+  padding: 20% 30%;
+  font-size: 25px;
+    font-weight: bold;
+  margin: 0 auto;
+    text-align: center;
+    margin-top: -10px;
+    height: cal(100vh-130px);
+  }
+  .about__container{
+    background-color: white;
+    padding: 0 40px;
+    border-radius: 8px;
+  }
+  .bottom-description{
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+  }
+  .about__us h1{
+  margin-top: -250px;
+  }
+  .about__us p{
+    margin-bottom: -150px;
+  }
+  .form__container{
+    width: 700px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px 0;
+  }
+  .form_div{
+  background: #EFEFEF;
+  width: 600px;
+  margin-top: 70px;
+  }
+  .trainee__page{
+ background-image: url("./Images/Intro-to-Coding\ 1.svg");
+ background-size: cover;
+ background-repeat: no-repeat;
+ padding-bottom: 92px;
+  }
+}@media (min-width:781px){
+  .about__us{
+    background-image: url("./Images/Intro-to-Coding\ 1.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  color: black;
+  font-weight: bolder;
+  padding: 20% 30%;
+  font-size: 25px;
+    font-weight: bold;
+  margin: 0 auto;
+    text-align: center;
+    margin-top: -10px;
+    height: cal(100vh-130px);
+  }
+  .about__container{
+    background-color: white;
+    padding: 0 40px;
+    border-radius: 8px;
+  }
+  .bottom-description{
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+  }
+  .about__us h1{
+  margin-top: -250px;
+  }
+  .about__us p{
+    margin-bottom: -150px;
+  }
+  .form__container{
+    width: 700px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px 0;
+  }
+  .form_div{
+  background: #EFEFEF;
+  width: 600px;
+  margin-top: 70px;
+  }
+  .trainee__page{
+ background-image: url("./Images/Intro-to-Coding\ 1.svg");
+ background-size: cover;
+ background-repeat: no-repeat;
+ padding-bottom: 92px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 768px) and (max-width: 991px){
 
   .about__us{
-
+/* display: flex; */
     background-image: url("./Images/Intro-to-Coding\ 1.svg");
     background-size: cover; 
     background-repeat: no-repeat;
@@ -726,12 +834,38 @@ button {
   padding: 20% 30%;
   font-size: 25px;
     font-weight: bold;
-  margin: 0 auto; 
+  margin: auto; 
     text-align: center;
     margin-top: -10px;
-    height: cal(100vh-130px);
+    /* height: cal(100vh-130px); */
      
   }
+
+  /* Media Query for Tablets Ipads portrait mode */
+
+  .about__ustext{
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-items: center;
+      width:800px;
+      height:500px;
+      background-color: white;
+      margin-left: -200px;
+      margin-top: 30px;
+      /* margin:auto; */
+   
+  }
+/* 
+  .about__us{
+      display:flex;
+      /* flex-direction: column; */
+      /* align-items: center; */
+      /* justify-content: center;
+    */ */
+      
+    
+  
  
 
   
@@ -748,13 +882,13 @@ button {
     margin: auto;
     padding: 20px; 
   }
-  .about__us h1{
+  /* .about__us h1{
   margin-top: -250px;
  
-  }
-  .about__us p{
+  } */
+  /* .about__us p{
     margin-bottom: -150px;
-  }
+  } */
   .form__container{
     width: 700px;
     margin-top:-80px;
