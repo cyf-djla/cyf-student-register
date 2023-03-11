@@ -40,8 +40,6 @@ const Modules = ({classes}) => {
 
 	
 
-	
-			
 
 	function handleLogin() {
 

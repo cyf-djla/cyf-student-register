@@ -76,6 +76,47 @@ function ClassTable({ classId }) {
 };
 
 
+
+//   const handleFlagChange = (event) => {
+//     setSelectedFlag(event);
+//   };
+
+//   const handleFlagSubmit = async () => {
+//   if (selectedRowIndex !== null && selectedFlag !== null) {
+//     const selectedTrainee = filteredLogs[0].trainees[selectedRowIndex];
+//     const updatedTrainee = {
+//       ...selectedTrainee,
+//       flags: [...selectedTrainee.flags, selectedFlag],
+//     };
+//     const updatedTrainees = [...filteredLogs[0].trainees];
+//     updatedTrainees[selectedRowIndex] = updatedTrainee;
+//     const updatedLog = {
+//       ...filteredLogs[0],
+//       trainees: updatedTrainees,
+//     };
+//     const updatedLogs = [...logs];
+//     updatedLogs[updatedLogs.indexOf(filteredLogs[0])] = updatedLog;
+//     setLogs(updatedLogs);
+//     setSelectedRowIndex(null);
+//     setSelectedFlag(null);
+
+//     try {
+//       const response = await fetch(`https://cyf-student-register.onrender.com/api/classes/postflag/${selectedTrainee._id}`, {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify({ flag: selectedFlag })
+//       });
+//       if (!response.ok) {
+//         throw new Error(`HTTP error! Status: ${response.status}`);
+//       }
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   }
+// };
+
  return (
   <div className="class-logs">
     {filteredLogs.length === 0 ? (

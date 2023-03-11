@@ -384,7 +384,9 @@ height: 100%;
   }
 
   @media (min-width:781px){
-
+.title{
+  display: none;
+}
 .volunteer-menu-container{
   display: flex;
   flex-direction: row;
