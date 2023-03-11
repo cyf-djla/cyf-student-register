@@ -30,12 +30,8 @@ margin-top: 60px;
    
 }
 .layout{
-
-      background-image: url("../Images/Intro-to-Coding\ 1.svg");
-    background-size: cover;
-    background-repeat:no-repeat;
-    padding-bottom: 5%;
-  
+padding-bottom: 10%;
+  height: 100vh;
 
 }
   /* .dashBoard__components{

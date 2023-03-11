@@ -383,7 +383,9 @@ height: 100%;
   }
 
   @media (min-width:781px){
-
+.title{
+  display: none;
+}
 .volunteer-menu-container{
   display: flex;
   flex-direction: row;
@@ -472,7 +474,6 @@ height: 100%;
 background-image: url("./Images/Intro-to-Coding\ 1.svg");
 background-size: cover;
 background-repeat: no-repeat;
-height: auto;
 padding-top: 50px;
 }
 .home__title{

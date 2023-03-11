@@ -1,17 +1,16 @@
 
-@media (max-width:750px){
+@media (max-width:700px){
 
 .vdlayout__body {
-  
-    max-width: 420px;
-    margin: 0 auto;
-    border-right: solid 2px rgb(226, 213, 213);
-    border-left: solid 2px rgb(226, 213, 213);
-    border-bottom: solid 2px rgb(226, 213, 213);
-    text-align: center;
-    background-color: #f0e5e5;
+
+      max-width: 420px;
+        margin: 0 auto;
+
+        text-align: center;
     margin-top: 0px;
-    height: 120%;
+    height: 105%;
+    padding-bottom: 1px;
+    
   }
 
 .class-logs-table {
@@ -22,6 +21,9 @@ margin: 0 auto;
 background-color: lightgray;
 border-bottom: 1px solid black;
 border-left: 1px solid black;
+overflow-x: auto;
+  white-space: nowrap;
+  width: 100%;
 }
 
 .class-logs-table th {
@@ -48,27 +50,29 @@ font-size: 20px;
 }
 
 /*=============================================================================*/
-@media (min-width:750px) {
+@media (min-width:700px) {
 
 .vdlayout__body {
-    width: 750px;
+    max-width: 750px;
     margin: 0 auto;
-      border-right: solid 2px rgb(226, 213, 213);
-      border-left: solid 2px rgb(226, 213, 213);
-      border-bottom: solid 2px rgb(226, 213, 213);
-      text-align: center;
-      background-color: #f0e5e5;
-      margin-top: 0px;
-      height: 120%;
+    background-color: white;
+    margin-top: 60px;
+    text-align: center;
+    border-radius: 10px;
+    padding-bottom: 20px;
+    /* height:auto; */
+    /* width: 60%; */
+
   }
 
 .class-logs-wrapper {
+max-width: 700px;
 background-color: white;
 padding: 50px;
 }
 
 .class-logs-table {
-max-width: 90%;
+max-width: 700px;
 border-collapse: collapse;
 margin: 0 auto;
 background-color: lightgray;
@@ -84,9 +88,13 @@ padding: 8px;
 border: 1px solid white;
 border-right: 1px solid black;
 font-size: 25px;
+min-width: 100px;
+max-width: 220px;
 }
 
 .class-logs-table td {
+  min-width: 100px;
+  max-width: 220px;
 padding: 8px;
 border-right: 1px solid black;
 word-wrap: break-word;
