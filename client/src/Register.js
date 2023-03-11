@@ -155,13 +155,14 @@ const Register = () => {
             <h1>
               <b>#We are here</b>
             </h1>
-            <div className="form__container">
+            {/* <div className="form__container">
+              
+            </div> */}
+            <form>
+              <div className="form__container">
               <p className="title-bh1">
                 <u>Trainee Register</u>
               </p>
-            </div>
-            <form>
-              <div className="form__container">
                 <label htmlFor="username">
                   Username:
                   <FontAwesomeIcon
