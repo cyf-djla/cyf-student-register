@@ -441,8 +441,8 @@ display: none;
     background-image: url("./Images/Intro-to-Coding\ 1.svg");
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100%;
-    padding-top: 76px;
+    height: 87vh;
+    padding-top: 100px;
   }
   .home__title {
     margin-bottom: -60px;
@@ -683,7 +683,7 @@ button {
     margin: 0 auto;
     text-align: center;
     margin-top: -10px;
-    height: cal(100vh-130px);
+    height: 87vh;
   }
 
   .about__container {
