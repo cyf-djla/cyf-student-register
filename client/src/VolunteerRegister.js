@@ -147,9 +147,10 @@ const VolunteerRegister = () => {
               <p className="title-bh1">
                 <u>Volunteer Register </u>
               </p>
-            </div>
+          
+
             <form onSubmit={handleSubmit}>
-              <div className="form__container">
+              
                 <label htmlFor="username">
                   Username:
                   <FontAwesomeIcon
@@ -312,19 +313,18 @@ const VolunteerRegister = () => {
                 >
                   Sign Up
                 </button>
-              </div>
-
-              <div className="form_div">
-                <p>
-                  Already registered?
-                  <br />
-                  <i>
-                    Click on the Menu at the top right to return to the home
-                    page{" "}
-                  </i>
-                </p>
-              </div>
+        
             </form>
+                  </div>
+            <div className="form_div">
+              <p>
+                Already registered?
+                <br />
+                <i>
+                  Click on the Menu at the top right to return to the home page{" "}
+                </i>
+              </p>
+            </div>
           </div>
         </section>
       )}
