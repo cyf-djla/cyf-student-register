@@ -702,7 +702,7 @@ button {
     margin: 0 auto;
     text-align: center;
     margin-top: -10px;
-    height: 87vh;
+    height: auto;
   }
 
   .about__container {
