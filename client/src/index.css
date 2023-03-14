@@ -441,7 +441,7 @@ display: none;
     background-image: url("./Images/Intro-to-Coding\ 1.svg");
     background-size: cover;
     background-repeat: no-repeat;
-    height: 87vh;
+    height: auto;
     padding-top: 100px;
   }
   .home__title {
