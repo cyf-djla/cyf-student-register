@@ -1,19 +1,6 @@
-// // import React from 'react'
-
-// // const HomeHeader = () => {
-// //   return (
-// //     <div>
-
-// //     </div>
-// //   )
-// // }
-
-// // export default HomeHeader
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-// import "./Header.css";
-// import Layout from "./Layout";
 
 const HomeHeader = () => {
   const [Flag, setFlag] = useState(false);

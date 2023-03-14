@@ -6,7 +6,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
-import axios from "./Api/axios";
 import "./index.css";
 import "./StudentDashboard/Header.css";
 import Header from "./StudentDashboard/Header";
@@ -14,8 +13,6 @@ import Header from "./StudentDashboard/Header";
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@volunteers\.codeyourfuture\.io$/;
-
-const VOLUNTEER_REGISTER_URL = "/VolunteerRegister";
 
 const VolunteerRegister = () => {
   const userRef = useRef();
@@ -55,10 +52,6 @@ const VolunteerRegister = () => {
 
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
-
-  // useEffect(() => {
-  //   userRef.current.focus();
-  // }, []);
 
   useEffect(() => {
     setValiduserName(USER_REGEX.test(username));
@@ -100,8 +93,6 @@ const VolunteerRegister = () => {
       .catch((error) => console.log(error));
 
     setSuccess(true);
-    //clear state and controlled inputs
-    //need value attrib on inputs for this
     setUserName("");
     setPassword("");
     setEmail("");
