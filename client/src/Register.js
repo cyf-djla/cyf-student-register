@@ -6,7 +6,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
-// import axios from "./Api/axios";
 import "./StudentDashboard/Header.css";
 import Header from "./StudentDashboard/Header";
 import "./index.css";
@@ -17,8 +16,6 @@ const EMAIL_REGEX =
   // /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
   /^[a-zA-Z0-9._%+-]+@students\.codeyourfuture\.io$/;
   
-const REGISTER_URL = "https://cyf-student-register.onrender.com/api/auth/";
-
 const Register = () => {
   const userRef = useRef();
   const errRef = useRef();
@@ -30,20 +27,12 @@ const Register = () => {
     fetchUsers();
   }, [users]);
 
-  // useEffect(() => {
-  //   console.log(users);
-  // }, [users])
-
   function fetchUsers() {
     fetch("https://cyf-student-register.onrender.com/api/auth/")
       .then((res) => res.json())
       .then((data) => setUsers(data))
       .catch((error) => console.log(error));
   }
-
-  // useEffect(() =>{
-  //   console.log(users)
-  // }, )
 
   const [username, setUserName] = useState("");
   const [validuserName, setValiduserName] = useState(false);
@@ -65,10 +54,6 @@ const Register = () => {
   const [success, setSuccess] = useState(false);
 
   const [cohort, setCohort] = useState(false);
-
-  // useEffect(() => {
-  //   userRef.current.focus();
-  // }, []);
 
   useEffect(() => {
     setValiduserName(USER_REGEX.test(username));
@@ -111,8 +96,6 @@ const Register = () => {
       .catch((error) => console.log(error));
 
     setSuccess(true);
-    //clear state and controlled inputs
-    //need value attrib on inputs for this
     setUserName("");
     setPassword("");
     setEmail("");
@@ -124,8 +107,6 @@ const Register = () => {
       {success ? (
         <section>
           <Header />
-          {/* <h1>Success!</h1>
-          <p>Welcome you have successfully signed up</p> */}
           <div>
             <p className="title-bh1">
               Success!
@@ -156,9 +137,6 @@ const Register = () => {
             <h1>
               <b>#We are here</b>
             </h1>
-            {/* <div className="form__container">
-              
-            </div> */}
             <form>
               <div className="form__container">
                 <p className="title-bh1">

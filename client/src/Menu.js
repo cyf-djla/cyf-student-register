@@ -2,7 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import Footer from "./Footer.js";
 import "./index.css";
-// import Header from "./StudentDashboard/Header";
 import "./StudentDashboard/Header.css";
 import HomeHeader from "./HomeHeader.js";
 
