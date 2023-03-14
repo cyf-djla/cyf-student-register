@@ -711,11 +711,7 @@ button {
     border-radius: 8px;
   }
 
-  .bottom-description {
-    text-align: center;
-    margin: auto;
-    padding: 20px;
-  }
+ 
   .about__us h1 {
     margin-top: -250px;
   }
@@ -743,6 +739,11 @@ button {
     background-size: cover;
     background-repeat: no-repeat;
     padding-bottom: 92px;
+  }
+   .bottom-description {
+    text-align: center;
+    margin: auto;
+    padding: 20px;
   }
 }
 @media (max-width: 500px) {
