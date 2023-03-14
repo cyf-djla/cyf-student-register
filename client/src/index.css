@@ -669,8 +669,27 @@ button {
   padding: 45px 45px 45px 45px;
   position: relative;
 } */
+@media (max-width:1300px){
+  .about__us {
+   
+    color: black;
+    font-weight: bolder;
+    padding: 10% 10%;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: -10px;
+    height: 87vh;
+  }
+   .about__container {
+    background-color: white;
+   
+   
+  }
+}
 
-@media (min-width: 781px) {
+@media (min-width: 1301px) {
   .about__us {
     background-image: url("./Images/Intro-to-Coding\ 1.svg");
     background-size: cover;
@@ -703,6 +722,8 @@ button {
   .about__us p {
     margin-bottom: -150px;
   }
+}
+@media (min-width:781px){
   .form__container {
     width: 700px;
     margin-top: -80px;
