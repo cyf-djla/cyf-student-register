@@ -217,7 +217,7 @@ display: none;
   }
   .signed-out__page {
     background-color: white;
-    height: 100vh;
+    height: auto;
   }
   .title-sign-out {
     margin-top: 120px;
