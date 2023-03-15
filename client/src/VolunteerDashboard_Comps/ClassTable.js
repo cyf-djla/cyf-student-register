@@ -6,7 +6,7 @@ function ClassTable({ classId }) {
   const [logs, setLogs] = useState([]);
   const [selectedRowIndex, setSelectedRowIndex] = useState(null);
   const [selectedFlag, setSelectedFlag] = useState(null);
-
+console.log(classId)
   useEffect(() => {
     fetch("https://cyf-student-register.onrender.com/api/classes")
       .then((response) => response.json())
@@ -60,13 +60,13 @@ function ClassTable({ classId }) {
 
       try {
         const response = await fetch(
-          `https://cyf-student-register.onrender.com/api/classes/postflag/${selectedTrainee._id}`,
+          `https://cyf-student-register.onrender.com/api/classes/postflag/${classId}`,
           {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ flag: selectedFlag }),
+            body: JSON.stringify({ flags: [selectedFlag], username:selectedTrainee.username}),
           }
         );
         if (!response.ok) {

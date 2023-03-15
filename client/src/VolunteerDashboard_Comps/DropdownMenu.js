@@ -5,6 +5,7 @@ import ClassTable from "./ClassTable";
 
 const DropdownMenu = ({ classes }) => {
   const [selectedModule, setSelectedModule] = useState("");
+  const [classId, setClassId] = useState("");
   const [startDateTime, setStartDateTime] = useState("");
   const [date, setDate] = useState("");
 
@@ -14,9 +15,11 @@ const DropdownMenu = ({ classes }) => {
 
     const newClass = classes.find((m) => m.name === selectedModule);
     if (newClass) {
+      setClassId(newClass.id); // <-- set the class id state variable
       setStartDateTime(newClass.time);
       setDate(newClass.date);
     } else {
+      setClassId("");
       setStartDateTime("");
     }
   }
@@ -43,7 +46,7 @@ const DropdownMenu = ({ classes }) => {
             readOnly
           />
           <div style={{ marginTop: "60px", marginBottom: "60px" }}>
-            <ClassTable classId={selectedModule} />
+            <ClassTable classId={classId} /> {/* <-- pass the class id as a prop */}
           </div>
         </div>
       )}
