@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./DropdownMenu.css";
 import moment from "moment";
 import ClassTable from "./ClassTable";
@@ -7,6 +7,7 @@ const DropdownMenu = ({ classes }) => {
   const [selectedModule, setSelectedModule] = useState("");
   const [startDateTime, setStartDateTime] = useState("");
   const [date, setDate] = useState("");
+  const [id, setId] = useState("");
 
   function handleModuleChange(event) {
     const selectedModule = event.target.value;
@@ -16,10 +17,13 @@ const DropdownMenu = ({ classes }) => {
     if (newClass) {
       setStartDateTime(newClass.time);
       setDate(newClass.date);
+      setId(newClass._id);
     } else {
       setStartDateTime("");
     }
   }
+
+useEffect(() => {console.log(id)})
 
   return (
     <div>
@@ -43,7 +47,7 @@ const DropdownMenu = ({ classes }) => {
             readOnly
           />
           <div style={{ marginTop: "60px", marginBottom: "60px" }}>
-            <ClassTable classId={selectedModule} />
+            <ClassTable classId={selectedModule} id={id} />
           </div>
         </div>
       )}

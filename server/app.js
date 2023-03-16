@@ -13,7 +13,7 @@ const app = express();
 app.use(cookieParser())
 app.use(bodyParser.json());
 
-
+console.log("hit here");
 const userRoutes = require('./routes/user');
 const classRoutes = require("./routes/class");
 
