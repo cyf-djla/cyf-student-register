@@ -60,7 +60,7 @@ function ClassTable({ classId }) {
 
       try {
         const response = await fetch(
-          `https://cyf-student-register.onrender.com/api/classes/postflag/${selectedTrainee._id}`,
+          `http://localhost:4200/api/classes/postflag/${selectedTrainee._id}`,
           {
             method: "POST",
             headers: {
