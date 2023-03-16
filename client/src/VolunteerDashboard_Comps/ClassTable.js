@@ -66,7 +66,7 @@ function ClassTable({ classId }) {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ flag: selectedFlag }),
+            body: JSON.stringify({ flag: selectedFlag, classId:'640614ceb1d896228df224cd' }),
           }
         );
         if (!response.ok) {
