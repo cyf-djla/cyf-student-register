@@ -60,13 +60,13 @@ function ClassTable({ classId, id }) {
 
       try {
         const response = await fetch(
-          `https://cyf-student-register.onrender.com/api/classes/postflag/${selectedTrainee._id}`,
+          `https://cyf-student-register.onrender.com/api/classes/postflag/${id}`,
           {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ flag: selectedFlag, classId:id }),
+            body: JSON.stringify({ flag: selectedFlag, _id:selectedTrainee._id }),
           }
         );
         if (!response.ok) {

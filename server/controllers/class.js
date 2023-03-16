@@ -45,9 +45,9 @@ exports.traineeClassSignOut = async (req, res, next) => {
 // trainee sign out of class
 exports.traineeFlags = async (req, res, next) => {
 	try {
-		const todaysclass = await Class.findOne({_id: req.body.classId});
+		const todaysclass = await Class.findOne({_id: req.params.id});
 
-		const traineeIndex = todaysclass.trainees.findIndex((trainee) => trainee._id === req.params.id);
+		const traineeIndex = todaysclass.trainees.findIndex((trainee) => trainee._id === req.body._id);
 		if (traineeIndex === -1) {
 			res.status(400).json({error: "Trainee not found"});
 			return;
