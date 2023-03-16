@@ -75,7 +75,7 @@ function ClassTable({ classId, id }) {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ flag: selectedFlag, _id:selectedTrainee._id }),
+            body: JSON.stringify({ flag: selectedFlag, _id:traineeId }),
           }
         );
         if (!response.ok) {
