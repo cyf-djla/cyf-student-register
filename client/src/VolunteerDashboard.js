@@ -12,9 +12,7 @@ const VolunteerDashboard = ({ children }) => {
     fetchClasses();
   }, [classes]);
 
-  useEffect(() => {
-    console.log(classes);
-  }, [classes]);
+ 
 
   function fetchClasses() {
     fetch("https://cyf-student-register.onrender.com/api/classes")

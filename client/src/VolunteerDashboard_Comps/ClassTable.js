@@ -6,6 +6,7 @@ function ClassTable({ classId, id }) {
   const [logs, setLogs] = useState([]);
   const [selectedRowIndex, setSelectedRowIndex] = useState(null);
   const [selectedFlag, setSelectedFlag] = useState(null);
+  const [traineeId, setTraineeId] = useState()
 
   useEffect(() => {
     fetch("https://cyf-student-register.onrender.com/api/classes")
@@ -32,8 +33,14 @@ function ClassTable({ classId, id }) {
   };
 
   const handleRowClick = (index) => {
+    const selectedTrainee = filteredLogs[0].trainees[index];
     setSelectedRowIndex(index);
+    setTraineeId(selectedTrainee._id)
   };
+
+  useEffect(() => {
+    console.log(`This is trainee id ${traineeId}`)
+  },[])
 
   const handleFlagChange = (event) => {
     setSelectedFlag(event);
@@ -58,15 +65,17 @@ function ClassTable({ classId, id }) {
       setSelectedRowIndex(null);
       setSelectedFlag(null);
 
+  
+
       try {
         const response = await fetch(
-          `https://cyf-student-register.onrender.com/api/classes/postflag/${selectedTrainee._id}`,
+          `https://cyf-student-register.onrender.com/api/classes/postflag/${id}`,
           {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ flag: selectedFlag, classId:id }),
+            body: JSON.stringify({ flag: selectedFlag, _id:traineeId }),
           }
         );
         if (!response.ok) {
