@@ -23,7 +23,7 @@ const DropdownMenu = ({ classes }) => {
     }
   }
 
-useEffect(() => {console.log(id)})
+
 
   return (
     <div>
