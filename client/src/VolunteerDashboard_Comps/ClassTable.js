@@ -5,8 +5,8 @@ import "../index.css";
 function ClassTable({ classId, id }) {
   const [logs, setLogs] = useState([]);
   const [selectedRowIndex, setSelectedRowIndex] = useState(null);
-  const [selectedFlag, setSelectedFlag] = useState(null);
-  const [traineeId, setTraineeId] = useState()
+  const [flag, setflag] = useState(null);
+  const [_id, set_id] = useState()
 
   useEffect(() => {
     fetch("https://cyf-student-register.onrender.com/api/classes")
@@ -35,23 +35,23 @@ function ClassTable({ classId, id }) {
   const handleRowClick = (index) => {
     const selectedTrainee = filteredLogs[0].trainees[index];
     setSelectedRowIndex(index);
-    setTraineeId(selectedTrainee._id)
+    set_id(selectedTrainee._id)
   };
 
   useEffect(() => {
-    console.log(`This is trainee id ${traineeId}`)
+    console.log(`This is trainee id ${_id}`)
   },[])
 
   const handleFlagChange = (event) => {
-    setSelectedFlag(event);
+    setflag(event);
   };
 
   const handleFlagSubmit = async () => {
-    if (selectedRowIndex !== null && selectedFlag !== null) {
+    if (selectedRowIndex !== null && flag !== null) {
       const selectedTrainee = filteredLogs[0].trainees[selectedRowIndex];
       const updatedTrainee = {
         ...selectedTrainee,
-        flags: [...selectedTrainee.flags, selectedFlag],
+        flags: [...selectedTrainee.flags, flag],
       };
       const updatedTrainees = [...filteredLogs[0].trainees];
       updatedTrainees[selectedRowIndex] = updatedTrainee;
@@ -63,7 +63,7 @@ function ClassTable({ classId, id }) {
       updatedLogs[updatedLogs.indexOf(filteredLogs[0])] = updatedLog;
       setLogs(updatedLogs);
       setSelectedRowIndex(null);
-      setSelectedFlag(null);
+      setflag(null);
 
   
 
@@ -75,7 +75,7 @@ function ClassTable({ classId, id }) {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ flag: selectedFlag, _id:traineeId }),
+            body: JSON.stringify({ flag, _id }),
           }
         );
         if (!response.ok) {
