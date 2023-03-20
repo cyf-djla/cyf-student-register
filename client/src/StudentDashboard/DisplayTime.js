@@ -13,7 +13,8 @@ const DisplayTime = () => {
         (today.getMonth() + 1) +
         "/" +
         today.getFullYear();
-      const formattedTime = today.getHours() + ":" + today.getMinutes();
+      const formattedTime =
+        today.getHours() + ":" + today.getMinutes().toString().padStart(2, "0");
       setDate(formattedDate);
       setTime(formattedTime);
     }, 1000);
